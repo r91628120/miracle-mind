@@ -369,7 +369,7 @@
       // 🔧 TODO：之後換成你 Cloudflare Worker 的網址
       const API_URL = "https://your-worker-subdomain.workers.dev/chat";
 
-      const res = await fetch(API_URL, {
+      const res = await fetch("http://localhost:8080/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
