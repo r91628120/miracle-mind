@@ -3,120 +3,408 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>心靈陪伴者 | 奇蹟心靈 AI 導師</title>
-
+  <title>心靈陪伴者｜奇蹟心靈 AI 導師</title>
   <style>
+    :root {
+      --bg: #FBF8F2;
+      --card-bg: #FFFFFFE8;
+      --primary: #C9A86A;
+      --primary-deep: #AF8E51;
+      --text-main: #3B3528;
+      --text-soft: #6B6251;
+      --user-bubble: #C9A86A;
+      --assistant-bubble: #FFFFFF;
+    }
+
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      background: linear-gradient(180deg, #f6f2ea, #efe7db);
-      font-family: "Noto Sans TC", sans-serif;
+      font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: radial-gradient(circle at top, #FFFFFF 0, #FBF8F2 40%, #F0E4D4 100%);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
+
+    a { text-decoration: none; color: inherit; }
 
     header {
-      padding: 20px 30px;
-      font-size: 20px;
-      color: #7a693f;
-    }
-
-    .chat-box {
-      max-width: 900px;
-      margin: 30px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    .msg-ai {
-      background: #fff7ed;
-      padding: 18px 22px;
-      border-radius: 16px;
-      font-size: 17px;
-      line-height: 1.8;
-      color: #534837;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-      margin-bottom: 20px;
-    }
-
-    .input-area {
+      padding: 10px 14px;
       display: flex;
-      margin-top: 20px;
-      gap: 14px;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(12px);
+      background: #FFFFFFCC;
+      border-bottom: 1px solid #E7DCCB;
     }
 
-    input {
+    .back {
+      font-size: 13px;
+      color: var(--primary-deep);
+    }
+
+    .title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title-main {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary-deep);
+    }
+
+    .title-sub {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .chat-wrapper {
       flex: 1;
+      display: flex;
+      justify-content: center;
       padding: 14px;
-      border-radius: 12px;
-      border: 1px solid #cfc4b0;
-      font-size: 16px;
     }
 
-    button {
-      padding: 14px 26px;
-      background: linear-gradient(135deg, #b8934a, #8f6b32);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.22);
+    .chat-card {
+      width: 100%;
+      max-width: 840px;
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: 0 16px 60px #00000025;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      padding: 12px 16px;
+      border-bottom: 1px solid #E7DCCB;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      height: 40px;
+      width: 40px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 20%, #ffffff 0, #f4eee2 40%, #e0cda5 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .chat-header-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+    }
+
+    .chat-header-text .name {
+      font-weight: 600;
+      color: var(--primary-deep);
+    }
+
+    .chat-header-text .desc {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .messages {
+      flex: 1;
+      padding: 14px 14px 4px;
+      overflow-y: auto;
+      background: linear-gradient(to bottom, #FBF8F2 0, #F7F1E7 30%, #F3EBDF 100%);
+    }
+
+    .msg-row {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .msg-row.assistant { justify-content: flex-start; }
+    .msg-row.user { justify-content: flex-end; }
+
+    .bubble {
+      max-width: 72%;
+      padding: 9px 13px;
+      border-radius: 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      box-shadow: 0 4px 14px #00000018;
+      white-space: pre-wrap;
+    }
+
+    .assistant .bubble {
+      background: var(--assistant-bubble);
+      border-bottom-left-radius: 4px;
+      color: var(--text-soft);
+    }
+
+    .user .bubble {
+      background: var(--user-bubble);
+      border-bottom-right-radius: 4px;
+      color: #ffffff;
+    }
+
+    .quick-area {
+      padding: 8px 12px 4px;
+      background: #FAF4EA;
+      border-top: 1px solid #E7DCCB;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .quick-hint {
+      font-size: 11px;
+      color: var(--text-soft);
     }
 
     .quick-btn {
-      margin-top: 18px;
-      background: #fff1de;
-      border-left: 4px solid #c79c4e;
-      padding: 12px;
-      border-radius: 10px;
+      border: none;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 12px;
+      background: #F2E4CE;
+      color: var(--primary-deep);
       cursor: pointer;
-      color: #6c583e;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 10px #00000015;
     }
 
-    .privacy-note {
-      margin-top: 20px;
-      padding: 14px 18px;
-      border-radius: 12px;
-      background: #f9f5ec;
-      color: #7a6947;
-      border-left: 4px solid #c2a76b;
+    .quick-btn span.icon {
       font-size: 14px;
-      line-height: 1.8;
+    }
+
+    .quick-btn:hover {
+      background: #EAD9C0;
+    }
+
+    .hint {
+      font-size: 11px;
+      color: var(--text-soft);
+      text-align: center;
+      padding: 4px 10px 8px;
+      background: #F7F0E5;
+      border-top: 1px solid #E7DCCB;
+    }
+
+    .input-area {
+      border-top: 1px solid #E7DCCB;
+      padding: 8px;
+      background: #FAF4EA;
+      display: flex;
+      gap: 8px;
+    }
+
+    textarea {
+      flex: 1;
+      resize: none;
+      border-radius: 12px;
+      border: 1px solid #DDCFBB;
+      padding: 8px 10px;
+      font-family: inherit;
+      font-size: 14px;
+      min-height: 50px;
+      max-height: 120px;
+      background: #FDF8F0;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px #E9D7B3;
+      background: #FFFFFF;
+    }
+
+    button.send-btn {
+      border: none;
+      border-radius: 12px;
+      padding: 0 16px;
+      background: linear-gradient(135deg, #C9A86A, #B59555);
+      color: #ffffff;
+      font-size: 14px;
+      cursor: pointer;
+      min-width: 80px;
+      box-shadow: 0 8px 20px #00000025;
+    }
+
+    button.send-btn:disabled {
+      opacity: 0.6;
+      cursor: default;
+      box-shadow: none;
+    }
+
+    @media (max-width: 720px) {
+      .chat-card {
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .quick-area {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
-
 <body>
 
 <header>
-  <a href="index.html" style="color:#7a693f;text-decoration:none;">← 回到首頁</a>
+  <a class="back" href="index.html">← 回到首頁</a>
+  <div class="title-wrap">
+    <div class="title-main">心靈陪伴者</div>
+    <div class="title-sub">一位溫柔、不批判的奇蹟心靈 AI 導師</div>
+  </div>
 </header>
 
-<div class="chat-box">
-  <div class="msg-ai">
-    🌙 <strong>心靈陪伴者：</strong><br /><br />
-    「不急，我在這裡。陪你慢慢說。」<br /><br />
-    你已經很努力了，我知道。現在你不需要逞強，也不用急著把事情想清楚。  
-    我會一直在這裡，陪你一起看看你心裡的風景。<br /><br />
-    你可以先跟我說說：最近哪一件事，讓你的心特別累、特別不舒服？
-  </div>
+<div class="chat-wrapper">
+  <div class="chat-card">
+    <div class="chat-header">
+      <div class="avatar">🌙</div>
+      <div class="chat-header-text">
+        <div class="name">心靈陪伴者</div>
+        <div class="desc">「不急，我在這裡，陪你慢慢說。」</div>
+      </div>
+    </div>
 
-  <div class="quick-btn"
-       onclick="document.getElementById('userInput').value='我最近覺得心裡有點亂，有些感覺說不上來…你可以先陪我一下嗎？';">
-    🌙 一鍵傾訴：我現在有點亂…不知道怎麼說
-  </div>
+    <div class="messages" id="messages"></div>
 
-  <div class="privacy-note">
-    🛡 <strong>隱私保護：</strong><br />
-    你與 AI 導師的對話內容不會被保存、追蹤或記錄。  
-    所有訊息會在你關閉網頁後自動清除。你可以放心地被接住。
-  </div>
+    <div class="quick-area">
+      <div class="quick-hint">如果一時間不知道怎麼說，可以先按下面這個按鈕，讓我幫你開個頭。</div>
+      <button class="quick-btn" id="quickBtn">
+        <span class="icon">🕊</span>
+        <span>一鍵傾訴：我現在有點亂⋯</span>
+      </button>
+    </div>
 
-  <div class="input-area">
-    <input id="userInput" placeholder="想從哪裡開始說呢？" />
-    <button>送出</button>
+    <div class="hint">
+      ⚠️ 提醒：這裡是心靈陪伴，不是專業醫療或諮商。如有自傷念頭或嚴重心理困擾，請儘快尋求專業協助。
+    </div>
+
+    <div class="input-area">
+      <textarea id="userInput" placeholder="想從哪裡開始說呢？最近哪一件事，讓你的心特別累、特別難受？"></textarea>
+      <button class="send-btn" id="sendBtn">送出</button>
+    </div>
   </div>
 </div>
+
+<script>
+  const messagesEl = document.getElementById("messages");
+  const userInputEl = document.getElementById("userInput");
+  const sendBtn = document.getElementById("sendBtn");
+  const quickBtn = document.getElementById("quickBtn");
+
+  let history = [];
+
+  // 初始歡迎訊息
+  addAssistantMessage(
+    "你已經很努力了，我知道。\n\n" +
+    "現在先不用急著堅強，也不用急著把事情想清楚。\n" +
+    "我會一直在這裡，陪你一起看看你心裡的風景。\n\n" +
+    "你可以先跟我說說：最近哪一件事，讓你的心特別累、特別不舒服？"
+  );
+
+  function addAssistantMessage(text) {
+    history.push({ role: "assistant", content: text });
+    const row = document.createElement("div");
+    row.className = "msg-row assistant";
+    const bubble = document.createElement("div");
+    bubble.className = "bubble";
+    bubble.textContent = text;
+    row.appendChild(bubble);
+    messagesEl.appendChild(row);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function addUserMessage(text) {
+    history.push({ role: "user", content: text });
+    const row = document.createElement("div");
+    row.className = "msg-row user";
+    const bubble = document.createElement("div");
+    bubble.className = "bubble";
+    bubble.textContent = text;
+    row.appendChild(bubble);
+    messagesEl.appendChild(row);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  // 一鍵傾訴：自動帶入文字
+  const QUICK_TEXT =
+    "我最近一直覺得自己很累，有一些說不出來的感覺，心裡有點亂，也不知道從哪裡開始說⋯\n" +
+    "可以先陪我一下嗎？";
+
+  quickBtn.addEventListener("click", () => {
+    // 如果輸入框本來有字，就在後面接上
+    if (userInputEl.value.trim()) {
+      userInputEl.value = userInputEl.value.trim() + "\n\n" + QUICK_TEXT;
+    } else {
+      userInputEl.value = QUICK_TEXT;
+    }
+    userInputEl.focus();
+    // 捲到最下方
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  });
+
+  async function sendMessage() {
+    const text = userInputEl.value.trim();
+    if (!text) return;
+
+    addUserMessage(text);
+    userInputEl.value = "";
+    userInputEl.focus();
+    sendBtn.disabled = true;
+    sendBtn.textContent = "回應中…";
+
+    try {
+      // 🔧 TODO：之後換成你 Cloudflare Worker 的網址
+      const API_URL = "https://your-worker-subdomain.workers.dev/chat";
+
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message: text,
+          history: history.slice(-10)
+        })
+      });
+
+      if (!res.ok) throw new Error("伺服器錯誤");
+
+      const data = await res.json();
+      const reply = data.reply || "抱歉，我剛剛好像有點分心，可以請你再說一次嗎？";
+      addAssistantMessage(reply);
+
+    } catch (err) {
+      console.error(err);
+      addAssistantMessage(
+        "看起來我暫時連不上內在的「網路」了。\n\n" +
+        "先深呼吸三次，給自己一點點空間。\n" +
+        "如果可以，等等再試著傳一次訊息給我，好嗎？"
+      );
+    } finally {
+      sendBtn.disabled = false;
+      sendBtn.textContent = "送出";
+    }
+  }
+
+  sendBtn.addEventListener("click", sendMessage);
+  userInputEl.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+</script>
 
 </body>
 </html>
