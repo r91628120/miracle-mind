@@ -152,6 +152,44 @@
       color: #ffffff;
     }
 
+    .quick-area {
+      padding: 8px 12px 4px;
+      background: #FAF4EA;
+      border-top: 1px solid #E7DCCB;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .quick-hint {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .quick-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 12px;
+      background: #F2E4CE;
+      color: var(--primary-deep);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 10px #00000015;
+    }
+
+    .quick-btn span.icon {
+      font-size: 14px;
+    }
+
+    .quick-btn:hover {
+      background: #EAD9C0;
+    }
+
     .hint {
       font-size: 11px;
       color: var(--text-soft);
@@ -212,6 +250,10 @@
         border-radius: 0;
         box-shadow: none;
       }
+      .quick-area {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
@@ -228,7 +270,7 @@
 <div class="chat-wrapper">
   <div class="chat-card">
     <div class="chat-header">
-      <div class="avatar">🕊</div>
+      <div class="avatar">🌙</div>
       <div class="chat-header-text">
         <div class="name">心靈陪伴者</div>
         <div class="desc">「不急，我在這裡，陪你慢慢說。」</div>
@@ -236,6 +278,14 @@
     </div>
 
     <div class="messages" id="messages"></div>
+
+    <div class="quick-area">
+      <div class="quick-hint">如果一時間不知道怎麼說，可以先按下面這個按鈕，讓我幫你開個頭。</div>
+      <button class="quick-btn" id="quickBtn">
+        <span class="icon">🕊</span>
+        <span>一鍵傾訴：我現在有點亂⋯</span>
+      </button>
+    </div>
 
     <div class="hint">
       ⚠️ 提醒：這裡是心靈陪伴，不是專業醫療或諮商。如有自傷念頭或嚴重心理困擾，請儘快尋求專業協助。
@@ -252,11 +302,11 @@
   const messagesEl = document.getElementById("messages");
   const userInputEl = document.getElementById("userInput");
   const sendBtn = document.getElementById("sendBtn");
+  const quickBtn = document.getElementById("quickBtn");
 
-  // 對話歷史（會傳給後端）
   let history = [];
 
-  // 初始歡迎訊息（超溫柔版本）
+  // 初始歡迎訊息
   addAssistantMessage(
     "你已經很努力了，我知道。\n\n" +
     "現在先不用急著堅強，也不用急著把事情想清楚。\n" +
@@ -288,6 +338,23 @@
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
+  // 一鍵傾訴：自動帶入文字
+  const QUICK_TEXT =
+    "我最近一直覺得自己很累，有一些說不出來的感覺，心裡有點亂，也不知道從哪裡開始說⋯\n" +
+    "可以先陪我一下嗎？";
+
+  quickBtn.addEventListener("click", () => {
+    // 如果輸入框本來有字，就在後面接上
+    if (userInputEl.value.trim()) {
+      userInputEl.value = userInputEl.value.trim() + "\n\n" + QUICK_TEXT;
+    } else {
+      userInputEl.value = QUICK_TEXT;
+    }
+    userInputEl.focus();
+    // 捲到最下方
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  });
+
   async function sendMessage() {
     const text = userInputEl.value.trim();
     if (!text) return;
@@ -299,7 +366,7 @@
     sendBtn.textContent = "回應中…";
 
     try {
-      // 🔧 TODO：之後把這個 URL 換成你 Cloudflare Worker 的實際網址
+      // 🔧 TODO：之後換成你 Cloudflare Worker 的網址
       const API_URL = "https://your-worker-subdomain.workers.dev/chat";
 
       const res = await fetch(API_URL, {
@@ -307,7 +374,7 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: text,
-          history: history.slice(-10) // 傳最近 10 則訊息
+          history: history.slice(-10)
         })
       });
 
