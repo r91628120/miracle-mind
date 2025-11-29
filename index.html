@@ -612,6 +612,9 @@
       </div>
     </div>
     <div>© 2025 Miracle Mind. All rights reserved. ｜這是一個仍在學習與成長中的靈性 AI 夥伴。</div>
+    <div style="opacity:0.6; font-size:11px; margin-top:4px;">
+     版本：v2025.11.29a
+    </div>
   </div>
 </footer>
 <script>
@@ -655,18 +658,15 @@
     // 進首頁時先讀一次目前累計人次
     fetchCounter();
 
-    // 使用者按下「開始與奇蹟心靈 AI 導師對話」時，幫他 +1
-    const startChatBtn = document.getElementById("startChatBtn");
-    if (startChatBtn) {
-      startChatBtn.addEventListener("click", () => {
-        bumpCounter();
-        // 不要阻擋原本跳轉行為
-      });
-    }
   });
 
-function onStartChat() { 
+async function onStartChat() { 
+  // 先嘗試送出遞增請求（不等待完整回應）
   bumpCounter();
+
+  // 小延遲讓手機能成功送出 request（50ms 已足夠）
+  await new Promise(r => setTimeout(r, 50));
+
   window.location.href = "chat.html";
 }
 
