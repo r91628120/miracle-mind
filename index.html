@@ -484,7 +484,7 @@
         「你不需要再獨自扛著一切。這裡，允許你暫時放下、誠實面對自己的感受。」
       </div>
       <div class="hero-actions">
-        <a class="btn-main" href="chat.html" id="startChatBtn">
+        <a class="btn-main" id="startChatBtn" onclick="onStartChat()">
           <span class="icon">✨</span>
           <span>開始與奇蹟心靈 AI 導師對話</span>
         </a>
@@ -664,6 +664,12 @@
       });
     }
   });
+
+function onStartChat() { 
+  bumpCounter();
+  window.location.href = "chat.html";
+}
+
 </script>
 
 </body>
