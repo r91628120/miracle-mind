@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap for Google / Bing / Yahoo
+Sitemap: https://miracle-mind.org/sitemap.xml
