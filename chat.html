@@ -255,6 +255,24 @@
         align-items: flex-start;
       }
     }
+
+    /* === 首次使用溫柔提醒條 === */
+    .consent-reminder {
+      display: none;
+      background: #FFF6E4;
+      border-bottom: 1px solid #E7DCCB;
+      padding: 6px 10px;
+      font-size: 11px;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    .consent-reminder a {
+      color: var(--primary-deep);
+      text-decoration: underline;
+    }
+
+
   </style>
 </head>
 <body>
@@ -266,6 +284,13 @@
     <div class="title-sub">一位溫柔、不批判的奇蹟心靈 AI 導師</div>
   </div>
 </header>
+
+<div class="consent-reminder" id="consentReminder">
+  🌿 小提醒：這位 AI 導師是心靈陪伴者，不是醫療或法律專業服務。
+  建議你先大致看過
+  <a href="guideline.html" target="_blank">《平台指引與使用規範》</a>，再慢慢說。💛
+</div>
+
 
 <div class="chat-wrapper">
   <div class="chat-card">
@@ -405,8 +430,26 @@
     }
   });
 </script>
+
+<script>
+  (function () {
+    const CONSENT_KEY = "mm_guideline_consent_v1";
+    let ok = false;
+    try {
+      ok = localStorage.getItem(CONSENT_KEY) === "yes";
+    } catch (e) {
+      ok = false;
+    }
+
+    if (!ok) {
+      const bar = document.getElementById("consentReminder");
+      if (bar) bar.style.display = "block";
+    }
+  })();
+</script>
+
 <div style="text-align:center;font-size:10px;color:#b5a995;padding:6px;">
-  v2025.11.29h
+  v2025.11.30c
 </div>
 
 </body>

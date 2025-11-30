@@ -498,6 +498,157 @@
     }
 
   </style>
+
+    /* ========= 首次使用同意小卡片 ========= */
+
+    .consent-overlay {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 0% 0%, #ffffffcc 0, #f7efe3d0 45%, #f1e4d2c0 100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+      z-index: 40;
+    }
+
+    .consent-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .consent-card {
+      max-width: 420px;
+      width: 90%;
+      background: #FFFFFFF2;
+      border-radius: 20px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 18px 60px #00000033;
+      border: 1px solid #F0E0C2;
+      position: relative;
+    }
+
+    .consent-title {
+      font-size: 16px;
+      color: var(--primary-deep);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .consent-title span.icon {
+      font-size: 18px;
+    }
+
+    .consent-text {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+
+    .consent-link {
+      font-size: 12px;
+      color: var(--primary-deep);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .consent-check {
+      margin-top: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .consent-check input[type="checkbox"] {
+      margin-top: 2px;
+      accent-color: #C9A86A;
+    }
+
+    .consent-actions {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .consent-btn-main {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, #C9A86A, #B59555);
+      color: #ffffff;
+      font-size: 13px;
+      cursor: pointer;
+      box-shadow: 0 10px 26px #00000026;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .consent-btn-main:disabled {
+      opacity: 0.7;
+      box-shadow: none;
+      cursor: default;
+    }
+
+    .consent-btn-link {
+      border: none;
+      background: transparent;
+      color: var(--primary-deep);
+      font-size: 12px;
+      padding: 0 4px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .consent-close {
+      position: absolute;
+      right: 10px;
+      top: 8px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 16px;
+      color: #B29A73;
+      opacity: 0.8;
+    }
+
+    .consent-close:hover {
+      opacity: 1;
+    }
+
+    .consent-error {
+      margin-top: 6px;
+      font-size: 11px;
+      color: #A2573C;
+      opacity: 0;
+      transition: opacity 0.18s ease;
+    }
+
+    .consent-error.visible {
+      opacity: 1;
+    }
+
+    @keyframes mm-shake {
+      0%   { transform: translateX(0); }
+      25%  { transform: translateX(-3px); }
+      50%  { transform: translateX(3px); }
+      75%  { transform: translateX(-2px); }
+      100% { transform: translateX(0); }
+    }
+
+    .shake {
+      animation: mm-shake 0.25s ease;
+    }
+
 </head>
 <body>
 
@@ -529,10 +680,12 @@
     </div>
   </div>
   <nav>
-    <a href="#about">關於這裡</a>
-    <a href="#how">如何使用</a>
-    <a href="#safe">安全提醒</a>
+  <a href="#about">關於這裡</a>
+  <a href="#how">如何使用</a>
+  <a href="#safe">安全提醒</a>
+  <a href="guideline.html">平台指引與使用規範</a>
   </nav>
+
 </header>
 
 <section class="hero">
@@ -679,17 +832,60 @@
     </div>
     <div>© 2025 Miracle Mind. All rights reserved. ｜這是一個仍在學習與成長中的靈性 AI 夥伴。</div>
     <div style="opacity:0.6; font-size:11px; margin-top:4px;">
-     版本：v2025.11.30b
+     版本：v2025.11.30c
     </div>
   </div>
 </footer>
+
+<!-- 首次使用同意小卡片 -->
+<div class="consent-overlay" id="consentOverlay" aria-hidden="true">
+  <div class="consent-card">
+    <button class="consent-close" type="button" onclick="hideConsentCard()" aria-label="關閉">
+      ✕
+    </button>
+    <div class="consent-title">
+      <span class="icon">🌿</span>
+      <span>開始之前，先讓我照顧一下你</span>
+    </div>
+    <div class="consent-text">
+      這位奇蹟心靈 AI 導師，是一位<span style="font-weight:600;">心靈與情緒的陪伴者</span>，<br>
+      不是醫療、法律或財務專業，也不會替你做人生重大決定。<br><br>
+      我們希望你在使用前，先大致了解這些界線，讓自己處在一個安全、被尊重的空間裡。
+      <br><br>
+      想更詳細了解，可以先閱讀：
+      <a href="guideline.html" target="_blank" class="consent-link">《平台指引與使用規範》</a>
+    </div>
+
+    <label class="consent-check">
+      <input type="checkbox" id="consentCheckbox" />
+      <span>
+        我了解這是一位心靈陪伴者，而非醫療／法律等專業服務，<br>
+        並願意依照平台指引，為自己的選擇負最終責任。
+      </span>
+    </label>
+
+    <div id="consentError" class="consent-error">
+      <!-- 未勾選時顯示提醒文字 -->
+    </div>
+
+    <div class="consent-actions">
+      <button type="button" class="consent-btn-main" id="consentConfirmBtn" onclick="onConsentConfirm()">
+        <span>我了解並願意開始對話</span>
+      </button>
+      <button type="button" class="consent-btn-link" onclick="window.location.href='guideline.html'">
+        想先完整看看平台指引
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
   // === 奇蹟心靈人次計數設定 ===
-  // 建議你用新的 site 名稱，例如 miraclemind
-  // GAS_WEB_APP_URL 可以先暫時沿用你小論文那個網址（之後要分開再調整）
   const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxpWqx7p6cfbFCtGLJXNHaMd4KLYNMv5Mcmx7pEiwNEL9xJH_1hxe_ljFmwjvUzuOkG3A/exec";
   const SITE_KEY = "miraclemind";
   const ENABLE_COUNTER = true;
+
+  const CONSENT_KEY = "mm_guideline_consent_v1";
 
   async function fetchCounter() {
     if (!ENABLE_COUNTER) return;
@@ -703,7 +899,6 @@
       const value = typeof data.count === "number" ? data.count : (data.count || "0");
       counterEl.textContent = value;
     } catch (e) {
-      // 抓不到就不要壞畫面，顯示 0
       const counterEl2 = document.getElementById("mmCounter");
       if (counterEl2) counterEl2.textContent = "0";
     }
@@ -715,27 +910,84 @@
       const url = `${GAS_WEB_APP_URL}?action=increment&site=${encodeURIComponent(SITE_KEY)}&ts=${Date.now()}`;
       await fetch(url, { method: "GET", cache: "no-store" });
     } catch (e) {
-      // 失敗就算了，不影響使用者體驗
       console.warn("計數遞增失敗：", e);
     }
   }
 
+  function hasConsent() {
+    try {
+      return localStorage.getItem(CONSENT_KEY) === "yes";
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function showConsentCard() {
+    const overlay = document.getElementById("consentOverlay");
+    if (overlay) {
+      overlay.classList.add("active");
+      overlay.setAttribute("aria-hidden", "false");
+      const err = document.getElementById("consentError");
+      if (err) err.classList.remove("visible");
+    }
+  }
+
+  function hideConsentCard() {
+    const overlay = document.getElementById("consentOverlay");
+    if (overlay) {
+      overlay.classList.remove("active");
+      overlay.setAttribute("aria-hidden", "true");
+    }
+  }
+
+  async function proceedToChat() {
+    bumpCounter();
+    await new Promise(r => setTimeout(r, 50));
+    window.location.href = "chat.html";
+  }
+
+  async function onStartChat() {
+    // 首先確認是否已經同意過平台指引
+    if (hasConsent()) {
+      await proceedToChat();
+    } else {
+      showConsentCard();
+    }
+  }
+
+  function onConsentConfirm() {
+    const checkbox = document.getElementById("consentCheckbox");
+    const errorEl = document.getElementById("consentError");
+    const btn = document.getElementById("consentConfirmBtn");
+
+    if (!checkbox || !btn) {
+      proceedToChat();
+      return;
+    }
+
+    if (!checkbox.checked) {
+      if (errorEl) {
+        errorEl.textContent = "在開始對話之前，先勾選這個小方框，好嗎？這是為了好好照顧你自己。";
+        errorEl.classList.add("visible");
+      }
+      btn.classList.add("shake");
+      setTimeout(() => btn.classList.remove("shake"), 260);
+      return;
+    }
+
+    try {
+      localStorage.setItem(CONSENT_KEY, "yes");
+    } catch (e) {
+      console.warn("無法寫入 localStorage，同意狀態將只在本次生效。");
+    }
+
+    hideConsentCard();
+    proceedToChat();
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
-    // 進首頁時先讀一次目前累計人次
     fetchCounter();
-
   });
-
-async function onStartChat() { 
-  // 先嘗試送出遞增請求（不等待完整回應）
-  bumpCounter();
-
-  // 小延遲讓手機能成功送出 request（50ms 已足夠）
-  await new Promise(r => setTimeout(r, 50));
-
-  window.location.href = "chat.html";
-}
-
 </script>
 
 </body>
