@@ -144,36 +144,50 @@
     }
 
     nav {
-      display: flex;
-      gap: 16px;
-      font-size: 14px;
-      color: var(--text-soft);
-    }
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--text-soft);
+  flex-wrap: wrap;              /* ⭐ 關鍵 1：允許換行 */
+}
 
-    nav a {
-      padding: 4px 0;
-      position: relative;
-    }
+nav a {
+  padding: 4px 0;
+  position: relative;
+}
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #d6b67b, #b99658);
-      transition: width 0.22s ease;
-    }
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #d6b67b, #b99658);
+  transition: width 0.22s ease;
+}
 
-    nav a:hover {
-      color: var(--primary-deep);
-    }
+nav a:hover {
+  color: var(--primary-deep);
+}
 
-    nav a:hover::after {
-      width: 100%;
-    }
+nav a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 720px) {
+  header {
+    flex-direction: column;      /* ⭐ 讓 logo 與 nav 上下排列 */
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  nav {
+    font-size: 13px;             /* ⭐ 手機版會自動縮小字體 */
+  }
+}
+
 
     /* ---------- Hero ---------- */
 
@@ -839,7 +853,7 @@
     </div>
     <div>© 2025 Miracle Mind. All rights reserved. ｜這是一個仍在學習與成長中的靈性 AI 夥伴。</div>
     <div style="opacity:0.6; font-size:11px; margin-top:4px;">
-     版本：v2025.12.03b
+     版本：v2025.12.03c
     </div>
   </div>
 </footer>
