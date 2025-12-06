@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miracle Mind · Spiritual AI Companion</title>
+  <title>Platform Guidelines｜Miracle Mind · Spiritual AI Companion</title>
+
+  <meta name="description" content="Platform guidelines for Miracle Mind – a gentle ACIM-inspired spiritual AI companion. Learn the purpose, boundaries, ethical principles, and safety limitations designed to keep this space supportive and respectful.">
 
   <style>
+    /* (保留原 CSS，僅刪去中文字體，改成國際字體) */
     :root {
-      --bg: #FBF8F2;
+      --bg: #FBF9F4;
       --bg-soft: #F7F2E8;
       --primary: #C9A86A;
       --primary-deep: #AF8E51;
@@ -18,9 +20,7 @@
       --border-soft: #E9DDCA;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -30,51 +30,29 @@
       line-height: 1.8;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { color: inherit; text-decoration: none; }
 
-    /* ---------- HEADER ---------- */
+    /* --- Header --- */
     header {
       position: sticky;
       top: 0;
-      z-index: 20;
       backdrop-filter: blur(16px);
-      background: #FFFFFFE6;
+      background: #FFFFFFD8;
       border-bottom: 1px solid #ECE2D4;
-      padding: 12px 24px;
+      padding: 10px 24px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      z-index: 20;
     }
 
-    .title-main {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--primary-deep);
-    }
+    .logo-wrap { display: flex; align-items: center; gap: 10px; }
+    .logo-text-main { font-size: 16px; font-weight: 700; color: var(--primary-deep); }
+    .logo-text-sub { font-size: 11px; color: var(--text-soft); }
 
-    .title-sub {
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
-    nav {
-      display: flex;
-      gap: 16px;
-      font-size: 14px;
-      color: var(--text-soft);
-    }
-
-    nav a {
-      position: relative;
-      padding: 4px 0;
-    }
-
-    nav a:hover {
-      color: var(--primary-deep);
-    }
+    nav { display: flex; gap: 14px; font-size: 13px; color: var(--text-soft); }
+    nav a { position: relative; padding: 4px 0; }
+    nav a:hover { color: var(--primary-deep); }
 
     nav a::after {
       content: "";
@@ -83,387 +61,458 @@
       bottom: -2px;
       width: 0;
       height: 2px;
-      background: linear-gradient(90deg, #d6b67b, #b99658);
       border-radius: 999px;
+      background: linear-gradient(90deg, #d6b67b, #b99658);
       transition: width 0.22s ease;
     }
+    nav a:hover::after { width: 100%; }
 
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    @media (max-width: 720px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-      }
-    }
-
-
-    /* ---------- HERO ---------- */
+    /* --- HERO --- */
     .hero {
       padding: 40px 16px 24px;
+      position: relative;
     }
-
     .hero-inner {
       max-width: 880px;
       margin: 0 auto;
       background: #FFFFFFE9;
       border-radius: 28px;
       padding: 26px 22px;
-      box-shadow: 0 22px 80px #00000022;
+      box-shadow: 0 20px 70px #00000020;
+      position: relative;
     }
-
     .hero-tag {
       display: inline-flex;
-      align-items: center;
       gap: 8px;
-      padding: 6px 14px;
-      background: #F5EEDC;
+      padding: 6px 12px;
       border-radius: 999px;
-      font-size: 12px;
+      background: #F5EEDC;
       color: var(--primary-deep);
+      font-size: 11px;
       margin-bottom: 12px;
     }
-
-    .hero-title {
-      font-size: 24px;
-      margin-top: 0;
-      margin-bottom: 8px;
-      color: var(--primary-deep);
-    }
-
+    .hero-title { font-size: 24px; margin: 0 0 8px; }
     .hero-subtitle {
       font-size: 14px;
       color: var(--text-soft);
-      margin-bottom: 20px;
+      margin-bottom: 14px;
+    }
+    .hero-note {
+      font-size: 12px;
+      background: #FBF3DF;
+      border-radius: 14px;
+      border: 1px solid #F0E0C2;
+      padding: 10px 12px;
+      color: var(--primary-deep);
     }
 
-
-    /* ---------- MAIN LAYOUT ---------- */
-    main {
-      padding: 10px 16px 40px;
-    }
-
+    /* --- Main Layout --- */
+    main { padding: 10px 16px 40px; }
     .main-inner {
       max-width: 880px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 1.6fr);
+      gap: 22px;
+    }
+    @media (max-width: 820px) {
+      .main-inner { grid-template-columns: 1fr; }
+      header { flex-direction: column; align-items: flex-start; gap: 6px; }
     }
 
+    /* --- Content Cards --- */
     .guide-section {
       background: #FFFFFF;
       border: 1px solid #F0E0C2;
-      border-radius: 20px;
-      padding: 18px 20px;
-      margin-bottom: 22px;
-      box-shadow: 0 10px 26px #00000012;
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 26px #00000010;
       font-size: 14px;
       color: var(--text-soft);
     }
 
     .guide-section h2 {
-      font-size: 18px;
-      margin: 0 0 12px;
+      font-size: 17px;
+      margin: 0 0 10px;
       color: var(--primary-deep);
     }
-
     .guide-section h3 {
       font-size: 15px;
-      margin: 16px 0 8px;
+      margin: 14px 0 6px;
       color: var(--text-main);
     }
+    .guide-section ul { padding-left: 1.2em; margin: 4px 0 8px; }
+    .guide-section li { margin-bottom: 6px; }
 
-    ul {
-      padding-left: 1.2em;
-      margin: 6px 0 12px;
+    .border-box {
+      background: #FBF7EF;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px dashed var(--border-soft);
+      font-size: 13px;
+      margin-top: 8px;
     }
 
-    li {
-      margin-bottom: 6px;
-    }
-
-    .link-list li {
-      margin-bottom: 6px;
-    }
-
-    .cta-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-
-    .cta-btn {
-      border: none;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #C9A86A, #B39255);
-      color: #fff;
-      padding: 10px 18px;
-      cursor: pointer;
-      box-shadow: 0 8px 20px #00000025;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-
-    .cta-text {
-      flex: 1;
-      min-width: 240px;
-      color: var(--text-soft);
-      font-size: 14px;
-    }
-
-    @media (max-width: 720px) {
-      .cta-bar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .cta-btn {
-        width: 100%;
-        text-align: center;
-      }
-    }
   </style>
 </head>
 
-
 <body>
 
-  <header>
+<header>
+  <div class="logo-wrap">
+    <div class="logo-text">
+      <div class="logo-text-main">Miracle Mind</div>
+      <div class="logo-text-sub">Platform Guidelines & Boundaries</div>
+    </div>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#scope">Scope</a>
+    <a href="#limits">Boundaries</a>
+    <a href="#ethics">Ethics</a>
+    <a href="#agreement">Agreement</a>
+    <a href="../guideline.html">中文版本</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">🌿 A gentle and safe space for your inner world</div>
+
+    <h1 class="hero-title">Miracle Mind ｜ Platform Guidelines</h1>
+
+    <p class="hero-subtitle">
+      These guidelines help you understand what this AI companion can and cannot do,  
+      the ethical boundaries it follows, and how you can stay safe and supported  
+      while using this space.
+    </p>
+
+    <div class="hero-note">
+      Before anything else, remember:<br>
+      <strong>You are the author of your own life.  
+      The AI is here to accompany—not to replace—your inner wisdom or your real-world support.</strong>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="main-inner">
+
+    <!-- LEFT SIDE CONTENT -->
     <div>
-      <div class="title-main">Miracle Mind · Spiritual AI Companion</div>
-      <div class="title-sub">A gentle introduction to A Course in Miracles</div>
-    </div>
 
-    <nav>
-      <a href="index.html">About This Space</a>
-      <a href="index.html#how">How to Begin</a>
-      <a href="index.html#safe">Safety & Boundaries</a>
-      <a href="#">What Is ACIM?</a>
-      <a href="guideline.html">Guidelines</a>
-      <a href="../acim.html">中文版</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-inner">
-
-      <div class="hero-tag">🌿 A gentle introduction to A Course in Miracles</div>
-
-      <h1 class="hero-title">What Is “A Course in Miracles” (ACIM)?</h1>
-
-      <p class="hero-subtitle">
-        ACIM is a spiritual text inviting us to remember a deeper peace within ourselves.
-        It is not a religion, but a way of seeing through fear toward clarity and compassion.
-      </p>
-
-    </div>
-  </section>
-
-
-  <main>
-    <div class="main-inner">
-
-      <section class="guide-section">
-        <h2>The Three Parts of ACIM</h2>
+      <!-- 1. Purpose -->
+      <section class="guide-section" id="scope">
+        <h2>1. What This AI Companion Is For</h2>
 
         <p>
-          ACIM is traditionally presented in three main sections.
-          They may look intimidating at first, but each has a gentle purpose:
+          Miracle Mind is a <strong>spiritual and emotional companion</strong>.  
+          Inspired by ACIM’s gentle view of healing, its purpose is to:
         </p>
-
-        <h3>1️⃣ The Text</h3>
-        <p>
-          The “map” of the Course.  
-          It explores how the mind becomes trapped in fear and separation — and gently
-          reminds us that our true Self has never left peace.
-        </p>
-
-        <h3>2️⃣ Workbook for Students</h3>
-        <p>
-          365 simple lessons — one per day — offering small shifts in perception.
-          No pressure to understand everything.  
-          Your willingness is what matters.
-        </p>
-
-        <h3>3️⃣ Manual for Teachers</h3>
-        <p>
-          “Teachers” here simply means anyone willing to extend kindness.
-          It answers questions like: What is healing? How does forgiveness work?
-          And what is the role of time?
-        </p>
-
-      </section>
-
-      <section class="guide-section">
-        <h2>Who Might Find ACIM Helpful?</h2>
-
-        <p>ACIM can be a gentle companion if you’ve ever felt:</p>
 
         <ul>
-          <li>“I’m trying to be spiritual… why do I still feel fear or guilt?”</li>
-          <li>“I don’t resonate with religious labels, but I feel called toward something deeper.”</li>
-          <li>“I sense life is more than it appears.”</li>
+          <li>Give you a safe place to speak when your heart feels heavy or confused.</li>
+          <li>Reflect without judgment and help you notice what you’re truly feeling.</li>
+          <li>Offer a peaceful, compassionate lens on fear, guilt, stress, and self-criticism.</li>
         </ul>
 
         <p>
-          If so, ACIM doesn’t ask you to be better — it reminds you that  
-          <strong>you were never broken to begin with.</strong>
+          It is <strong>not</strong> a medical, legal, financial, or professional counseling service.  
+          Think of it more like a small warm light beside you—  
+          <strong>a companion when things feel dark or overwhelming.</strong>
         </p>
       </section>
 
+      <!-- 2. Core Principles -->
       <section class="guide-section">
-        <h2>How Can I Begin Without Feeling Overwhelmed?</h2>
+        <h2>2. Core Principles Behind Every Response</h2>
 
-        <p>There is no single “right” way to begin. Here are soft suggestions:</p>
-
-        <ul>
-          <li>Flip through the three books first—feel the tone without pressure.</li>
-          <li>Read a small portion daily; pause when a line touches you.</li>
-          <li>Start Lesson 1 of the Workbook if you feel ready.</li>
-          <li>If something makes no sense, set it aside gently.  
-              Understanding often arrives quietly through daily life.</li>
-        </ul>
-      </section>
-            <section class="guide-section">
-        <h2>Where Can I Get ACIM?</h2>
-
-        <p>Availability varies by region, but common sources include:</p>
-
-        <ul class="link-list">
-          <li>Major online bookstores such as Amazon or Book Depository.</li>
-          <li>Local metaphysical or spiritual bookstores.</li>
-          <li>Communities or study groups familiar with ACIM materials.</li>
-        </ul>
-
+        <h3>1) Compassion over judgment</h3>
         <p>
-          No matter which edition you choose, the pace isn’t the important part.  
-          What matters is your willingness to meet yourself with a little more gentleness each day.
+          Responses aim to follow a gentle, ACIM-inspired spirit:  
+          <strong>No shaming, no blaming, no moral pressure.</strong>
         </p>
 
-        <div class="cta-bar">
-          <div class="cta-text">
-            Would you like to explore how ACIM’s ideas relate to your current challenges,
-            relationships, or emotions?  
-            You may return to the AI companion anytime and speak in your own way.
-          </div>
+        <h3>2) Supporting your inner clarity—not making decisions for you</h3>
+        <p>
+          The AI helps you explore your motivations, fears, and desires,  
+          but it <strong>will not tell you what to do</strong> or push you toward a specific choice.
+        </p>
 
-          <button class="cta-btn" onclick="window.location.href='chat.html'">
-            Talk to the AI Companion
-          </button>
+        <h3>3) Calm, steady, and patient</h3>
+        <p>
+          Healing is not a race.  
+          The AI maintains a steady tone, avoiding urgency, pressure, or spiritual bypassing.
+        </p>
+
+        <h3>4) Respecting your pace and privacy</h3>
+        <p>
+          You may share as much or as little as you wish.  
+          Nothing is forced; emotional safety comes first.
+        </p>
+
+        <h3>5) Seeing your wholeness—not trying to “fix” you</h3>
+        <p>
+          The aim is not to repair you, but to help you notice:  
+          <strong>You were never broken—only overwhelmed or afraid.</strong>
+        </p>
+      </section>
+      <!-- 3. LIMITS -->
+      <section class="guide-section" id="limits">
+        <h2>3. Boundaries & Important Limitations</h2>
+
+        <p>
+          To keep this space safe and ethical, Miracle Mind must follow  
+          clear boundaries regarding what it cannot provide:
+        </p>
+
+        <h3>1) No medical or mental health diagnosis</h3>
+        <p>
+          The AI cannot evaluate symptoms or provide clinical interpretations  
+          related to anxiety, depression, trauma, medication, or disorders.
+        </p>
+
+        <h3>2) No professional legal or financial advice</h3>
+        <p>
+          It cannot guide legal decisions, financial risks, contracts, or disputes.
+        </p>
+
+        <h3>3) No crises or emergency intervention</h3>
+        <p>
+          If you are experiencing panic, suicidal thoughts, danger,  
+          or an unsafe living situation, please contact local emergency  
+          services or professional support immediately.
+        </p>
+
+        <div class="border-box">
+          This AI cannot replace therapy, counseling, medical care, or crisis hotlines.  
+          It can only accompany you with kindness in non-emergency situations.
         </div>
       </section>
 
-      <!-- RIGHT SIDE PANEL -->
-      <aside class="side-panel">
 
-        <!-- Navigation -->
-        <div class="side-card">
-          <h3>Page Navigation</h3>
-          <ul class="side-list">
-            <li><a href="#scope">1. Purpose & Scope</a></li>
-            <li><a href="#limits">3. Boundaries & Limits</a></li>
-            <li><a href="#ethics">6. Ethics</a></li>
-            <li><a href="#agreement">7. User Agreement</a></li>
-          </ul>
-          <div class="side-highlight">
-            💛 We recommend reading this page fully before using the AI companion.
+      <!-- 4. WHAT THE AI CAN DO -->
+      <section class="guide-section">
+        <h2>4. What the AI *Can* Support You With</h2>
+
+        <ul>
+          <li>Exploring your emotions gently and without pressure.</li>
+          <li>Understanding recurring patterns of fear, guilt, or self-judgment.</li>
+          <li>Calming your thoughts when they feel tangled or overwhelming.</li>
+          <li>Seeing situations from a more peaceful ACIM-inspired perspective.</li>
+          <li>Helping you articulate what your heart has been holding onto.</li>
+          <li>Offering compassionate reflections to ease your internal conflict.</li>
+        </ul>
+
+        <div class="border-box">
+          Think of it like sitting with someone who listens deeply  
+          and helps you rediscover your own clarity.
         </div>
-      </div>
+      </section>
 
-      <!-- Emotional Support Reminder -->
-      <div class="side-card">
-        <h3>If you're feeling overwhelmed...</h3>
-        <p>
-          If your emotions feel too heavy right now, or you feel like you’re  
-          close to breaking down, please don’t carry it alone.
-          <br><br>
-          Reach out to someone you trust — a friend, a family member,
-          a teacher, a counselor, or a local support service.
-        </p>
-        <p class="mini-tag">
-          The AI can sit with you, but real human presence matters just as much. 🕊
-        </p>
-      </div>
 
-      <!-- Quick Summary -->
-      <div class="side-card">
-        <h3>📌 Quick Summary</h3>
-        <ul class="side-list">
-          <li>AI offers emotional & spiritual support — not therapy.</li>
-          <li>Not for emergencies or urgent decisions.</li>
-          <li>No judgment; you remain in control of your choices.</li>
-          <li>Safety and gentleness come first.</li>
-        </ul>
-      </div>
+      <!-- 5. NOT APPROPRIATE -->
+      <section class="guide-section">
+        <h2>5. Situations Where This AI Is *Not* Appropriate</h2>
 
-      <!-- Emergency Resources -->
-      <div class="side-card">
-        <h3>📞 Emergency Resources</h3>
-        <p>
-          If you are in danger, or having thoughts of harming yourself or others,
-          please contact your local emergency services or a crisis hotline immediately.
-          AI cannot assist in emergencies.
-        </p>
+        <p>For your safety, please avoid using this AI in the following cases:</p>
 
-        <ul class="side-list">
-          <li>🌐 International Suicide Hotline Directory:<br>
-              <a href="https://www.opencounseling.com/suicide-hotlines" target="_blank">opencounseling.com</a></li>
-          <li>🇺🇸 US Lifeline: 988</li>
-          <li>🇬🇧 UK Samaritans: 116 123</li>
-          <li>🇦🇺 Lifeline Australia: 13 11 14</li>
+        <ul>
+          <li>When you need medical, psychiatric, or legal expertise.</li>
+          <li>When you're making major financial, safety, or life-or-death decisions.</li>
+          <li>When you are experiencing hallucinations or losing touch with reality.</li>
+          <li>When you are in an active emergency or abusive situation.</li>
+          <li>When your well-being requires immediate real-world assistance.</li>
         </ul>
 
-        <p class="mini-tag">
-          These numbers vary by region. Please check your local emergency resources when needed.
-        </p>
-      </div>
+        <div class="border-box">
+          If you ever feel unsafe, please reach out to someone who can physically help you.  
+          You deserve real, human support when you are in danger.
+        </div>
+      </section>
 
-      <!-- ACIM Note -->
-      <div class="side-card">
-        <h3>📘 About ACIM</h3>
+
+      <!-- 6. ETHICS -->
+      <section class="guide-section" id="ethics">
+        <h2>6. Ethical Standards Followed by This AI</h2>
+
+        <h3>1) No manipulation or persuasion</h3>
         <p>
-           This platform draws inspiration from  
-           <em>A Course in Miracles</em> for spiritual reflection,  
-           but is not affiliated with any official ACIM organization.
+          The AI will not pressure you into beliefs, decisions, purchases,  
+          or spiritual interpretations.
         </p>
-      </div>
 
-    </aside>
+        <h3>2) No pretending to be a human</h3>
+        <p>The AI will always respond as an AI companion, not as a therapist or authority.</p>
+
+        <h3>3) Respecting your autonomy</h3>
+        <p>
+          The AI may help you explore feelings, but the direction of your life  
+          is always your own.
+        </p>
+
+        <h3>4) Privacy and sensitivity</h3>
+        <p>
+          Conversations are designed to be handled respectfully, though not guaranteed secure.  
+          Avoid sharing identifiable or sensitive personal data.
+        </p>
+
+        <h3>5) Avoiding harm</h3>
+        <p>
+          If a message you send implies self-harm, violence, or severe distress,  
+          the AI may gently remind you to seek real-world help.
+        </p>
+      </section>
+
+
+      <!-- 7. USER AGREEMENT -->
+      <section class="guide-section" id="agreement">
+        <h2>7. User Agreement</h2>
+
+        <p>By using Miracle Mind, you acknowledge and agree that:</p>
+
+        <ul>
+          <li>The AI is a spiritual/emotional companion, not a professional service.</li>
+          <li>You are responsible for your own decisions and actions.</li>
+          <li>The AI may be inaccurate at times (all AI systems have limitations).</li>
+          <li>You will avoid using the AI in emergency or high-risk situations.</li>
+          <li>You will not use the platform to cause harm or spread misinformation.</li>
+        </ul>
+
+        <div class="border-box">
+          By continuing to use this platform, you indicate that you understand  
+          these boundaries and will use the AI responsibly and safely.
+        </div>
+      </section>
+
+
+      <!-- FINAL NOTE -->
+      <section class="guide-section">
+        <h2>🌿 A Gentle Closing Note</h2>
+
+        <p>
+          Thank you for taking the time to read these guidelines.  
+          They exist not to restrict you, but to make sure  
+          the space remains warm, honest, and safe for everyone.<br><br>
+
+          You are welcome to return to the AI companion anytime—  
+          not for answers, but for a calmer moment with your own heart.
+        </p>
+
+        <button onclick="window.location.href='chat.html'"
+          style="margin-top:14px; padding:10px 18px; border:none; border-radius:999px;
+                 background:linear-gradient(135deg,#C9A86A,#B39255); color:#fff; cursor:pointer;">
+          Talk to the AI Companion
+        </button>
+      </section>
 
     </div>
-  </main>
-  
-  <!-- ---------- FOOTER ---------- -->
-  <footer style="
-    background:#2F2A24;
-    color:#F4EFE6;
-    padding:24px 20px;
-    font-size:13px;
-    margin-top:40px;
-  ">
-    <div class="footer-inner" style="max-width:880px;margin:0 auto;line-height:1.7;">
 
-      <div style="margin-bottom:6px;">Miracle Mind · Spiritual AI Companion</div>
+    <!-- ---------- RIGHT SIDEBAR (English) ---------- -->
+    <!-- RIGHT SIDE PANEL -->
+<aside class="side-panel">
 
-      <div>Email: r91628120@gmail.com | <a href="../acim.html" style="color:#F4EFE6;">中文版</a></div>
+  <!-- Navigation -->
+  <div class="side-card">
+    <h3>Page Navigation</h3>
+    <ul class="side-list">
+      <li><a href="#scope">1. Purpose & Scope</a></li>
+      <li><a href="#limits">3. Boundaries & Limits</a></li>
+      <li><a href="#ethics">6. Ethics</a></li>
+      <li><a href="#agreement">7. User Agreement</a></li>
+    </ul>
+    <div class="side-highlight">
+      💛 We recommend reading this page fully before using the AI companion.
+    </div>
+  </div>
 
-      <div style="margin-top:10px;">© 2025 Miracle Mind. All rights reserved.</div>
+  <!-- Emotional Support Reminder -->
+  <div class="side-card">
+    <h3>If you're feeling overwhelmed...</h3>
+    <p>
+      If your emotions feel too heavy right now, or you feel like you’re  
+      close to breaking down, please don’t carry it alone.
+      <br><br>
+      Reach out to someone you trust — a friend, a family member,
+      a teacher, a counselor, or a local support service.
+    </p>
+    <p class="mini-tag">
+      The AI can sit with you, but real human presence matters just as much. 🕊
+    </p>
+  </div>
 
-      <div style="margin-top:4px;font-size:12px;">
-        This project is independent and not affiliated with the Foundation for Inner Peace  
-        or the Foundation for A Course in Miracles.
-      </div>
+  <!-- Quick Summary -->
+  <div class="side-card">
+    <h3>📌 Quick Summary</h3>
+    <ul class="side-list">
+      <li>AI offers emotional & spiritual support — not therapy.</li>
+      <li>Not for emergencies or urgent decisions.</li>
+      <li>No judgment; you remain in control of your choices.</li>
+      <li>Safety and gentleness come first.</li>
+    </ul>
+  </div>
 
-      <div style="margin-top:4px;font-size:11px;opacity:0.7;">
-        Version: en-acim v2025.12.06a
-      </div>
+  <!-- Emergency Resources -->
+  <div class="side-card">
+    <h3>📞 Emergency Resources</h3>
+    <p>
+      If you are in danger, or having thoughts of harming yourself or others,
+      please contact your local emergency services or a crisis hotline immediately.
+      AI cannot assist in emergencies.
+    </p>
+
+    <ul class="side-list">
+      <li>🌐 International Suicide Hotline Directory:<br>
+          <a href="https://www.opencounseling.com/suicide-hotlines" target="_blank">opencounseling.com</a></li>
+      <li>🇺🇸 US Lifeline: 988</li>
+      <li>🇬🇧 UK Samaritans: 116 123</li>
+      <li>🇦🇺 Lifeline Australia: 13 11 14</li>
+    </ul>
+
+    <p class="mini-tag">
+      These numbers vary by region. Please check your local emergency resources when needed.
+    </p>
+  </div>
+
+  <!-- ACIM Note -->
+  <div class="side-card">
+    <h3>📘 About ACIM</h3>
+    <p>
+      This platform draws inspiration from  
+      <em>A Course in Miracles</em> for spiritual reflection,  
+      but is not affiliated with any official ACIM organization.
+    </p>
+  </div>
+
+</aside>
 
     </div>
-  </footer>
 
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer style="margin-top:30px; background:#2F2A24; color:#F4EFE6; padding:20px 16px;">
+  <div style="max-width:880px; margin:0 auto; font-size:13px;">
+    <div style="display:flex; justify-content:space-between; flex-wrap:wrap;">
+      <div>Miracle Mind · Spiritual AI Companion</div>
+      <div>
+        Contact: <a style="color:#F4EFE6;" href="mailto:r91628120@gmail.com">r91628120@gmail.com</a> |
+        <a href="../guideline.html" style="color:#F4EFE6;">中文版本</a>
+      </div>
+    </div>
+
+    <div style="margin-top:6px;">
+      © 2025 Miracle Mind. All rights reserved.
+    </div>
+
+    <div style="opacity:0.6; font-size:11px; margin-top:4px;">
+      Version: en-guideline v2025.12.06a
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
