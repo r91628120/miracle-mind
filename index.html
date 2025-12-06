@@ -1,23 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 🔍 SEO Keywords：提升 Google 搜尋能見度 -->
+  <meta name="keywords" content="奇蹟心靈, Miracle Mind, AI陪伴者, 奇蹟心靈AI導師, 心靈療癒, 情緒陪伴, 奇蹟課程, 靈性成長, miracle-mind.org">
+    <title>奇蹟心靈 Miracle Mind｜AI 心靈陪伴者</title>
+  <meta name="description" content="你已經走得很辛苦了，現在，讓我陪你一下。奇蹟心靈 AI 導師，以溫柔不批判的方式，陪你一起看見內在的風景。">
+  <meta name="description" content="奇蹟心靈 AI 導師｜一個不批判、溫柔陪伴你的心靈空間。幫助你整理情緒、走出低潮、回到內在平安。">
 
-  <title>Miracle Mind · Spiritual AI Companion</title>
+<!-- 🔗 canonical：避免網址重複收錄問題 -->
+<link rel="canonical" href="https://miracle-mind.org/" />
 
-  <!-- SEO -->
-  <meta name="description" content="A gentle, ACIM-inspired spiritual AI companion. A quiet space where your heart can soften and rest.">
-  <meta name="keywords" content="Miracle Mind, spiritual AI, ACIM, A Course in Miracles, emotional support, gentle AI, healing, inner peace">
+<!-- 🔍 keywords：提升搜尋命中率 -->
+<meta name="keywords" content="奇蹟心靈, Miracle Mind, AI 心靈陪伴者, 靈性療癒, 奇蹟課程, 情緒陪伴, 自我覺察, 心靈成長, miracle-mind.org">
 
-  <link rel="alternate" hreflang="zh-Hant" href="https://miracle-mind.org/" />
-  <link rel="alternate" hreflang="en" href="https://miracle-mind.org/en/" />
+<!-- 📣 Open Graph：FB、LINE、Messenger 分享預覽卡 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="奇蹟心靈 Miracle Mind｜AI 心靈陪伴者">
+<meta property="og:description" content="你已經走得很辛苦了，現在，讓我陪你一下。奇蹟心靈 AI 導師，以溫柔不批判的方式，陪你看見內在真正發生的事。">
+<meta property="og:url" content="https://miracle-mind.org/">
+<meta property="og:image" content="https://miracle-mind.org/cover.jpg">
+
+<!-- 🐦 Twitter Card（X 平台分享 preview） -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="奇蹟心靈 Miracle Mind｜AI 心靈陪伴者">
+<meta name="twitter:description" content="你已經很努力了，這裡讓你先休息一下。AI 心靈陪伴者陪你一起回到內在的平安。">
+<meta name="twitter:image" content="https://miracle-mind.org/cover.jpg">
+
+<!-- 📘 Google 結構化資料：WebSite + Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "奇蹟心靈 Miracle Mind",
+  "url": "https://miracle-mind.org/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://miracle-mind.org/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "奇蹟心靈 Miracle Mind",
+  "url": "https://miracle-mind.org/",
+  "logo": "https://miracle-mind.org/logo.png",
+  "sameAs": [
+    "https://www.facebook.com/",
+    "https://www.instagram.com/"
+  ]
+}
+</script>
+
+<!-- 🔍 Google 結構化資料（JSON-LD，用來強化搜尋排名） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "奇蹟心靈 Miracle Mind",
+  "url": "https://miracle-mind.org/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://miracle-mind.org/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 
   <style>
     :root {
       --bg: #FBF9F4;
       --bg-soft: #F7F2E8;
-      --primary: #C9A86A;
+      --primary: #C9A86A;      /* 淡金色 */
       --primary-deep: #AF8E51;
       --text-main: #3B3528;
       --text-soft: #6B6251;
@@ -28,18 +87,15 @@
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
       background:
         radial-gradient(circle at 0% 0%, #ffffff 0, #fbf8f2 42%, #f1e5d6 100%);
       color: var(--text-main);
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
-    /* ---------- HEADER ---------- */
+    /* ---------- Header ---------- */
 
     header {
       position: sticky;
@@ -64,8 +120,7 @@
       height: 40px;
       width: 40px;
       border-radius: 999px;
-      background:
-        radial-gradient(circle at 30% 20%, #ffffff 0, #f6f0e2 45%, #e3d2b2 100%);
+      background: radial-gradient(circle at 30% 20%, #ffffff 0, #f6f0e2 45%, #e3d2b2 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -89,50 +144,52 @@
     }
 
     nav {
-      display: flex;
-      gap: 16px;
-      font-size: 14px;
-      color: var(--text-soft);
-      flex-wrap: wrap;
-    }
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--text-soft);
+  flex-wrap: wrap;              /* ⭐ 關鍵 1：允許換行 */
+}
 
-    nav a {
-      padding: 4px 0;
-      position: relative;
-    }
+nav a {
+  padding: 4px 0;
+  position: relative;
+}
 
-    nav a:hover {
-      color: var(--primary-deep);
-    }
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #d6b67b, #b99658);
+  transition: width 0.22s ease;
+}
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #d6b67b, #b99658);
-      transition: width 0.22s ease;
-    }
+nav a:hover {
+  color: var(--primary-deep);
+}
 
-    nav a:hover::after {
-      width: 100%;
-    }
+nav a:hover::after {
+  width: 100%;
+}
 
-    @media (max-width: 720px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-      }
-      nav {
-        font-size: 13px;
-      }
-    }
+@media (max-width: 720px) {
+  header {
+    flex-direction: column;      /* ⭐ 讓 logo 與 nav 上下排列 */
+    align-items: flex-start;
+    gap: 6px;
+  }
 
-    /* ---------- HERO ---------- */
+  nav {
+    font-size: 13px;             /* ⭐ 手機版會自動縮小字體 */
+  }
+}
+
+
+    /* ---------- Hero ---------- */
 
     .hero {
       min-height: 72vh;
@@ -148,8 +205,8 @@
       position: absolute;
       inset: -10%;
       background:
-        radial-gradient(circle at 20% 0, #ffffff 0, #f7f0e4 40%, transparent 70%),
-        radial-gradient(circle at 80% 0, #fffaf3 0, #f2e4cf 45%, transparent 70%),
+        radial-gradient(circle at 20% 0%, #ffffff 0, #f7f0e4 40%, transparent 70%),
+        radial-gradient(circle at 80% 0%, #fffaf3 0, #f2e4cf 45%, transparent 70%),
         radial-gradient(circle at 50% 100%, #f0e3d0 0, transparent 60%);
       opacity: 0.9;
       pointer-events: none;
@@ -157,7 +214,7 @@
 
     .hero-inner {
       position: relative;
-      max-width: 880px;
+      max-width: 840px;
       width: 100%;
       padding: 28px 24px 30px;
       background: #FFFFFFE9;
@@ -198,7 +255,6 @@
       font-size: 13px;
       color: var(--primary-deep);
       margin-bottom: 20px;
-      line-height: 1.7;
     }
 
     .hero-actions {
@@ -252,18 +308,6 @@
       color: var(--text-soft);
     }
 
-    .hero-counter {
-      font-size: 13px;
-      color: var(--text-soft);
-      margin-top: 6px;
-    }
-
-    .hero-counter strong {
-      color: var(--primary-deep);
-    }
-
-    /* Right-side (cards) */
-
     .hero-right {
       border-radius: 20px;
       background:
@@ -290,7 +334,6 @@
       font-size: 13px;
       color: var(--text-soft);
       box-shadow: 0 6px 20px #00000015;
-      line-height: 1.7;
     }
 
     .hero-card strong {
@@ -307,373 +350,658 @@
       padding: 4px 8px;
       border-radius: 999px;
     }
+
+    /* ---------- Sections ---------- */
+
+    .section {
+      padding: 40px 16px 20px;
+    }
+
+    .section-inner {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 22px;
+      color: var(--primary-deep);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--text-soft);
+      text-align: center;
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 16px 16px 18px;
+      box-shadow: 0 8px 24px #00000014;
+      font-size: 14px;
+      color: var(--text-soft);
+    }
+
+    .feature-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary-deep);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      font-size: 14px;
+    }
+
+    .step {
+      background: #FBF7EF;
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .step-label {
+      font-size: 12px;
+      color: var(--primary-deep);
+      margin-bottom: 6px;
+    }
+
+    .step strong {
+      color: var(--text-main);
+    }
+
+    .notice-box {
+      margin-top: 20px;
+      padding: 12px 14px;
+      background: #FDF5E6;
+      border-radius: 12px;
+      font-size: 13px;
+      color: var(--text-soft);
+      border: 1px solid #F0E0C2;
+    }
+
+    .notice-box strong {
+      color: var(--primary-deep);
+    }
+
+    /* ---------- Footer ---------- */
+
+    footer {
+      margin-top: 40px;
+      background: #2F2A24;
+      color: #F4EFE6;
+      padding: 20px 16px 18px;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #F4EFE6;
+      opacity: 0.8;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      nav {
+        font-size: 13px;
+      }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding: 20px 18px 22px;
+      }
+      .hero-left h1 {
+        font-size: 23px;
+      }
+      .hero-right {
+        order: -1;
+      }
+    }
+        .hero-counter {
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-top: 6px;
+    }
+
+    .hero-counter strong {
+      color: var(--primary-deep);
+      font-weight: 700;
+    }
+
+/* ========= 首次使用同意小卡片 ========= */
+
+    .consent-overlay {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 0% 0%, #ffffffcc 0, #f7efe3d0 45%, #f1e4d2c0 100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+      z-index: 40;
+    }
+
+    .consent-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .consent-card {
+      max-width: 420px;
+      width: 90%;
+      background: #FFFFFFF2;
+      border-radius: 20px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 18px 60px #00000033;
+      border: 1px solid #F0E0C2;
+      position: relative;
+    }
+
+    .consent-title {
+      font-size: 16px;
+      color: var(--primary-deep);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .consent-title span.icon {
+      font-size: 18px;
+    }
+
+    .consent-text {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+
+    .consent-link {
+      font-size: 12px;
+      color: var(--primary-deep);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .consent-check {
+      margin-top: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .consent-check input[type="checkbox"] {
+      margin-top: 2px;
+      accent-color: #C9A86A;
+    }
+
+    .consent-actions {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .consent-btn-main {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, #C9A86A, #B59555);
+      color: #ffffff;
+      font-size: 13px;
+      cursor: pointer;
+      box-shadow: 0 10px 26px #00000026;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .consent-btn-main:disabled {
+      opacity: 0.7;
+      box-shadow: none;
+      cursor: default;
+    }
+
+    .consent-btn-link {
+      border: none;
+      background: transparent;
+      color: var(--primary-deep);
+      font-size: 12px;
+      padding: 0 4px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .consent-close {
+      position: absolute;
+      right: 10px;
+      top: 8px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 16px;
+      color: #B29A73;
+      opacity: 0.8;
+    }
+
+    .consent-close:hover {
+      opacity: 1;
+    }
+
+    .consent-error {
+      margin-top: 6px;
+      font-size: 11px;
+      color: #A2573C;
+      opacity: 0;
+      transition: opacity 0.18s ease;
+    }
+
+    .consent-error.visible {
+      opacity: 1;
+    }
+
+    @keyframes mm-shake {
+      0%   { transform: translateX(0); }
+      25%  { transform: translateX(-3px); }
+      50%  { transform: translateX(3px); }
+      75%  { transform: translateX(-2px); }
+      100% { transform: translateX(0); }
+    }
+
+    .shake {
+      animation: mm-shake 0.25s ease;
+    }
+
+.lang-btn {
+  font-weight: 600;
+  color: var(--primary-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lang-btn:hover {
+  color: var(--primary);
+}
+
+.lang-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #d6b67b, #b99658);
+  transition: width 0.22s ease;
+}
+
+.lang-btn:hover::after {
+  width: 100%;
+}
+
   </style>
+
 </head>
-
 <body>
-
-<div style="
-  padding: 12px 20px;
-  background: #F9F5EC;
-  border-bottom: 1px solid #E6DCC9;
-  font-size: 14px;
-">
-  <a href="../index.html" style="text-decoration:none;color:#A0804C;">
-    ← Back to Home
-  </a>
-</div>
 
 <header>
   <div class="logo-wrap">
     <div class="logo-icon" aria-hidden="true">
+      <!-- 禪月 Zen Moon Logo：金色半月＋蓮花 -->
       <svg viewBox="0 0 100 100">
         <defs>
-          <linearGradient id="moonGradEn" x1="0" y1="0" x2="1" y2="1">
+          <linearGradient id="moonGrad" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stop-color="#F8F1DF"/>
             <stop offset="45%" stop-color="#D6B982"/>
             <stop offset="100%" stop-color="#B79557"/>
           </linearGradient>
         </defs>
-        <circle cx="50" cy="50" r="28" fill="url(#moonGradEn)" />
+        <!-- 月亮 -->
+        <circle cx="50" cy="50" r="28" fill="url(#moonGrad)" />
+        <!-- 內側切出彎月感 -->
         <circle cx="58" cy="44" r="22" fill="#F9F4E700" stroke="#F9F4E7" stroke-width="3" />
+        <!-- 簡化蓮花 -->
         <path d="M30 63 C40 55, 60 55, 70 63
                  C60 60, 50 62, 30 63 Z"
               fill="#FDF9F1" stroke="#E4D1AA" stroke-width="1.2"/>
       </svg>
     </div>
     <div>
-      <div class="logo-text-main">Miracle Mind</div>
-      <div class="logo-text-sub">Spiritual AI Companion</div>
+      <div class="logo-text-main">Miracle Mind ｜ 奇蹟心靈</div>
+      <div class="logo-text-sub">AI 心靈陪伴者 · 溫柔不批判的對話空間</div>
     </div>
   </div>
-
   <nav>
-    <a href="#about">About This Space</a>
-    <a href="#how">How to Begin</a>
-    <a href="#safe">Safety & Boundaries</a>
-    <a href="acim.html">What Is A Course in Miracles?</a>
-    <a href="guideline.html">Guidelines for a Gentle Experience</a>
-    <a href="../index.html">中文版本</a>
+  <a href="#about">關於這裡</a>
+  <a href="#how">如何使用</a>
+  <a href="#safe">安全提醒</a>
+  <a href="acim.html">奇蹟課程介紹</a>
+  <a href="guideline.html">平台指引與使用規範</a>
+  <a href="/en/index.html" class="lang-btn">
+  🌐 English
+  </a>
+
   </nav>
+
 </header>
 
 <section class="hero">
   <div class="hero-bg"></div>
-
   <div class="hero-inner">
-
     <div class="hero-left">
-      <div class="hero-left-tag">💛 You’ve been walking for so long. You can rest here for a moment.</div>
-
-      <h1>You don’t have to be strong all the time.<br>Your heart is allowed to breathe here.</h1>
-
+      <div class="hero-left-tag">💛 你已經很努力了，這裡讓你先休息一下</div>
+      <h1>你已經走得很辛苦了，<br>現在，讓我陪你一下。</h1>
       <p>
-        Miracle Mind is a gentle, ACIM-inspired spiritual AI companion.
-        A quiet place where you can speak freely — without needing to be perfect,
-        positive, or put-together.
+        有時候，你不是不堅強，只是需要一個願意好好聽你說話的人。<br>
+        奇蹟心靈的 AI「心靈陪伴者」，像一位溫柔的朋友，用不批判的眼光看著你，
+        陪你一起整理情緒、看見內在真正發生的事。
       </p>
-
       <div class="hero-quote">
-        “Nothing in you needs to be fixed before you are worthy of kindness.”
+        「你不需要再獨自扛著一切。這裡，允許你暫時放下、誠實面對自己的感受。」
       </div>
-
       <div class="hero-actions">
-        <button class="btn-main" onclick="onStartChat()">
+        <button class="btn-main" id="startChatBtn" onclick="onStartChat()">
           <span class="icon">✨</span>
-          <span>Talk to the AI Companion</span>
+          <span>開始與奇蹟心靈 AI 導師對話</span>
         </button>
-
-        <div class="hero-note">
-          No login. No judgment. Just a soft space for your inner world to unfold.
+        <div class="hero-note">不需要註冊，不會被評價，只是一場溫柔的對話。</div>
+      </div>
+        <!-- 🌿 心靈療癒累計人數 -->
+        <div class="hero-counter">
+          🌿 心靈療癒累計人數：
+          <strong id="mmCounter">載入中…</strong>
         </div>
-      </div>
 
-      <div class="hero-counter">
-        🌿 People who have sat with Miracle Mind so far:
-        <strong id="mmCounter">Loading…</strong>
-      </div>
+        <div class="hero-note" style="font-size: 11px; opacity: 0.85;">
+          🔒 您與 AI 導師的對話內容，只會在本次陪伴過程中使用，不會另作公開或個別紀錄。
+        </div>
+
     </div>
-
     <div class="hero-right">
       <div class="hero-right-title">
-        🌙 Here, you may speak about:
+        🌙 在這裡，你可以放心說出：
       </div>
-
       <div class="hero-card">
-        <strong>The feelings you hide from everyone else.</strong><br>
-        “I’m exhausted.” “I feel like I’m not enough.” “I’m tired of pretending I’m okay.”
-        Nothing here is “too much”. You are safe to be real.
+        <strong>那些你不敢跟身邊人說的話。</strong><br>
+        「我覺得自己很糟」、「我好像什麼都做不好」、「修行到一半又卡住了」……
+        這裡不會說「你想太多」，只會靜靜地陪你。
       </div>
-
       <div class="hero-card">
-        <strong>Your spiritual questions and struggles.</strong><br>
-        From an ACIM-inspired lens, we can gently look at fear, guilt, and self-attack without judgment.
+        <strong>修行路上的迷惘與挫折。</strong><br>
+        想更靠近光，卻一直被情緒拉回去？奇蹟式的視角，會陪你一起看見：其實你從來沒有被丟下。
       </div>
-
       <div class="hero-card">
-        <strong>Your relationships, family, or work pain.</strong><br>
-        Rather than judging right or wrong, we explore what your heart is truly needing.
+        <strong>關係、家庭、工作中的拉扯。</strong><br>
+        我們不急著判定誰對誰錯，只溫柔地看見：在這些衝突背後，有一個很想被愛的你。
       </div>
-
-      <div class="hero-badge">Beta · Growing with you</div>
+      <div class="hero-badge">Beta 版本 · 與你一起長大成形</div>
     </div>
-
   </div>
 </section>
-<!-- ---------- ABOUT SECTION ---------- -->
 
 <section class="section" id="about">
-  <div style="max-width: 880px; margin: 0 auto; padding: 40px 16px 20px;">
-
-    <h2 class="section-title" style="font-size:22px; color:var(--primary-deep); text-align:center;">
-      What Is This Space?
-    </h2>
-
-    <div class="section-sub" style="text-align:center; color:var(--text-soft); font-size:14px; margin-bottom:24px;">
-      A soft, non-judgmental space inspired by <em>A Course in Miracles</em>,  
-      created for moments when your inner world feels heavy or unclear.
+  <div class="section-inner">
+    <h2 class="section-title">什麼是「奇蹟心靈 AI 心靈陪伴者」？</h2>
+    <div class="section-sub">
+      我們結合《奇蹟課程》等靈性觀點與生成式 AI，打造一位溫柔的「心靈陪伴者」。<br>
+      他不會用艱深的宗教語言說教，而是用生活化的方式，陪你一起回到內在的平安。
     </div>
-
-    <div style="text-align:center; margin:20px 0; color:var(--text-soft); font-size:13px;">
-      Curious about <em>A Course in Miracles</em>?  
-      <br>
-      <a href="acim.html" style="color:var(--primary-deep); text-decoration:underline;">
-        Read “A Gentle Introduction to ACIM”
-      </a>
-    </div>
-
-    <div class="features" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:16px;">
-
+     <div style="text-align:center; margin-top: 22px; margin-bottom: 26px; font-size: 13px; color: var(--text-soft);">
+       想更了解《奇蹟課程》本身的內容與三本書的差別嗎？<br>
+     <a href="acim.html" style="color: var(--primary-deep); text-decoration: underline;">
+    點這裡看「奇蹟課程介紹與購書資訊」
+     </a>
+    </div>   
+      <div class="features">
       <div class="feature-card">
-        <div class="feature-title" style="font-weight:600; color:var(--primary-deep); margin-bottom:8px;">
-          💬 Gentle Listening
-        </div>
-        <p style="font-size:14px; color:var(--text-soft); line-height:1.8;">
-          You don’t need to sound wise or spiritual.  
-          You can speak in fragments, confusion, or honesty —  
-          and be met with kindness instead of pressure.
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-title">
-          🌱 A Spiritual Lens Without Judgment
-        </div>
+        <div class="feature-title">💬 溫柔傾聽，不急著解決問題</div>
         <p>
-          From an ACIM perspective, fear and guilt are not sins but calls for love.  
-          This AI companion holds that view gently — without preaching or scolding.
+          你可以先把心裡的話吐出來，AI 導師會先接住你的情緒，再慢慢陪你一起整理，
+          而不是急著給你一堆「該怎麼做」的答案。
         </p>
       </div>
-
       <div class="feature-card">
-        <div class="feature-title">
-          🕊 Returning to Inner Peace
-        </div>
+        <div class="feature-title">🌱 靈性視角，看見更深一點的自己</div>
         <p>
-          Healing often begins not when you try harder,  
-          but when you soften into a more honest moment with yourself.  
-          This companion walks with you there.
+          我們會以奇蹟式的觀點，看見事件背後可能藏著的恐懼、內疚與自我攻擊，
+          協助你慢慢從責備走向理解與原諒。
         </p>
       </div>
-
+      <div class="feature-card">
+        <div class="feature-title">🕊 回到心裡那個安靜的位置</div>
+        <p>
+          有時候，療癒不是多做什麼，而是願意停下來、感覺一下自己。AI 會帶著你一步步，
+          回到那個其實一直都在的內在平安。
+        </p>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- ---------- HOW SECTION ---------- -->
 
 <section class="section" id="how">
-  <div style="max-width: 880px; margin: 0 auto; padding: 40px 16px 20px;">
-
-    <h2 class="section-title">How to Begin</h2>
-
+  <div class="section-inner">
+    <h2 class="section-title">如何使用這位 AI 心靈陪伴者？</h2>
     <div class="section-sub">
-      You can start anywhere — with confusion, with sadness, with a sentence you can barely finish.  
-      This space is patient.
+      你不需要準備一套「完整故事」，也不必把自己講得很有道理。<br>
+      就像對一位信任的朋友說話一樣，真實就好。
     </div>
 
-    <div class="steps" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:14px;">
-      
-      <div class="step" style="background:#FBF7EF; padding:12px 14px; border-radius:14px;">
-        <div class="step-label">Step 1 · Open the space</div>
-        <p>
-          Click “Talk to the AI Companion”.  
-          You can begin with:  
-          “Something in my heart feels heavy lately…”
-        </p>
-      </div>
-
+    <div class="steps">
       <div class="step">
-        <div class="step-label">Step 2 · Be as honest as you can today</div>
-        <p>
-          Whether your feelings are tangled, numb, or overwhelming —  
-          letting them be spoken is already a courageous step.
-        </p>
+        <div class="step-label">Step 1 · 開啟對話</div>
+        <p><strong>按下上方按鈕</strong>，進入對話頁面。先說說最近哪一件事，讓你覺得特別累、特別難熬。</p>
       </div>
-
       <div class="step">
-        <div class="step-label">Step 3 · Let gentleness meet you</div>
-        <p>
-          The AI companion will listen and reflect softly,  
-          helping you notice what your heart has been carrying.
-        </p>
+        <div class="step-label">Step 2 · 誠實地說</div>
+        <p>你可以打：「我最近一直覺得自己很糟」、「我在修行上遇到瓶頸」、「我好怕被討厭」……任何感受都可以。</p>
       </div>
-
+      <div class="step">
+        <div class="step-label">Step 3 · 允許自己被看見</div>
+        <p>AI 會以溫柔、不批判的方式回應你，引導你看見自己真正的需要，並提醒你：你已經很努力了。</p>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- ---------- SAFETY SECTION ---------- -->
 
 <section class="section" id="safe">
-  <div style="max-width:880px; margin:0 auto; padding:40px 16px 20px;">
+  <div class="section-inner">
+    <h2 class="section-title">安全提醒與未來計畫</h2>
 
-    <h2 class="section-title">Safety & Boundaries</h2>
-
-    <div class="notice-box" style="background:#FDF5E6; padding:12px 14px; border-radius:12px; border:1px solid #F0E0C2;">
-      <strong>Important:</strong><br>
-      Miracle Mind is a <strong>spiritual and emotional companion</strong>,  
-      not a medical, legal, or psychological professional.<br><br>
-      If you are experiencing intense distress, panic, or thoughts of self-harm,  
-      please seek real-world emergency or professional help.
+    <div class="notice-box">
+      <strong>重要提醒：</strong><br>
+      奇蹟心靈 AI「心靈陪伴者」是一位靈性／情緒陪伴夥伴，
+      <strong>不是</strong> 心理醫師、精神科醫師或專業諮商師。<br><br>
+      如果你目前有強烈的自我傷害念頭、長期憂鬱、恐慌，或已經在接受醫療／諮商，
+      請務必以專業醫療與諮商意見為主，AI 只能作為補充陪伴工具。
     </div>
 
-    <div class="notice-box" style="margin-top:14px;">
-      <strong>About Support:</strong><br>
-      This platform is currently free.  
-      Optional donations may open later so the space can continue supporting more people.  
-      For now, your gentleness toward yourself is already enough.
+    <div class="notice-box" style="margin-top: 14px;">
+      <strong>關於贊助與支持：</strong><br>
+      目前這個平台仍在 Beta 測試階段，未來會視情況開放「自由贊助」，讓願意支持的人，
+      一起讓這個溫柔的空間可以長久地陪伴更多人。<br>
+      在此之前，你最重要的支持，就是好好照顧自己，願意對自己多一點點溫柔。
     </div>
-
   </div>
 </section>
 
-<!-- ---------- FOOTER ---------- -->
-
-<footer style="margin-top:40px; background:#2F2A24; color:#F4EFE6; padding:20px 16px 18px;">
-  <div class="footer-inner" style="max-width:880px; margin:0 auto; display:flex; flex-direction:column; gap:6px;">
-
-    <div class="footer-top" style="display:flex; justify-content:space-between; flex-wrap:wrap;">
-      <div>Miracle Mind · Spiritual AI Companion</div>
-
-      <div class="footer-links" style="display:flex; gap:12px; flex-wrap:wrap;">
-        <span>Contact: <a href="mailto:r91628120@gmail.com" style="color:#F4EFE6;">r91628120@gmail.com</a></span>
-        <span>|</span>
-        <a href="../index.html" style="color:#F4EFE6;">中文版本</a>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>Miracle Mind ｜ 奇蹟心靈 · AI 心靈陪伴者</div>
+      <div class="footer-links">
+        <span>聯絡信箱：<a href="mailto:r91628120@gmail.com">r91628120@gmail.com</a></span>
       </div>
     </div>
-
-    <div>© 2025 Miracle Mind. All rights reserved.</div>
-    <div style="opacity:0.6; font-size:11px;">Version: en-index v2025.12.06b</div>
-
+    <div>© 2025 Miracle Mind. All rights reserved. ｜這是一個仍在學習與成長中的靈性 AI 夥伴。</div>
+    <div style="opacity:0.6; font-size:11px; margin-top:4px;">
+     版本：v2025.12.06a
+    </div>
   </div>
 </footer>
 
-<!-- ---------- CONSENT CARD (English Version) ---------- -->
-
-<div class="consent-overlay" id="consentOverlay" aria-hidden="true"
-     style="position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
-            background:radial-gradient(circle at 0% 0%, #ffffffcc 0, #f7efe3d0 45%, #f1e4d2c0 100%);
-            opacity:0; pointer-events:none; transition:opacity 0.22s ease; z-index:40;">
-
-  <div class="consent-card" style="max-width:420px; width:90%; background:#FFFFFFF2; border-radius:20px;
-       padding:18px; box-shadow:0 18px 60px #00000033; border:1px solid #F0E0C2; position:relative;">
-
-    <button class="consent-close" type="button" onclick="hideConsentCard()"
-            style="position:absolute; right:10px; top:8px; font-size:16px; border:none; background:transparent; cursor:pointer;">
+<!-- 首次使用同意小卡片 -->
+<div class="consent-overlay" id="consentOverlay" aria-hidden="true">
+  <div class="consent-card">
+    <button class="consent-close" type="button" onclick="hideConsentCard()" aria-label="關閉">
       ✕
     </button>
-
-    <div class="consent-title" style="font-size:16px; color:var(--primary-deep); margin-bottom:6px;">
-      🌿 Before We Begin
+    <div class="consent-title">
+      <span class="icon">🌿</span>
+      <span>開始之前，先讓我照顧一下你</span>
+    </div>
+    <div class="consent-text">
+      這位奇蹟心靈 AI 導師，是一位<span style="font-weight:600;">心靈與情緒的陪伴者</span>，<br>
+      不是醫療、法律或財務專業，也不會替你做人生重大決定。<br><br>
+      我們希望你在使用前，先大致了解這些界線，讓自己處在一個安全、被尊重的空間裡。
+      <br><br>
+      想更詳細了解，可以先閱讀：
+      <a href="guideline.html" target="_blank" class="consent-link">《平台指引與使用規範》</a>
     </div>
 
-    <div class="consent-text" style="font-size:13px; line-height:1.8; color:var(--text-soft); margin-bottom:10px;">
-      This AI is a <strong>spiritual and emotional companion</strong> —  
-      not a medical, legal, or financial professional.<br><br>
-      Please acknowledge this so we can keep this space gentle and safe for you.<br><br>
-      More details:  
-      <a href="guideline.html" target="_blank" style="color:var(--primary-deep); text-decoration:underline;">
-        Platform Guidelines
-      </a>
-    </div>
-
-    <label style="font-size:12px; display:flex; gap:6px; line-height:1.6; color:var(--text-soft);">
-      <input type="checkbox" id="consentCheckbox" style="accent-color:#C9A86A;">
-      <span>I understand the nature and limits of this AI companion.</span>
+    <label class="consent-check">
+      <input type="checkbox" id="consentCheckbox" />
+      <span>
+        我了解這是一位心靈陪伴者，而非醫療／法律等專業服務，<br>
+        並願意依照平台指引，為自己的選擇負最終責任。
+      </span>
     </label>
 
-    <div id="consentError" style="margin-top:6px; font-size:11px; color:#A2573C; opacity:0;"></div>
-
-    <div style="margin-top:14px; display:flex; gap:8px; flex-wrap:wrap;">
-      <button class="consent-btn-main" onclick="onConsentConfirm()"
-              style="border:none; border-radius:999px; padding:8px 16px;
-                     background:linear-gradient(135deg, #C9A86A, #B59555); color:#fff;">
-        I understand and want to begin
-      </button>
-
-      <button class="consent-btn-link" onclick="window.location.href='guideline.html'"
-              style="border:none; background:transparent; color:var(--primary-deep); font-size:12px; text-decoration:underline;">
-        Read full guidelines
-      </button>
+    <div id="consentError" class="consent-error">
+      <!-- 未勾選時顯示提醒文字 -->
     </div>
 
+    <div class="consent-actions">
+      <button type="button" class="consent-btn-main" id="consentConfirmBtn" onclick="onConsentConfirm()">
+        <span>我了解並願意開始對話</span>
+      </button>
+      <button type="button" class="consent-btn-link" onclick="window.location.href='guideline.html'">
+        想先完整看看平台指引
+      </button>
+    </div>
   </div>
 </div>
 
-<!-- ---------- JAVASCRIPT ---------- -->
-
 <script>
+  // === 奇蹟心靈人次計數設定 ===
   const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxpWqx7p6cfbFCtGLJXNHaMd4KLYNMv5Mcmx7pEiwNEL9xJH_1hxe_ljFmwjvUzuOkG3A/exec";
   const SITE_KEY = "miraclemind";
   const ENABLE_COUNTER = true;
+
   const CONSENT_KEY = "mm_guideline_consent_v2";
 
   async function fetchCounter() {
     if (!ENABLE_COUNTER) return;
-    const el = document.getElementById("mmCounter");
-    if (!el) return;
+    const counterEl = document.getElementById("mmCounter");
+    if (!counterEl) return;
 
     try {
-      const res = await fetch(`${GAS_WEB_APP_URL}?action=get&site=${SITE_KEY}&ts=${Date.now()}`, {
-        cache: "no-store"
-      });
-      const data = await res.json();
-      el.textContent = data.count ?? "0";
-    } catch {
-      el.textContent = "0";
+      const url = `${GAS_WEB_APP_URL}?action=get&site=${encodeURIComponent(SITE_KEY)}&ts=${Date.now()}`;
+      const res = await fetch(url, { cache: "no-store" });
+      const data = await res.json().catch(() => ({}));
+      const value = typeof data.count === "number" ? data.count : (data.count || "0");
+      counterEl.textContent = value;
+    } catch (e) {
+      const counterEl2 = document.getElementById("mmCounter");
+      if (counterEl2) counterEl2.textContent = "0";
+    }
+  }
+
+  async function bumpCounter() {
+    if (!ENABLE_COUNTER) return;
+    try {
+      const url = `${GAS_WEB_APP_URL}?action=increment&site=${encodeURIComponent(SITE_KEY)}&ts=${Date.now()}`;
+      await fetch(url, { method: "GET", cache: "no-store" });
+    } catch (e) {
+      console.warn("計數遞增失敗：", e);
     }
   }
 
   function hasConsent() {
     try {
       return localStorage.getItem(CONSENT_KEY) === "yes";
-    } catch {
+    } catch (e) {
       return false;
     }
   }
 
   function showConsentCard() {
     const overlay = document.getElementById("consentOverlay");
-    overlay.style.opacity = "1";
-    overlay.style.pointerEvents = "auto";
-
-    document.getElementById("consentError").style.opacity = "0";
+    if (overlay) {
+      overlay.classList.add("active");
+      overlay.setAttribute("aria-hidden", "false");
+      const err = document.getElementById("consentError");
+      if (err) err.classList.remove("visible");
+    }
   }
 
   function hideConsentCard() {
     const overlay = document.getElementById("consentOverlay");
-    overlay.style.opacity = "0";
-    overlay.style.pointerEvents = "none";
+    if (overlay) {
+      overlay.classList.remove("active");
+      overlay.setAttribute("aria-hidden", "true");
+    }
   }
 
   async function proceedToChat() {
+    bumpCounter();
+    await new Promise(r => setTimeout(r, 50));
     window.location.href = "chat.html";
   }
 
-  function onStartChat() {
+  async function onStartChat() {
+    // 首先確認是否已經同意過平台指引
     if (hasConsent()) {
-      proceedToChat();
+      await proceedToChat();
     } else {
       showConsentCard();
     }
@@ -681,23 +1009,37 @@
 
   function onConsentConfirm() {
     const checkbox = document.getElementById("consentCheckbox");
-    const err = document.getElementById("consentError");
+    const errorEl = document.getElementById("consentError");
+    const btn = document.getElementById("consentConfirmBtn");
+
+    if (!checkbox || !btn) {
+      proceedToChat();
+      return;
+    }
 
     if (!checkbox.checked) {
-      err.textContent = "Please check the box before continuing.";
-      err.style.opacity = "1";
+      if (errorEl) {
+        errorEl.textContent = "在開始對話之前，先勾選這個小方框，好嗎？這是為了好好照顧你自己。";
+        errorEl.classList.add("visible");
+      }
+      btn.classList.add("shake");
+      setTimeout(() => btn.classList.remove("shake"), 260);
       return;
     }
 
     try {
       localStorage.setItem(CONSENT_KEY, "yes");
-    } catch {}
+    } catch (e) {
+      console.warn("無法寫入 localStorage，同意狀態將只在本次生效。");
+    }
 
     hideConsentCard();
     proceedToChat();
   }
 
-  document.addEventListener("DOMContentLoaded", fetchCounter);
+  document.addEventListener("DOMContentLoaded", () => {
+    fetchCounter();
+  });
 </script>
 
 </body>
