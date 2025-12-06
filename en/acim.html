@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting to Know “A Course in Miracles”｜Miracle Mind</title>
+
+  <meta name="description" content="A gentle introduction to A Course in Miracles: what it is, what it is not, and how its three books can support your inner journey back to peace.">
+  <meta name="keywords" content="A Course in Miracles, ACIM, Miracle Mind, spiritual growth, inner peace, workbook, text, manual">
+
+  <link rel="canonical" href="https://miracle-mind.org/en/acim.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://miracle-mind.org/acim.html" />
+  <link rel="alternate" hreflang="en" href="https://miracle-mind.org/en/acim.html" />
+
+  <style>
+    :root {
+      --bg: #FBF9F4;
+      --bg-soft: #F7F2E8;
+      --primary: #C9A86A;
+      --primary-deep: #AF8E51;
+      --text-main: #3B3528;
+      --text-soft: #6B6251;
+      --white: #FFFFFF;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 0% 0%, #ffffff 0, #fbf8f2 42%, #f1e5d6 100%);
+      color: var(--text-main);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to right, #FFFFFFE6, #FBF6EDE6);
+      border-bottom: 1px solid #ECE2D4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 24px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      height: 40px;
+      width: 40px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffffff 0, #f6f0e2 45%, #e3d2b2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .logo-icon svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .logo-text-main {
+      font-weight: 700;
+      color: var(--primary-deep);
+      font-size: 16px;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    nav {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--text-soft);
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      padding: 4px 0;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #d6b67b, #b99658);
+      transition: width 0.22s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary-deep);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      nav {
+        font-size: 13px;
+      }
+    }
+
+    .page {
+      padding: 32px 16px 40px;
+    }
+
+    .page-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      background: #FFFFFFE9;
+      border-radius: 24px;
+      box-shadow: 0 20px 70px #00000018;
+      padding: 24px 20px 26px;
+    }
+
+    .page-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #F5EEDC;
+      color: var(--primary-deep);
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      margin: 0 0 8px;
+      color: var(--text-main);
+    }
+
+    .page-sub {
+      font-size: 14px;
+      color: var(--text-soft);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin: 22px 0 8px;
+      color: var(--primary-deep);
+    }
+
+    .section-text {
+      font-size: 14px;
+      color: var(--text-soft);
+      line-height: 1.9;
+    }
+
+    .box {
+      background: #FBF7EF;
+      border-radius: 14px;
+      padding: 14px 14px 12px;
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--text-soft);
+    }
+
+    .box strong {
+      color: var(--text-main);
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .book-card {
+      background: #FFFFFF;
+      border-radius: 14px;
+      padding: 12px 12px 10px;
+      box-shadow: 0 8px 24px #00000012;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .book-title {
+      font-size: 15px;
+      color: var(--primary-deep);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .tips-list {
+      margin: 8px 0 4px 1.1em;
+      padding: 0;
+      font-size: 14px;
+      color: var(--text-soft);
+    }
+
+    .tips-list li {
+      margin-bottom: 4px;
+    }
+
+    .link-list {
+      margin: 6px 0 0 1.1em;
+      padding: 0;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .link-list li {
+      margin-bottom: 4px;
+    }
+
+    .link-list a {
+      color: var(--primary-deep);
+      text-decoration: underline;
+    }
+
+    .cta-bar {
+      margin-top: 22px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #FDF5E6;
+      border: 1px solid #F0E0C2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .cta-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, #C9A86A, #B59555);
+      color: #ffffff;
+      font-size: 13px;
+      cursor: pointer;
+      box-shadow: 0 10px 26px #00000026;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cta-btn span.icon {
+      font-size: 16px;
+    }
+
+    footer {
+      margin-top: 32px;
+      background: #2F2A24;
+      color: #F4EFE6;
+      padding: 18px 16px 18px;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #F4EFE6;
+      opacity: 0.8;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <div class="logo-icon" aria-hidden="true">
+      <svg viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="moonGradAcimEn" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F8F1DF"/>
+            <stop offset="45%" stop-color="#D6B982"/>
+            <stop offset="100%" stop-color="#B79557"/>
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="28" fill="url(#moonGradAcimEn)" />
+        <circle cx="58" cy="44" r="22" fill="#F9F4E700" stroke="#F9F4E7" stroke-width="3" />
+        <path d="M30 63 C40 55, 60 55, 70 63
+                 C60 60, 50 62, 30 63 Z"
+              fill="#FDF9F1" stroke="#E4D1AA" stroke-width="1.2"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-text-main">Miracle Mind</div>
+      <div class="logo-text-sub">A gentle doorway into A Course in Miracles</div>
+    </div>
+  </div>
+  <nav>
+    <a href="index.html#about">About</a>
+    <a href="index.html#how">How it works</a>
+    <a href="index.html#safe">Safety</a>
+    <a href="acim.html">ACIM intro</a>
+    <a href="../acim.html">中文介紹</a>
+  </nav>
+</header>
+
+<main class="page">
+  <div class="page-inner">
+    <div class="page-tag">📖 For those who feel drawn to ACIM, but don’t want pressure or dogma</div>
+    <h1 class="page-title">Getting to Know “A Course in Miracles” — A Path Back to Inner Peace</h1>
+    <p class="page-sub">
+      Many people first hear about <em>A Course in Miracles</em> and assume it is a religion, a strict doctrine,
+      or something only “advanced spiritual people” can understand.<br>
+      In reality, it is more like a <strong>set of materials that gently retrain the mind</strong> — helping us
+      loosen the grip of fear, guilt, and self-attack, and remember a peace that was never truly lost.
+    </p>
+
+    <h2 class="section-title">What ACIM is not</h2>
+    <p class="section-text">
+      To make it safer to approach, it may help to first say what ACIM is <strong>not</strong>:
+    </p>
+    <div class="box">
+      <ul class="tips-list">
+        <li>It is <strong>not</strong> asking you to join a religion or submit to a spiritual hierarchy.</li>
+        <li>It is <strong>not</strong> about ranking who is “more advanced” or “more spiritual”.</li>
+        <li>It is <strong>not</strong> about denying your human feelings — rather, it helps you look at them with love.</li>
+      </ul>
+      <p style="margin-top:6px; font-size:13px;">
+        You can think of it as a very patient teacher, repeating in many ways:<br>
+        <strong>
+          “You are not a sinner to be punished. You are a mind that has forgotten it is loved — and can remember.”
+        </strong>
+      </p>
+    </div>
+
+    <h2 class="section-title">The three main parts of ACIM</h2>
+    <p class="section-text">
+      A complete printed ACIM set usually includes three books. They can sound intimidating at first,
+      but you can relate to them in simple, human ways:
+    </p>
+
+    <div class="book-grid">
+      <div class="book-card">
+        <div class="book-title">1️⃣ The Text</div>
+        <p>
+          This is like the “map” of the Course’s whole view.<br>
+          It talks about how the mind seems to split into fear and separation,
+          and gently points to the truth that we have never truly left Love.<br><br>
+          You don’t have to “get it all” at once. Even a paragraph that touches you is enough for a day.
+        </p>
+      </div>
+
+      <div class="book-card">
+        <div class="book-title">2️⃣ Workbook for Students (365 Lessons)</div>
+        <p>
+          One short lesson for each day of the year.<br>
+          Each lesson is like a small inner “instruction”, inviting you to see differently,
+          just for a moment at a time.<br><br>
+          You don’t need to be perfect or never miss a day. Many people’s lives shift slowly,
+          simply by practicing as honestly as they can.
+        </p>
+      </div>
+
+      <div class="book-card">
+        <div class="book-title">3️⃣ Manual for Teachers</div>
+        <p>
+          Despite the name, this is not only for formal “teachers”. It’s for anyone who feels called to share love.<br>
+          It uses a Q&A style to address questions like “Who is a teacher?”, “What is healing?”,
+          and “How should we look at time and death?”.<br><br>
+          As you grow more familiar with ACIM, this book can become a gentle reference companion.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Who might ACIM resonate with?</h2>
+    <p class="section-text">
+      You might feel drawn to ACIM if you sometimes find yourself wondering:
+    </p>
+    <div class="box">
+      <ul class="tips-list">
+        <li>“I’m trying to walk a spiritual path — so why do I still feel so angry, guilty, or afraid?”</li>
+        <li>“I don’t want to hide behind a religious label, but I deeply want to understand what real Love is.”</li>
+        <li>“I sense that the world is not exactly what it appears to be, but I can’t quite put it into words.”</li>
+      </ul>
+      <p style="margin-top:6px; font-size:13px;">
+        If so, ACIM might become a very honest and loving teacher for you.<br>
+        It doesn’t ask you to become “special” — only to become more and more willing to see yourself without attack.
+      </p>
+    </div>
+
+    <h2 class="section-title">How can I start without feeling overwhelmed?</h2>
+    <p class="section-text">
+      There is no one correct way, but if you want a gentle entry:
+    </p>
+    <ul class="tips-list">
+      <li>Flip through the books and notice how the language feels to you, without trying to understand everything.</li>
+      <li>Read a small portion of the Text, and pause whenever a sentence touches you. Let it sit in your heart.</li>
+      <li>If you feel ready, you can begin Lesson 1 of the Workbook and move at your own pace.</li>
+      <li>When you don’t understand something, it’s okay to leave it. Many insights arise later through life itself.</li>
+    </ul>
+
+    <h2 class="section-title">Where can I find ACIM?</h2>
+    <p class="section-text">
+      Availability varies by country and language, but in many places you can:
+    </p>
+    <ul class="link-list">
+      <li>Look for “A Course in Miracles” through major online bookstores.</li>
+      <li>Search for local ACIM study groups, communities, or teachers.</li>
+      <li>Check for authorized digital editions or apps, depending on your region and language.</li>
+    </ul>
+    <p class="section-text" style="margin-top:8px;">
+      Whatever form you choose, what matters most is not how quickly you move,
+      but whether you are willing to look at yourself with a bit more kindness each time.
+    </p>
+
+    <div class="cta-bar">
+      <div>
+        Would you like to bring ACIM’s perspective into something you’re facing right now — a relationship,
+        a fear, or a recurring pattern?<br>
+        You can return to the AI companion and talk in your own words. We’ll explore it together.
+      </div>
+      <button class="cta-btn" onclick="window.location.href='chat.html'">
+        <span class="icon">✨</span>
+        <span>Go to the Miracle Mind AI Companion</span>
+      </button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>Miracle Mind · ACIM-Inspired AI Companion</div>
+      <div class="footer-links">
+        <span>Contact: <a href="mailto:r91628120@gmail.com">r91628120@gmail.com</a></span>
+        <span>|</span>
+        <a href="index.html">Back to home</a>
+        <span>|</span>
+        <a href="../acim.html">中文 ACIM 介紹</a>
+      </div>
+    </div>
+    <div>© 2025 Miracle Mind. All rights reserved.</div>
+    <div style="opacity:0.6; font-size:11px; margin-top:4px;">
+      Version: acim-en v2025.12.06a
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

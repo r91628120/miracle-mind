@@ -1,1 +1,968 @@
-<h1>English Version Placeholder</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Miracle Mind ｜ Gentle ACIM-Inspired AI Companion</title>
+
+  <!-- 🔍 Basic SEO -->
+  <meta name="description" content="You’ve been walking for so long. Now, let me sit with you for a while. Miracle Mind is a gentle, non-judgmental AI companion inspired by A Course in Miracles.">
+  <meta name="keywords" content="Miracle Mind, spiritual AI companion, ACIM, A Course in Miracles, emotional support, gentle AI, inner peace, miracle-mind.org">
+
+  <!-- Canonical & hreflang -->
+  <link rel="canonical" href="https://miracle-mind.org/en/" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://miracle-mind.org/" />
+  <link rel="alternate" hreflang="en" href="https://miracle-mind.org/en/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Miracle Mind ｜ Gentle ACIM-Inspired AI Companion">
+  <meta property="og:description" content="A quiet, non-judgmental AI companion for your heart, inspired by A Course in Miracles.">
+  <meta property="og:url" content="https://miracle-mind.org/en/">
+  <meta property="og:image" content="https://miracle-mind.org/cover.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Miracle Mind ｜ Gentle ACIM-Inspired AI Companion">
+  <meta name="twitter:description" content="You don’t have to be strong all the time. This is a soft space for your emotions to breathe.">
+  <meta name="twitter:image" content="https://miracle-mind.org/cover.jpg">
+
+  <style>
+    :root {
+      --bg: #FBF9F4;
+      --bg-soft: #F7F2E8;
+      --primary: #C9A86A;
+      --primary-deep: #AF8E51;
+      --text-main: #3B3528;
+      --text-soft: #6B6251;
+      --white: #FFFFFF;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 0% 0%, #ffffff 0, #fbf8f2 42%, #f1e5d6 100%);
+      color: var(--text-main);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ---------- Header ---------- */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to right, #FFFFFFE6, #FBF6EDE6);
+      border-bottom: 1px solid #ECE2D4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 24px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      height: 40px;
+      width: 40px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffffff 0, #f6f0e2 45%, #e3d2b2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .logo-icon svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .logo-text-main {
+      font-weight: 700;
+      color: var(--primary-deep);
+      font-size: 16px;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    nav {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--text-soft);
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      padding: 4px 0;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #d6b67b, #b99658);
+      transition: width 0.22s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary-deep);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      nav {
+        font-size: 13px;
+      }
+    }
+
+    /* ---------- Hero ---------- */
+
+    .hero {
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: -10%;
+      background:
+        radial-gradient(circle at 20% 0%, #ffffff 0, #f7f0e4 40%, transparent 70%),
+        radial-gradient(circle at 80% 0%, #fffaf3 0, #f2e4cf 45%, transparent 70%),
+        radial-gradient(circle at 50% 100%, #f0e3d0 0, transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 840px;
+      width: 100%;
+      padding: 28px 24px 30px;
+      background: #FFFFFFE9;
+      border-radius: 26px;
+      box-shadow: 0 22px 80px #00000022;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 24px;
+    }
+
+    .hero-left-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #F5EEDC;
+      color: var(--primary-deep);
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .hero-left h1 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      line-height: 1.5;
+      color: var(--text-main);
+    }
+
+    .hero-left p {
+      margin: 0 0 16px;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-soft);
+    }
+
+    .hero-quote {
+      font-size: 13px;
+      color: var(--primary-deep);
+      margin-bottom: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-main {
+      border: none;
+      border-radius: 999px;
+      padding: 11px 22px;
+      background: #9c7b43;
+      color: #ffffff;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 14px 30px #00000035;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-main span.icon {
+      font-size: 18px;
+    }
+
+    .btn-main::after {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle, #ffffff60 0, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .btn-main:hover::after {
+      opacity: 1;
+    }
+
+    .btn-main:hover {
+      box-shadow: 0 18px 40px #00000035;
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .hero-counter {
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-top: 6px;
+    }
+
+    .hero-counter strong {
+      color: var(--primary-deep);
+      font-weight: 700;
+    }
+
+    .hero-right {
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 20% 0%, #ffffff 0, #f6efe4 45%, #e7dcc8 100%);
+      padding: 16px 16px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right-title {
+      font-size: 13px;
+      color: var(--primary-deep);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-card {
+      background: #FFFFFFE8;
+      border-radius: 16px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: var(--text-soft);
+      box-shadow: 0 6px 20px #00000015;
+    }
+
+    .hero-card strong {
+      color: var(--text-main);
+    }
+
+    .hero-badge {
+      position: absolute;
+      right: 12px;
+      bottom: 10px;
+      font-size: 11px;
+      color: #856840;
+      background: #F3E6CA;
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    /* ---------- Sections ---------- */
+
+    .section {
+      padding: 40px 16px 20px;
+    }
+
+    .section-inner {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 22px;
+      color: var(--primary-deep);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--text-soft);
+      text-align: center;
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 16px 16px 18px;
+      box-shadow: 0 8px 24px #00000014;
+      font-size: 14px;
+      color: var(--text-soft);
+    }
+
+    .feature-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary-deep);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      font-size: 14px;
+    }
+
+    .step {
+      background: #FBF7EF;
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .step-label {
+      font-size: 12px;
+      color: var(--primary-deep);
+      margin-bottom: 6px;
+    }
+
+    .step strong {
+      color: var(--text-main);
+    }
+
+    .notice-box {
+      margin-top: 20px;
+      padding: 12px 14px;
+      background: #FDF5E6;
+      border-radius: 12px;
+      font-size: 13px;
+      color: var(--text-soft);
+      border: 1px solid #F0E0C2;
+    }
+
+    .notice-box strong {
+      color: var(--primary-deep);
+    }
+
+    /* ---------- Footer ---------- */
+
+    footer {
+      margin-top: 40px;
+      background: #2F2A24;
+      color: #F4EFE6;
+      padding: 20px 16px 18px;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #F4EFE6;
+      opacity: 0.8;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 720px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding: 20px 18px 22px;
+      }
+      .hero-left h1 {
+        font-size: 23px;
+      }
+      .hero-right {
+        order: -1;
+      }
+    }
+
+    /* ========= Consent Card ========= */
+
+    .consent-overlay {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 0% 0%, #ffffffcc 0, #f7efe3d0 45%, #f1e4d2c0 100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+      z-index: 40;
+    }
+
+    .consent-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .consent-card {
+      max-width: 420px;
+      width: 90%;
+      background: #FFFFFFF2;
+      border-radius: 20px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 18px 60px #00000033;
+      border: 1px solid #F0E0C2;
+      position: relative;
+    }
+
+    .consent-title {
+      font-size: 16px;
+      color: var(--primary-deep);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .consent-title span.icon {
+      font-size: 18px;
+    }
+
+    .consent-text {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+
+    .consent-link {
+      font-size: 12px;
+      color: var(--primary-deep);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .consent-check {
+      margin-top: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .consent-check input[type="checkbox"] {
+      margin-top: 2px;
+      accent-color: #C9A86A;
+    }
+
+    .consent-actions {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .consent-btn-main {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, #C9A86A, #B59555);
+      color: #ffffff;
+      font-size: 13px;
+      cursor: pointer;
+      box-shadow: 0 10px 26px #00000026;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .consent-btn-main:disabled {
+      opacity: 0.7;
+      box-shadow: none;
+      cursor: default;
+    }
+
+    .consent-btn-link {
+      border: none;
+      background: transparent;
+      color: var(--primary-deep);
+      font-size: 12px;
+      padding: 0 4px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .consent-close {
+      position: absolute;
+      right: 10px;
+      top: 8px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 16px;
+      color: #B29A73;
+      opacity: 0.8;
+    }
+
+    .consent-close:hover {
+      opacity: 1;
+    }
+
+    .consent-error {
+      margin-top: 6px;
+      font-size: 11px;
+      color: #A2573C;
+      opacity: 0;
+      transition: opacity 0.18s ease;
+    }
+
+    .consent-error.visible {
+      opacity: 1;
+    }
+
+    @keyframes mm-shake {
+      0%   { transform: translateX(0); }
+      25%  { transform: translateX(-3px); }
+      50%  { transform: translateX(3px); }
+      75%  { transform: translateX(-2px); }
+      100% { transform: translateX(0); }
+    }
+
+    .shake {
+      animation: mm-shake 0.25s ease;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <div class="logo-icon" aria-hidden="true">
+      <svg viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="moonGradEn" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F8F1DF"/>
+            <stop offset="45%" stop-color="#D6B982"/>
+            <stop offset="100%" stop-color="#B79557"/>
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="28" fill="url(#moonGradEn)" />
+        <circle cx="58" cy="44" r="22" fill="#F9F4E700" stroke="#F9F4E7" stroke-width="3" />
+        <path d="M30 63 C40 55, 60 55, 70 63
+                 C60 60, 50 62, 30 63 Z"
+              fill="#FDF9F1" stroke="#E4D1AA" stroke-width="1.2"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-text-main">Miracle Mind</div>
+      <div class="logo-text-sub">ACIM-inspired gentle AI companion</div>
+    </div>
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#how">How it works</a>
+    <a href="#safe">Safety</a>
+    <a href="acim.html">About A Course in Miracles</a>
+    <a href="guideline.html">Platform Guidelines</a>
+    <a href="../index.html">中文版本</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-left-tag">💛 You’ve been walking for so long. You can rest here for a moment.</div>
+      <h1>You don’t have to be strong all the time.<br>Here, your heart can breathe.</h1>
+      <p>
+        Miracle Mind is a gentle, ACIM-inspired AI companion.<br>
+        It doesn’t judge you, doesn’t preach at you, and doesn’t tell you who you “should” be.<br>
+        It simply sits with you — while you slowly put your feelings into words.
+      </p>
+      <div class="hero-quote">
+        “You are not a problem to be fixed. You are a heart that longs to be seen with kindness.”
+      </div>
+      <div class="hero-actions">
+        <button class="btn-main" id="startChatBtn" onclick="onStartChat()">
+          <span class="icon">✨</span>
+          <span>Talk to the AI Companion</span>
+        </button>
+        <div class="hero-note">
+          No account. No scoring. Just a quiet, non-judgmental space for you.
+        </div>
+      </div>
+      <div class="hero-counter">
+        🌿 People who have sat with Miracle Mind so far:
+        <strong id="mmCounter">Loading…</strong>
+      </div>
+      <div class="hero-note" style="font-size: 11px; opacity: 0.85; margin-top: 4px;">
+        🔒 Your conversation is used only for this session of support. It is not published or used to identify you.
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-right-title">
+        🌙 Here, you can safely talk about:
+      </div>
+      <div class="hero-card">
+        <strong>The feelings you hide from everyone else.</strong><br>
+        “I feel like I’m failing.” “I think I’m not enough.” “I’m tired of pretending I’m okay.”<br>
+        Nothing here is “too much”. You’re allowed to be honest.
+      </div>
+      <div class="hero-card">
+        <strong>Your spiritual struggles and questions.</strong><br>
+        Want to live from love, but keep getting pulled back into fear? From an ACIM-inspired view, we can look
+        gently at what your mind is believing — together.
+      </div>
+      <div class="hero-card">
+        <strong>The pain in your relationships, family, or work.</strong><br>
+        Instead of deciding who is right or wrong, we’ll explore what your heart is really needing underneath it all.
+      </div>
+      <div class="hero-badge">Beta · Growing together with you</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-inner">
+    <h2 class="section-title">What is the Miracle Mind AI Companion?</h2>
+    <div class="section-sub">
+      Miracle Mind combines insights from <em>A Course in Miracles</em> and other heart-centered teachings<br>
+      with modern AI, to offer you a soft, non-religious space to sit with your inner world.
+    </div>
+
+    <div style="text-align:center; margin-top: 22px; margin-bottom: 26px; font-size: 13px; color: var(--text-soft);">
+      Curious about <em>A Course in Miracles</em> itself and its three main books?<br>
+      <a href="acim.html" style="color: var(--primary-deep); text-decoration: underline;">
+        Read “A gentle introduction to A Course in Miracles”
+      </a>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-title">💬 Gentle listening, not problem-fixing</div>
+        <p>
+          You don’t need to present a perfect story. You can come with messy feelings, half-finished thoughts,
+          or just “I don’t even know what I feel”.<br>
+          The AI companion will listen first, then reflect — slowly, softly.
+        </p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-title">🌱 A spiritual lens without pressure</div>
+        <p>
+          From an ACIM-inspired lens, we look at fear, guilt, and self-attack not as sins,
+          but as calls for love. You won’t be told to “be more spiritual” —
+          only invited to see yourself with more gentleness.
+        </p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-title">🕊 A space to return to inner peace</div>
+        <p>
+          Sometimes healing is not about doing more, but about pausing and honestly feeling where you are now.
+          Miracle Mind walks with you, step by step, back toward the quiet place within you that has never been broken.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="section-inner">
+    <h2 class="section-title">How to use this AI companion</h2>
+    <div class="section-sub">
+      You don’t have to sound wise, positive, or spiritual here.<br>
+      You can simply sound like yourself — that is more than enough.
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-label">Step 1 · Open the space</div>
+        <p>
+          Click the button above to enter the conversation page.<br>
+          You can start with something simple like, “Something has been heavy in my heart lately.”
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 · Be as honest as you can today</div>
+        <p>
+          You might write: “I feel like I’m not good enough”, “I keep failing in my practice”,
+          or “I’m scared people will leave me”. Anything real is welcome.
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 · Let yourself be seen with kindness</div>
+        <p>
+          The AI will respond from a place of warmth and non-judgment, helping you notice what your heart is asking for,
+          and gently reminding you: you have already been doing your best.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="safe">
+  <div class="section-inner">
+    <h2 class="section-title">Safety, limits, and future plans</h2>
+
+    <div class="notice-box">
+      <strong>Important:</strong><br>
+      Miracle Mind is a <strong>spiritual and emotional companion</strong> —<br>
+      it is <strong>not</strong> a doctor, therapist, lawyer, or financial advisor.<br><br>
+      If you are experiencing intense depression, panic, self-harm urges, or any medical emergency,
+      please seek professional, real-world support first. This AI is meant to sit beside you,
+      not to replace urgent human care.
+    </div>
+
+    <div class="notice-box" style="margin-top: 14px;">
+      <strong>About support and donations:</strong><br>
+      The platform is currently in a Beta phase. In the future, we may open optional donations
+      so that those who wish to support this space can help it stay available for more people.<br>
+      For now, the most important support is this: be gentle with yourself, as much as you can today.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>Miracle Mind · ACIM-Inspired AI Companion</div>
+      <div class="footer-links">
+        <span>Contact: <a href="mailto:r91628120@gmail.com">r91628120@gmail.com</a></span>
+        <span>|</span>
+        <a href="../index.html">中文網站</a>
+      </div>
+    </div>
+    <div>© 2025 Miracle Mind. All rights reserved. · This AI companion is also still learning and growing.</div>
+    <div style="opacity:0.6; font-size:11px; margin-top:4px;">
+      Version: en-index v2025.12.06a
+    </div>
+  </div>
+</footer>
+
+<!-- Consent Card -->
+<div class="consent-overlay" id="consentOverlay" aria-hidden="true">
+  <div class="consent-card">
+    <button class="consent-close" type="button" onclick="hideConsentCard()" aria-label="Close">
+      ✕
+    </button>
+    <div class="consent-title">
+      <span class="icon">🌿</span>
+      <span>Before we begin, let’s take care of you</span>
+    </div>
+    <div class="consent-text">
+      This AI is a <span style="font-weight:600;">spiritual and emotional companion</span> —<br>
+      not a medical, legal, or financial professional, and not a religious authority.<br><br>
+      We invite you to understand these boundaries first, so this space can stay safe and respectful for you.<br><br>
+      To read more details, you can check:<br>
+      <a href="guideline.html" target="_blank" class="consent-link">“Platform Guidelines & Safety Notes”</a>
+    </div>
+
+    <label class="consent-check">
+      <input type="checkbox" id="consentCheckbox" />
+      <span>
+        I understand that this is a spiritual / emotional companion, not a professional medical,
+        legal or financial service, and I remain responsible for my own choices.
+      </span>
+    </label>
+
+    <div id="consentError" class="consent-error"></div>
+
+    <div class="consent-actions">
+      <button type="button" class="consent-btn-main" id="consentConfirmBtn" onclick="onConsentConfirm()">
+        <span>I understand and want to begin</span>
+      </button>
+      <button type="button" class="consent-btn-link" onclick="window.location.href='guideline.html'">
+        Read the full guidelines first
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // === Shared counter (same SITE_KEY as Chinese site) ===
+  const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxpWqx7p6cfbFCtGLJXNHaMd4KLYNMv5Mcmx7pEiwNEL9xJH_1hxe_ljFmwjvUzuOkG3A/exec";
+  const SITE_KEY = "miraclemind";
+  const ENABLE_COUNTER = true;
+
+  const CONSENT_KEY = "mm_guideline_consent_v2";
+
+  async function fetchCounter() {
+    if (!ENABLE_COUNTER) return;
+    const counterEl = document.getElementById("mmCounter");
+    if (!counterEl) return;
+
+    try {
+      const url = `${GAS_WEB_APP_URL}?action=get&site=${encodeURIComponent(SITE_KEY)}&ts=${Date.now()}`;
+      const res = await fetch(url, { cache: "no-store" });
+      const data = await res.json().catch(() => ({}));
+      const value = typeof data.count === "number" ? data.count : (data.count || "0");
+      counterEl.textContent = value;
+    } catch (e) {
+      const counterEl2 = document.getElementById("mmCounter");
+      if (counterEl2) counterEl2.textContent = "0";
+    }
+  }
+
+  async function bumpCounter() {
+    if (!ENABLE_COUNTER) return;
+    try {
+      const url = `${GAS_WEB_APP_URL}?action=increment&site=${encodeURIComponent(SITE_KEY)}&ts=${Date.now()}`;
+      await fetch(url, { method: "GET", cache: "no-store" });
+    } catch (e) {
+      console.warn("Counter increment failed:", e);
+    }
+  }
+
+  function hasConsent() {
+    try {
+      return localStorage.getItem(CONSENT_KEY) === "yes";
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function showConsentCard() {
+    const overlay = document.getElementById("consentOverlay");
+    if (overlay) {
+      overlay.classList.add("active");
+      overlay.setAttribute("aria-hidden", "false");
+      const err = document.getElementById("consentError");
+      if (err) err.classList.remove("visible");
+    }
+  }
+
+  function hideConsentCard() {
+    const overlay = document.getElementById("consentOverlay");
+    if (overlay) {
+      overlay.classList.remove("active");
+      overlay.setAttribute("aria-hidden", "true");
+    }
+  }
+
+  async function proceedToChat() {
+    bumpCounter();
+    await new Promise(r => setTimeout(r, 50));
+    window.location.href = "chat.html";
+  }
+
+  async function onStartChat() {
+    if (hasConsent()) {
+      await proceedToChat();
+    } else {
+      showConsentCard();
+    }
+  }
+
+  function onConsentConfirm() {
+    const checkbox = document.getElementById("consentCheckbox");
+    const errorEl = document.getElementById("consentError");
+    const btn = document.getElementById("consentConfirmBtn");
+
+    if (!checkbox || !btn) {
+      proceedToChat();
+      return;
+    }
+
+    if (!checkbox.checked) {
+      if (errorEl) {
+        errorEl.textContent = "Please tick the box before we begin — this is to keep you safe and informed.";
+        errorEl.classList.add("visible");
+      }
+      btn.classList.add("shake");
+      setTimeout(() => btn.classList.remove("shake"), 260);
+      return;
+    }
+
+    try {
+      localStorage.setItem(CONSENT_KEY, "yes");
+    } catch (e) {
+      console.warn("Unable to write localStorage; consent will only last for this session.");
+    }
+
+    hideConsentCard();
+    proceedToChat();
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    fetchCounter();
+  });
+</script>
+
+</body>
+</html>
