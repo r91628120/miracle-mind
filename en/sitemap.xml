@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- English Homepage -->
+  <url>
+    <loc>https://miracle-mind.org/en/</loc>
+    <xhtml:link 
+      rel="alternate" 
+      hreflang="en" 
+      href="https://miracle-mind.org/en/" />
+    <xhtml:link 
+      rel="alternate" 
+      hreflang="zh-Hant" 
+      href="https://miracle-mind.org/" />
+    <priority>1.0</priority>
+  </url>
+
+  <!-- English ACIM page -->
+  <url>
+    <loc>https://miracle-mind.org/en/acim.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://miracle-mind.org/en/acim.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://miracle-mind.org/acim.html" />
+    <priority>0.8</priority>
+  </url>
+
+  <!-- English Chat -->
+  <url>
+    <loc>https://miracle-mind.org/en/chat.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://miracle-mind.org/en/chat.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://miracle-mind.org/chat.html" />
+    <priority>0.8</priority>
+  </url>
+
+  <!-- English Guidelines -->
+  <url>
+    <loc>https://miracle-mind.org/en/guideline.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://miracle-mind.org/en/guideline.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://miracle-mind.org/guideline.html" />
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
