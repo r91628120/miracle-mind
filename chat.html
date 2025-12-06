@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>心靈陪伴者｜奇蹟心靈 AI 導師</title>
+  <title>Miracle Mind · Spiritual AI Companion</title>
+
   <style>
     :root {
       --bg: #FBF8F2;
@@ -20,7 +21,7 @@
 
     body {
       margin: 0;
-      font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
       background: radial-gradient(circle at top, #FFFFFF 0, #FBF8F2 40%, #F0E4D4 100%);
       color: var(--text-main);
       display: flex;
@@ -30,6 +31,7 @@
 
     a { text-decoration: none; color: inherit; }
 
+    /* ---------- HEADER ---------- */
     header {
       padding: 10px 14px;
       display: flex;
@@ -61,6 +63,7 @@
       color: var(--text-soft);
     }
 
+    /* --- Chat layout (copied + adapted from Chinese version) --- */
     .chat-wrapper {
       flex: 1;
       display: flex;
@@ -152,6 +155,7 @@
       color: #ffffff;
     }
 
+    /* Quick area */
     .quick-area {
       padding: 8px 12px 4px;
       background: #FAF4EA;
@@ -182,14 +186,11 @@
       box-shadow: 0 4px 10px #00000015;
     }
 
-    .quick-btn span.icon {
-      font-size: 14px;
-    }
-
     .quick-btn:hover {
       background: #EAD9C0;
     }
 
+    /* Hint */
     .hint {
       font-size: 11px;
       color: var(--text-soft);
@@ -199,6 +200,7 @@
       border-top: 1px solid #E7DCCB;
     }
 
+    /* Input area */
     .input-area {
       border-top: 1px solid #E7DCCB;
       padding: 8px;
@@ -256,7 +258,7 @@
       }
     }
 
-    /* === 首次使用溫柔提醒條 === */
+    /* Consent banner */
     .consent-reminder {
       display: none;
       background: #FFF6E4;
@@ -272,54 +274,64 @@
       text-decoration: underline;
     }
 
-
   </style>
 </head>
 <body>
 
 <header>
-  <a class="back" href="index.html">← 回到首頁</a>
+  <a class="back" href="index.html">← Back to Home</a>
   <div class="title-wrap">
-    <div class="title-main">心靈陪伴者</div>
-    <div class="title-sub">一位溫柔、不批判的奇蹟心靈 AI 導師</div>
+    <div class="title-main">Miracle Mind</div>
+    <div class="title-sub">A gentle, non-judgmental spiritual companion</div>
   </div>
 </header>
 
 <div class="consent-reminder" id="consentReminder">
-  🌿 小提醒：這位 AI 導師是心靈陪伴者，不是醫療或法律專業服務。
-  建議你先大致看過
-  <a href="guideline.html" target="_blank">《平台指引與使用規範》</a>，再慢慢說。💛
+  🌿 A reminder: this AI is a spiritual companion, not a medical or psychological service.
+  If you feel unsafe or in distress, please reach out to real-world support immediately.
+  <br>
+  <a href="guideline.html" target="_blank">Read platform guidelines</a>
 </div>
 
-
+<!-- CHAT AREA -->
 <div class="chat-wrapper">
   <div class="chat-card">
+
+    <!-- TOP BAR -->
     <div class="chat-header">
       <div class="avatar">🌙</div>
       <div class="chat-header-text">
-        <div class="name">心靈陪伴者</div>
-        <div class="desc">「不急，我在這裡，陪你慢慢說。」</div>
+        <div class="name">Miracle Mind</div>
+        <div class="desc">“No rush. I’m here with you.”</div>
       </div>
     </div>
 
+    <!-- MESSAGES -->
     <div class="messages" id="messages"></div>
 
+    <!-- QUICK START -->
     <div class="quick-area">
-      <div class="quick-hint">如果一時間不知道怎麼說，可以先按下面這個按鈕，讓我幫你開個頭。</div>
+      <div class="quick-hint">Not sure how to begin? You can tap this:</div>
+
       <button class="quick-btn" id="quickBtn">
         <span class="icon">🕊</span>
-        <span>一鍵傾訴：我現在有點亂⋯</span>
+        <span>I’m feeling a bit overwhelmed…</span>
       </button>
     </div>
 
+    <!-- SAFETY HINT -->
     <div class="hint">
-      ⚠️ 提醒：這裡是心靈陪伴，不是專業醫療或諮商。如有自傷念頭或嚴重心理困擾，請儘快尋求專業協助。
+      ⚠️ Reminder: This AI is a spiritual companion, not a medical or psychological service.
+      If you feel unsafe or in distress, please seek real-world help.
     </div>
 
+    <!-- INPUT -->
     <div class="input-area">
-      <textarea id="userInput" placeholder="想從哪裡開始說呢？最近哪一件事，讓你的心特別累、特別難受？"></textarea>
-      <button class="send-btn" id="sendBtn">送出</button>
+      <textarea id="userInput"
+        placeholder="You may begin wherever you are… What has been weighing on your heart today?"></textarea>
+      <button class="send-btn" id="sendBtn">Send</button>
     </div>
+
   </div>
 </div>
 
@@ -331,21 +343,24 @@
 
   let history = [];
 
-  // 初始歡迎訊息
+  // -------- INITIAL ASSISTANT MESSAGE --------
   addAssistantMessage(
-    "你已經很努力了，我知道。\n\n" +
-    "現在先不用急著堅強，也不用急著把事情想清楚。\n" +
-    "我會一直在這裡，陪你一起看看你心裡的風景。\n\n" +
-    "你可以先跟我說說：最近哪一件事，讓你的心特別累、特別不舒服？"
+    "You’ve been carrying so much.\n\n" +
+    "Right now, you don’t need to be strong or have everything sorted out. " +
+    "You’re welcome to sit here, breathe, and speak at your own pace.\n\n" +
+    "If you’d like… what is one thing on your heart today?"
   );
 
   function addAssistantMessage(text) {
     history.push({ role: "assistant", content: text });
+
     const row = document.createElement("div");
     row.className = "msg-row assistant";
+
     const bubble = document.createElement("div");
     bubble.className = "bubble";
     bubble.textContent = text;
+
     row.appendChild(bubble);
     messagesEl.appendChild(row);
     messagesEl.scrollTop = messagesEl.scrollHeight;
@@ -353,33 +368,35 @@
 
   function addUserMessage(text) {
     history.push({ role: "user", content: text });
+
     const row = document.createElement("div");
     row.className = "msg-row user";
+
     const bubble = document.createElement("div");
     bubble.className = "bubble";
     bubble.textContent = text;
+
     row.appendChild(bubble);
     messagesEl.appendChild(row);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
-  // 一鍵傾訴：自動帶入文字
+  // -------- QUICK START --------
+
   const QUICK_TEXT =
-    "我最近一直覺得自己很累，有一些說不出來的感覺，心裡有點亂，也不知道從哪裡開始說⋯\n" +
-    "可以先陪我一下嗎？";
+    "I'm not sure where to begin, but something in me feels heavy lately… " +
+    "Could you stay with me for a moment?";
 
   quickBtn.addEventListener("click", () => {
-    // 如果輸入框本來有字，就在後面接上
     if (userInputEl.value.trim()) {
       userInputEl.value = userInputEl.value.trim() + "\n\n" + QUICK_TEXT;
     } else {
       userInputEl.value = QUICK_TEXT;
     }
     userInputEl.focus();
-    // 捲到最下方
-    messagesEl.scrollTop = messagesEl.scrollHeight;
   });
 
+  // -------- SEND MESSAGE LOGIC --------
   async function sendMessage() {
     const text = userInputEl.value.trim();
     if (!text) return;
@@ -387,12 +404,13 @@
     addUserMessage(text);
     userInputEl.value = "";
     userInputEl.focus();
+
     sendBtn.disabled = true;
-    sendBtn.textContent = "回應中…";
+    sendBtn.textContent = "Thinking…";
 
     try {
-      // 🔧 TODO：之後換成你 Cloudflare Worker 的網址
       const API_URL = "https://miracle-mind-api-1009467346209.asia-east1.run.app/chat";
+
       const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -403,38 +421,40 @@
         }),
       });
 
-      if (!res.ok) throw new Error("伺服器錯誤");
+      if (!res.ok) throw new Error("Server error");
 
       const data = await res.json();
-      const reply = data.reply || "抱歉，我剛剛好像有點分心，可以請你再說一次嗎？";
+
+      const reply = data.reply ||
+        "Hmm… I may have drifted for a moment. Could you share that again gently?";
+
       addAssistantMessage(reply);
 
     } catch (err) {
-      console.error(err);
       addAssistantMessage(
-        "看起來我暫時連不上內在的「網路」了。\n\n" +
-        "先深呼吸三次，給自己一點點空間。\n" +
-        "如果可以，等等再試著傳一次訊息給我，好嗎？"
+        "I seem to have lost connection for a moment.\n" +
+        "No need to worry. When you're ready, feel free to send it again."
       );
     } finally {
       sendBtn.disabled = false;
-      sendBtn.textContent = "送出";
+      sendBtn.textContent = "Send";
     }
   }
 
   sendBtn.addEventListener("click", sendMessage);
+
   userInputEl.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
     }
   });
-</script>
 
-<script>
+  // -------- CONSENT REMINDER --------
   (function () {
-    const CONSENT_KEY = "mm_guideline_consent_v1";
+    const CONSENT_KEY = "mm_guideline_consent_v2";
     let ok = false;
+
     try {
       ok = localStorage.getItem(CONSENT_KEY) === "yes";
     } catch (e) {
@@ -448,8 +468,9 @@
   })();
 </script>
 
+<!-- FOOTER -->
 <div style="text-align:center;font-size:10px;color:#b5a995;padding:6px;">
-  v2025.11.30c
+  en-chat v2025.12.06a
 </div>
 
 </body>
