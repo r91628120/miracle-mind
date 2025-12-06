@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miracle Mind ｜ Gentle AI Companion</title>
+  <title>Miracle Mind · Spiritual AI Companion</title>
+
   <style>
     :root {
       --bg: #FBF8F2;
@@ -20,7 +21,7 @@
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
       background: radial-gradient(circle at top, #FFFFFF 0, #FBF8F2 40%, #F0E4D4 100%);
       color: var(--text-main);
       display: flex;
@@ -30,6 +31,7 @@
 
     a { text-decoration: none; color: inherit; }
 
+    /* ---------- HEADER ---------- */
     header {
       padding: 10px 14px;
       display: flex;
@@ -61,202 +63,7 @@
       color: var(--text-soft);
     }
 
-    .chat-wrapper {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      padding: 14px;
-    }
-
-    .chat-card {
-      width: 100%;
-      max-width: 840px;
-      background: var(--card-bg);
-      border-radius: 20px;
-      box-shadow: 0 16px 60px #00000025;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    .chat-header {
-      padding: 12px 16px;
-      border-bottom: 1px solid #E7DCCB;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .avatar {
-      height: 40px;
-      width: 40px;
-      border-radius: 999px;
-      background:
-        radial-gradient(circle at 30% 20%, #ffffff 0, #f4eee2 40%, #e0cda5 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-    }
-
-    .chat-header-text {
-      display: flex;
-      flex-direction: column;
-      font-size: 14px;
-    }
-
-    .chat-header-text .name {
-      font-weight: 600;
-      color: var(--primary-deep);
-    }
-
-    .chat-header-text .desc {
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
-    .messages {
-      flex: 1;
-      padding: 14px 14px 4px;
-      overflow-y: auto;
-      background: linear-gradient(to bottom, #FBF8F2 0, #F7F1E7 30%, #F3EBDF 100%);
-    }
-
-    .msg-row {
-      display: flex;
-      margin-bottom: 10px;
-    }
-
-    .msg-row.assistant { justify-content: flex-start; }
-    .msg-row.user { justify-content: flex-end; }
-
-    .bubble {
-      max-width: 72%;
-      padding: 9px 13px;
-      border-radius: 16px;
-      font-size: 14px;
-      line-height: 1.7;
-      box-shadow: 0 4px 14px #00000018;
-      white-space: pre-wrap;
-    }
-
-    .assistant .bubble {
-      background: var(--assistant-bubble);
-      border-bottom-left-radius: 4px;
-      color: var(--text-soft);
-    }
-
-    .user .bubble {
-      background: var(--user-bubble);
-      border-bottom-right-radius: 4px;
-      color: #ffffff;
-    }
-
-    .quick-area {
-      padding: 8px 12px 4px;
-      background: #FAF4EA;
-      border-top: 1px solid #E7DCCB;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .quick-hint {
-      font-size: 11px;
-      color: var(--text-soft);
-    }
-
-    .quick-btn {
-      border: none;
-      border-radius: 999px;
-      padding: 5px 12px;
-      font-size: 12px;
-      background: #F2E4CE;
-      color: var(--primary-deep);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 4px 10px #00000015;
-    }
-
-    .quick-btn span.icon {
-      font-size: 14px;
-    }
-
-    .quick-btn:hover {
-      background: #EAD9C0;
-    }
-
-    .hint {
-      font-size: 11px;
-      color: var(--text-soft);
-      text-align: center;
-      padding: 4px 10px 8px;
-      background: #F7F0E5;
-      border-top: 1px solid #E7DCCB;
-    }
-
-    .input-area {
-      border-top: 1px solid #E7DCCB;
-      padding: 8px;
-      background: #FAF4EA;
-      display: flex;
-      gap: 8px;
-    }
-
-    textarea {
-      flex: 1;
-      resize: none;
-      border-radius: 12px;
-      border: 1px solid #DDCFBB;
-      padding: 8px 10px;
-      font-family: inherit;
-      font-size: 14px;
-      min-height: 50px;
-      max-height: 120px;
-      background: #FDF8F0;
-    }
-
-    textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 2px #E9D7B3;
-      background: #FFFFFF;
-    }
-
-    button.send-btn {
-      border: none;
-      border-radius: 12px;
-      padding: 0 16px;
-      background: linear-gradient(135deg, #C9A86A, #B59555);
-      color: #ffffff;
-      font-size: 14px;
-      cursor: pointer;
-      min-width: 80px;
-      box-shadow: 0 8px 20px #00000025;
-    }
-
-    button.send-btn:disabled {
-      opacity: 0.6;
-      cursor: default;
-      box-shadow: none;
-    }
-
-    @media (max-width: 720px) {
-      .chat-card {
-        border-radius: 0;
-        box-shadow: none;
-      }
-      .quick-area {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    /* First-time reminder bar */
+    /* reminder bar */
     .consent-reminder {
       display: none;
       background: #FFF6E4;
@@ -273,54 +80,63 @@
     }
   </style>
 </head>
+
 <body>
 
 <header>
-  <a class="back" href="index.html">← Back to home</a>
+  <a class="back" href="index.html">← Back to Home</a>
   <div class="title-wrap">
-    <div class="title-main">Miracle Mind Companion</div>
-    <div class="title-sub">“No rush. I’m here. We can take it slowly.”</div>
+    <div class="title-main">Miracle Mind</div>
+    <div class="title-sub">A gentle, non-judgmental spiritual companion</div>
   </div>
 </header>
 
 <div class="consent-reminder" id="consentReminder">
-  🌿 Gentle reminder: This AI is a spiritual / emotional companion, not professional medical or legal care.
-  You can read the
-  <a href="guideline.html" target="_blank">Platform Guidelines</a>
-  if you’d like to understand the boundaries more clearly. 💛
+  🌿 A gentle reminder: this AI is a <strong>spiritual companion</strong>,  
+  not medical or legal advice.<br>
+  You may read the  
+  <a href="guideline.html" target="_blank">Platform Guidelines</a>  
+  before we begin. 💛
 </div>
-
+<!-- CHAT BODY -->
 <div class="chat-wrapper">
   <div class="chat-card">
+
+    <!-- Chat header -->
     <div class="chat-header">
       <div class="avatar">🌙</div>
       <div class="chat-header-text">
         <div class="name">Miracle Mind</div>
-        <div class="desc">A quiet space where your feelings are allowed to exist.</div>
+        <div class="desc">“No rush. I’m here with you.”</div>
       </div>
     </div>
 
+    <!-- Messages -->
     <div class="messages" id="messages"></div>
 
+    <!-- Quick Start -->
     <div class="quick-area">
-      <div class="quick-hint">
-        If it’s hard to know where to begin, you can tap this button and let me help you start.
-      </div>
+      <div class="quick-hint">If you're not sure how to begin, you can tap this:</div>
+
       <button class="quick-btn" id="quickBtn">
         <span class="icon">🕊</span>
-        <span>One-tap opening: “My heart feels a bit messy…”</span>
+        <span>I'm feeling a bit overwhelmed…</span>
       </button>
     </div>
 
+    <!-- Safety hint -->
     <div class="hint">
-      ⚠️ This is a space for emotional and spiritual support. If you are in crisis or thinking of harming
-      yourself or others, please seek local emergency or professional help as your first priority.
+      ⚠️ Reminder: This AI is a spiritual companion, not a medical or psychological service.  
+      If you feel unsafe or in distress, please reach out to real-world support immediately.
     </div>
 
+    <!-- Input area -->
     <div class="input-area">
-      <textarea id="userInput" placeholder="Where would you like to begin? What has been weighing on your heart lately?"></textarea>
+      <textarea id="userInput"
+        placeholder="You may begin wherever you are… What has been weighing on your heart lately?"></textarea>
       <button class="send-btn" id="sendBtn">Send</button>
     </div>
+
   </div>
 </div>
 
@@ -332,13 +148,12 @@
 
   let history = [];
 
-  // Initial welcome message
+  // ----------- Initial gentle welcome message -----------
   addAssistantMessage(
-    "You’ve already carried a lot on your own.\n\n" +
-    "Here, you don’t have to be strong, clear, or put-together.\n" +
-    "You’re allowed to be exactly as you are in this moment.\n\n" +
-    "If you’d like, you can start by telling me:\n" +
-    "What has been feeling especially heavy, confusing, or painful in your heart recently?"
+    "You’ve been carrying so much.\n\n" +
+    "Right now, you don’t need to be strong or have everything sorted out. " +
+    "You’re welcome to sit here, breathe, and speak at your own pace.\n\n" +
+    "If you’d like… what is one thing on your heart today?"
   );
 
   function addAssistantMessage(text) {
@@ -365,10 +180,10 @@
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
+  // ----------- Quick Start English text -----------
   const QUICK_TEXT =
-    "Lately I’ve been feeling really tired inside. There are feelings I can’t fully name, " +
-    "and my heart feels a bit messy and overwhelmed.\n" +
-    "Could you just sit with me for a while and help me sort through this?";
+    "I'm not sure where to start, but something in me feels heavy lately… " +
+    "Could you stay with me for a moment?";
 
   quickBtn.addEventListener("click", () => {
     if (userInputEl.value.trim()) {
@@ -380,6 +195,7 @@
     messagesEl.scrollTop = messagesEl.scrollHeight;
   });
 
+  // ----------- Sending message to API -----------
   async function sendMessage() {
     const text = userInputEl.value.trim();
     if (!text) return;
@@ -392,6 +208,7 @@
 
     try {
       const API_URL = "https://miracle-mind-api-1009467346209.asia-east1.run.app/chat";
+
       const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -405,16 +222,17 @@
       if (!res.ok) throw new Error("Server error");
 
       const data = await res.json();
-      const reply = data.reply || "I’m sorry, something went wrong on my side. If you’re willing, you can try sending your message again.";
+      const reply = data.reply ||
+        "Hmm… I may have drifted for a moment. Could you share that again gently?";
+
       addAssistantMessage(reply);
 
     } catch (err) {
       console.error(err);
       addAssistantMessage(
-        "It seems I’ve lost connection for a moment.\n\n" +
-        "Before trying again, maybe take three slow breaths with me:\n" +
-        "Inhale gently… and exhale…\n\n" +
-        "When you feel ready, you can send your message again and I’ll be here."
+        "It seems I momentarily lost the connection.\n\n" +
+        "Take a slow breath with me.\n" +
+        "When you’re ready, feel free to send your message again."
       );
     } finally {
       sendBtn.disabled = false;
@@ -423,6 +241,7 @@
   }
 
   sendBtn.addEventListener("click", sendMessage);
+
   userInputEl.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
@@ -431,10 +250,12 @@
   });
 </script>
 
+<!-- ---------- Consent Reminder Logic ---------- -->
 <script>
   (function () {
     const CONSENT_KEY = "mm_guideline_consent_v2";
     let ok = false;
+
     try {
       ok = localStorage.getItem(CONSENT_KEY) === "yes";
     } catch (e) {
@@ -448,6 +269,7 @@
   })();
 </script>
 
+<!-- Footer -->
 <div style="text-align:center;font-size:10px;color:#b5a995;padding:6px;">
   en-chat v2025.12.06a
 </div>
