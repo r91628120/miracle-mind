@@ -63,7 +63,202 @@
       color: var(--text-soft);
     }
 
-    /* reminder bar */
+    /* --- Chat layout (copied + adapted from Chinese version) --- */
+    .chat-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 14px;
+    }
+
+    .chat-card {
+      width: 100%;
+      max-width: 840px;
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: 0 16px 60px #00000025;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      padding: 12px 16px;
+      border-bottom: 1px solid #E7DCCB;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      height: 40px;
+      width: 40px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 20%, #ffffff 0, #f4eee2 40%, #e0cda5 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .chat-header-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+    }
+
+    .chat-header-text .name {
+      font-weight: 600;
+      color: var(--primary-deep);
+    }
+
+    .chat-header-text .desc {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .messages {
+      flex: 1;
+      padding: 14px 14px 4px;
+      overflow-y: auto;
+      background: linear-gradient(to bottom, #FBF8F2 0, #F7F1E7 30%, #F3EBDF 100%);
+    }
+
+    .msg-row {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .msg-row.assistant { justify-content: flex-start; }
+    .msg-row.user { justify-content: flex-end; }
+
+    .bubble {
+      max-width: 72%;
+      padding: 9px 13px;
+      border-radius: 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      box-shadow: 0 4px 14px #00000018;
+      white-space: pre-wrap;
+    }
+
+    .assistant .bubble {
+      background: var(--assistant-bubble);
+      border-bottom-left-radius: 4px;
+      color: var(--text-soft);
+    }
+
+    .user .bubble {
+      background: var(--user-bubble);
+      border-bottom-right-radius: 4px;
+      color: #ffffff;
+    }
+
+    /* Quick area */
+    .quick-area {
+      padding: 8px 12px 4px;
+      background: #FAF4EA;
+      border-top: 1px solid #E7DCCB;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .quick-hint {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .quick-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 12px;
+      background: #F2E4CE;
+      color: var(--primary-deep);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 10px #00000015;
+    }
+
+    .quick-btn:hover {
+      background: #EAD9C0;
+    }
+
+    /* Hint */
+    .hint {
+      font-size: 11px;
+      color: var(--text-soft);
+      text-align: center;
+      padding: 4px 10px 8px;
+      background: #F7F0E5;
+      border-top: 1px solid #E7DCCB;
+    }
+
+    /* Input area */
+    .input-area {
+      border-top: 1px solid #E7DCCB;
+      padding: 8px;
+      background: #FAF4EA;
+      display: flex;
+      gap: 8px;
+    }
+
+    textarea {
+      flex: 1;
+      resize: none;
+      border-radius: 12px;
+      border: 1px solid #DDCFBB;
+      padding: 8px 10px;
+      font-family: inherit;
+      font-size: 14px;
+      min-height: 50px;
+      max-height: 120px;
+      background: #FDF8F0;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px #E9D7B3;
+      background: #FFFFFF;
+    }
+
+    button.send-btn {
+      border: none;
+      border-radius: 12px;
+      padding: 0 16px;
+      background: linear-gradient(135deg, #C9A86A, #B59555);
+      color: #ffffff;
+      font-size: 14px;
+      cursor: pointer;
+      min-width: 80px;
+      box-shadow: 0 8px 20px #00000025;
+    }
+
+    button.send-btn:disabled {
+      opacity: 0.6;
+      cursor: default;
+      box-shadow: none;
+    }
+
+    @media (max-width: 720px) {
+      .chat-card {
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .quick-area {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* Consent banner */
     .consent-reminder {
       display: none;
       background: #FFF6E4;
@@ -78,9 +273,9 @@
       color: var(--primary-deep);
       text-decoration: underline;
     }
+
   </style>
 </head>
-
 <body>
 
 <header>
@@ -92,17 +287,17 @@
 </header>
 
 <div class="consent-reminder" id="consentReminder">
-  🌿 A gentle reminder: this AI is a <strong>spiritual companion</strong>,  
-  not medical or legal advice.<br>
-  You may read the  
-  <a href="guideline.html" target="_blank">Platform Guidelines</a>  
-  before we begin. 💛
+  🌿 A reminder: this AI is a spiritual companion, not a medical or psychological service.
+  If you feel unsafe or in distress, please reach out to real-world support immediately.
+  <br>
+  <a href="guideline.html" target="_blank">Read platform guidelines</a>
 </div>
-<!-- CHAT BODY -->
+
+<!-- CHAT AREA -->
 <div class="chat-wrapper">
   <div class="chat-card">
 
-    <!-- Chat header -->
+    <!-- TOP BAR -->
     <div class="chat-header">
       <div class="avatar">🌙</div>
       <div class="chat-header-text">
@@ -111,29 +306,29 @@
       </div>
     </div>
 
-    <!-- Messages -->
+    <!-- MESSAGES -->
     <div class="messages" id="messages"></div>
 
-    <!-- Quick Start -->
+    <!-- QUICK START -->
     <div class="quick-area">
-      <div class="quick-hint">If you're not sure how to begin, you can tap this:</div>
+      <div class="quick-hint">Not sure how to begin? You can tap this:</div>
 
       <button class="quick-btn" id="quickBtn">
         <span class="icon">🕊</span>
-        <span>I'm feeling a bit overwhelmed…</span>
+        <span>I’m feeling a bit overwhelmed…</span>
       </button>
     </div>
 
-    <!-- Safety hint -->
+    <!-- SAFETY HINT -->
     <div class="hint">
-      ⚠️ Reminder: This AI is a spiritual companion, not a medical or psychological service.  
-      If you feel unsafe or in distress, please reach out to real-world support immediately.
+      ⚠️ Reminder: This AI is a spiritual companion, not a medical or psychological service.
+      If you feel unsafe or in distress, please seek real-world help.
     </div>
 
-    <!-- Input area -->
+    <!-- INPUT -->
     <div class="input-area">
       <textarea id="userInput"
-        placeholder="You may begin wherever you are… What has been weighing on your heart lately?"></textarea>
+        placeholder="You may begin wherever you are… What has been weighing on your heart today?"></textarea>
       <button class="send-btn" id="sendBtn">Send</button>
     </div>
 
@@ -148,7 +343,7 @@
 
   let history = [];
 
-  // ----------- Initial gentle welcome message -----------
+  // -------- INITIAL ASSISTANT MESSAGE --------
   addAssistantMessage(
     "You’ve been carrying so much.\n\n" +
     "Right now, you don’t need to be strong or have everything sorted out. " +
@@ -158,11 +353,14 @@
 
   function addAssistantMessage(text) {
     history.push({ role: "assistant", content: text });
+
     const row = document.createElement("div");
     row.className = "msg-row assistant";
+
     const bubble = document.createElement("div");
     bubble.className = "bubble";
     bubble.textContent = text;
+
     row.appendChild(bubble);
     messagesEl.appendChild(row);
     messagesEl.scrollTop = messagesEl.scrollHeight;
@@ -170,19 +368,23 @@
 
   function addUserMessage(text) {
     history.push({ role: "user", content: text });
+
     const row = document.createElement("div");
     row.className = "msg-row user";
+
     const bubble = document.createElement("div");
     bubble.className = "bubble";
     bubble.textContent = text;
+
     row.appendChild(bubble);
     messagesEl.appendChild(row);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
-  // ----------- Quick Start English text -----------
+  // -------- QUICK START --------
+
   const QUICK_TEXT =
-    "I'm not sure where to start, but something in me feels heavy lately… " +
+    "I'm not sure where to begin, but something in me feels heavy lately… " +
     "Could you stay with me for a moment?";
 
   quickBtn.addEventListener("click", () => {
@@ -192,10 +394,9 @@
       userInputEl.value = QUICK_TEXT;
     }
     userInputEl.focus();
-    messagesEl.scrollTop = messagesEl.scrollHeight;
   });
 
-  // ----------- Sending message to API -----------
+  // -------- SEND MESSAGE LOGIC --------
   async function sendMessage() {
     const text = userInputEl.value.trim();
     if (!text) return;
@@ -203,6 +404,7 @@
     addUserMessage(text);
     userInputEl.value = "";
     userInputEl.focus();
+
     sendBtn.disabled = true;
     sendBtn.textContent = "Thinking…";
 
@@ -222,17 +424,16 @@
       if (!res.ok) throw new Error("Server error");
 
       const data = await res.json();
+
       const reply = data.reply ||
         "Hmm… I may have drifted for a moment. Could you share that again gently?";
 
       addAssistantMessage(reply);
 
     } catch (err) {
-      console.error(err);
       addAssistantMessage(
-        "It seems I momentarily lost the connection.\n\n" +
-        "Take a slow breath with me.\n" +
-        "When you’re ready, feel free to send your message again."
+        "I seem to have lost connection for a moment.\n" +
+        "No need to worry. When you're ready, feel free to send it again."
       );
     } finally {
       sendBtn.disabled = false;
@@ -248,10 +449,8 @@
       sendMessage();
     }
   });
-</script>
 
-<!-- ---------- Consent Reminder Logic ---------- -->
-<script>
+  // -------- CONSENT REMINDER --------
   (function () {
     const CONSENT_KEY = "mm_guideline_consent_v2";
     let ok = false;
@@ -269,7 +468,7 @@
   })();
 </script>
 
-<!-- Footer -->
+<!-- FOOTER -->
 <div style="text-align:center;font-size:10px;color:#b5a995;padding:6px;">
   en-chat v2025.12.06a
 </div>
