@@ -60,12 +60,20 @@
       color: var(--text-soft);
     }
 
-    nav {
-      display: flex;
-      gap: 16px;
-      font-size: 14px;
-      color: var(--text-soft);
+    nav {nav {
+  display: flex;
+  flex-wrap: wrap;     /* 🔥 讓手機自動換行 */
+  gap: 12px 18px;      /* 上下 12px、左右 18px 間距 */
+  font-size: 14px;
+  color: var(--text-soft);
     }
+
+  @media (max-width: 720px) {
+  nav {
+    justify-content: flex-start;   /* 🔥 手機版靠左對齊，不會卡住 */
+    row-gap: 10px;                 /* 🔥 每一行之間更舒適 */
+    }
+  }
 
     nav a:hover {
       color: var(--primary-deep);
@@ -232,7 +240,7 @@
     </div>
 
     <nav>
-      <a href="index.html">About</a>
+      <a href="index.html">Home</a>
       <a href="#scope">Purpose</a>
       <a href="#limits">Limits</a>
       <a href="#ethics">Ethics</a>
