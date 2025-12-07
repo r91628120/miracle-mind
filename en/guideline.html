@@ -202,8 +202,57 @@ nav {
   display: flex;
   gap: 16px;
   font-size: 14px;
+  color: #6B6251;/* ---------- Unified Header for English Pages ---------- */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(16px);
+  background: linear-gradient(to right, #FFFFFFE6, #FBF6EDE6);
+  border-bottom: 1px solid #ECE2D4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 30% 20%, #ffffff 0, #f6f0e2 45%, #e3d2b2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.logo-text-main {
+  font-weight: 700;
+  color: #AF8E51;
+  font-size: 16px;
+}
+
+.logo-text-sub {
+  font-size: 11px;
   color: #6B6251;
-  flex-wrap: wrap;
+}
+
+nav {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  color: #6B6251;
+  flex-wrap: nowrap; /* ★ 避免手機版換行 */
+  white-space: nowrap;
 }
 
 nav a {
@@ -232,16 +281,21 @@ nav a:hover::after {
   width: 100%;
 }
 
+/* ★ 手機版保持「橫式」，不改成 column */
 @media (max-width: 720px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-      }
-      nav {
-        font-size: 13px;
-      }
-    }
+  header {
+    padding: 12px 16px;
+    flex-direction: row;     /* ★ 保持橫排 */
+    flex-wrap: wrap;         /* 如不足寬，可換行但不變成直式 */
+  }
+  nav {
+    font-size: 13px;
+    gap: 12px;
+    flex-wrap: wrap;         /* 手機可兩列，但保持橫向排列邏輯 */
+    white-space: nowrap;
+  }
+}
+
 
     </style>
 </head>
