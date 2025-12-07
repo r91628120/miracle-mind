@@ -1,410 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Understanding A Course in Miracles ｜ Miracle Mind</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What Is ACIM? · Miracle Mind</title>
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: "Noto Sans", "PingFang TC", sans-serif;
+            background: #faf7f2;
+            color: #4a3928;
+            line-height: 1.7;
+        }
 
-  <meta name="description" content="A gentle, non-religious introduction to A Course in Miracles. Learn what ACIM is, what the three books mean, and how it guides us toward inner peace.">
-  <meta name="keywords" content="ACIM, A Course in Miracles, spirituality, non-duality, healing, inner peace, Miracle Mind">
+        /* ---------- NAVIGATION BAR ---------- */
+        nav {
+            width: 100%;
+            background: #fdfbf7;
+            padding: 18px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #e7dfd5;
+        }
 
-  <style>
-    :root {
-      --bg: #FBF9F4;
-      --bg-soft: #F7F2E8;
-      --primary: #C9A86A;
-      --primary-deep: #AF8E51;
-      --text-main: #3B3528;
-      --text-soft: #6B6251;
-      --white: #FFFFFF;
-    }
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #b28a4e;
+        }
 
-    * { box-sizing: border-box; }
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 15px;
+        }
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background:
-        radial-gradient(circle at 0% 0%, #ffffff 0, #fbf8f2 42%, #f1e5d6 100%);
-      color: var(--text-main);
-    }
+        .nav-links a {
+            color: #4a3928;
+            text-decoration: none;
+        }
 
-    a { color: inherit; text-decoration: none; }
+        .nav-links a:hover {
+            color: #b28a4e;
+        }
 
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to right, #FFFFFFE6, #FBF6EDE6);
-      border-bottom: 1px solid #ECE2D4;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 24px;
-    }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                margin-top: 12px;
+                gap: 10px;
+            }
+        }
 
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+        /* ---------- PAGE CONTAINER ---------- */
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-    .logo-icon {
-      height: 40px;
-      width: 40px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #ffffff 0, #f6f0e2 45%, #e3d2b2 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        /* ---------- HIGHLIGHT TITLE BLOCK ---------- */
+        .highlight {
+            background: #f4e8d8;
+            padding: 14px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
 
-    .logo-icon svg { width: 30px; height: 30px; }
+        /* ---------- CONTENT CARD ---------- */
+        .card {
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 22px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            margin-bottom: 32px;
+        }
 
-    .logo-text-main {
-      font-weight: 700;
-      color: var(--primary-deep);
-      font-size: 16px;
-    }
+        h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 18px;
+            color: #3b2d1e;
+        }
 
-    .logo-text-sub {
-      font-size: 11px;
-      color: var(--text-soft);
-    }
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-top: 28px;
+            margin-bottom: 14px;
+        }
 
-    nav {
-      display: flex;
-      gap: 16px;
-      font-size: 14px;
-      color: var(--text-soft);
-      flex-wrap: wrap;
-    }
+        p {
+            margin-bottom: 16px;
+        }
 
-    nav a {
-      padding: 4px 0;
-      position: relative;
-    }
-
-    nav a:hover {
-      color: var(--primary-deep);
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #d6b67b, #b99658);
-      border-radius: 999px;
-      transition: width 0.22s ease;
-    }
-
-    nav a:hover::after { width: 100%; }
-
-    @media (max-width: 720px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-      }
-      nav { font-size: 13px; }
-    }
-
-    /* Page */
-    .page {
-      padding: 32px 16px 40px;
-    }
-
-    .page-inner {
-      max-width: 880px;
-      margin: 0 auto;
-      background: #FFFFFFE9;
-      border-radius: 24px;
-      box-shadow: 0 20px 70px #00000018;
-      padding: 24px 20px 26px;
-    }
-
-    .page-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: #F5EEDC;
-      color: var(--primary-deep);
-      font-size: 12px;
-      margin-bottom: 10px;
-    }
-
-    .page-title {
-      font-size: 24px;
-      margin: 0 0 8px;
-      color: var(--text-main);
-    }
-
-    .page-sub {
-      font-size: 14px;
-      color: var(--text-soft);
-      line-height: 1.9;
-      margin-bottom: 20px;
-    }
-
-    .section-title {
-      font-size: 18px;
-      margin: 22px 0 8px;
-      color: var(--primary-deep);
-    }
-
-    .section-text {
-      font-size: 14px;
-      color: var(--text-soft);
-      line-height: 1.9;
-    }
-
-    .box {
-      background: #FBF7EF;
-      border-radius: 14px;
-      padding: 14px;
-      margin-top: 8px;
-      font-size: 14px;
-      color: var(--text-soft);
-    }
-
-    .tips-list {
-      margin: 8px 0 4px 1.1em;
-      padding: 0;
-      font-size: 14px;
-    }
-
-    .tips-list li { margin-bottom: 6px; }
-  </style>
+        .number-tag {
+            background: #2d6cdf;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-right: 6px;
+            font-size: 13px;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo-wrap">
-    <div class="logo-icon">
-      <!-- same moon icon -->
-      <svg viewBox="0 0 100 100">
-        <defs>
-          <linearGradient id="acimMoonEn" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#F8F1DF"/>
-            <stop offset="45%" stop-color="#D6B982"/>
-            <stop offset="100%" stop-color="#B79557"/>
-          </linearGradient>
-        </defs>
-        <circle cx="50" cy="50" r="28" fill="url(#acimMoonEn)" />
-        <circle cx="58" cy="44" r="22" fill="#F9F4E700" stroke="#F9F4E7" stroke-width="3" />
-        <path d="M30 63 C40 55, 60 55, 70 63
-                 C60 60, 50 62, 30 63 Z"
-              fill="#FDF9F1" stroke="#E4D1AA" stroke-width="1.2"/>
-      </svg>
+<!-- ---------- NAVIGATION ---------- -->
+<nav>
+    <div class="logo">Miracle Mind · Spiritual AI Companion</div>
+
+    <div class="nav-links">
+        <a href="index.html">About This Space</a>
+        <a href="how.html">How to Begin</a>
+        <a href="safety.html">Safety & Boundaries</a>
+        <a href="acim.html" style="color:#b28a4e; font-weight:700;">What Is ACIM?</a>
+        <a href="guideline.html">Guidelines</a>
+        <a href="../acim.html">中文版</a>
     </div>
-    <div>
-      <div class="logo-text-main">Miracle Mind · Spiritual AI Companion</div>
-      <div class="logo-text-sub">A gentle introduction to A Course in Miracles</div>
-    </div>
-  </div>
+</nav>
 
-  <nav>
-    <a href="index.html#about">About This Space</a>
-    <a href="index.html#how">How to Begin</a>
-    <a href="index.html#safe">Safety & Boundaries</a>
-    <a href="acim.html">What Is ACIM?</a>
-    <a href="guideline.html">Guidelines</a>
-    <a href="../acim.html">中文版本</a>
-  </nav>
-</header>
+<!-- ---------- TOP SECTION ---------- -->
+<div class="container">
+    
+    <div class="highlight">🌿 A gentle introduction to A Course in Miracles</div>
 
-<main class="page">
-  <div class="page-inner">
+    <div class="card">
+        <h1>What Is “A Course in Miracles” (ACIM)?</h1>
 
-    <div class="page-tag">📖 A gentle place to begin with ACIM</div>
-
-    <h1 class="page-title">Understanding “A Course in Miracles”</h1>
-
-    <p class="page-sub">
-      Many people first hear about ACIM and assume it is a religion, a doctrine, or a difficult spiritual text.  
-      In truth, it is more like a <strong>training of perception</strong>—a way of gently uncovering the fear, guilt, and self-attack we carry,  
-      and remembering the peace that has always been within us.
-    </p>
-
-
-    <!-- WHAT ACIM IS NOT -->
-    <h2 class="section-title">What ACIM Is Not</h2>
-
-    <p class="section-text">
-      Before exploring what ACIM teaches, it helps to clarify a few things it is <strong>not</strong>:
-    </p>
-
-    <div class="box">
-      <ul class="tips-list">
-        <li>It is <strong>not</strong> asking you to join any religion or organization.</li>
-        <li>It is <strong>not</strong> a hierarchy where some people are more “advanced” or “spiritual.”</li>
-        <li>It does <strong>not</strong> ask you to deny your emotions or pretend life doesn’t hurt.</li>
-      </ul>
-
-      <p style="margin-top:6px; font-size:13px;">
-        ACIM is more like a patient teacher whispering:  
-        <strong>“You are not guilty. You are not unworthy. You simply forgot the love you came from.”</strong>
-      </p>
-    </div>
-    <!-- THREE BOOKS -->
-    <h2 class="section-title">The Three Parts of ACIM</h2>
-
-    <p class="section-text">
-      ACIM is traditionally presented in three main sections.  
-      They may look intimidating at first, but each has a gentle purpose:
-    </p>
-
-    <div class="book-grid">
-
-      <div class="book-card">
-        <div class="book-title">1️⃣ The Text</div>
         <p>
-          This is the “map” of the Course.  
-          It describes how the mind becomes trapped in fear and separation—  
-          and gently reminds us that our true Self has never truly left peace.<br><br>
-          You don’t need to understand everything.  
-          Even one sentence that touches your heart is enough for the day.
+            ACIM is a spiritual text inviting us to remember a deeper peace within ourselves.
+            It is not a religion, but a way of seeing through fear toward clarity and compassion.
         </p>
-      </div>
+        <h2>The Three Parts of ACIM</h2>
 
-      <div class="book-card">
-        <div class="book-title">2️⃣ Workbook for Students</div>
         <p>
-          A set of 365 simple lessons—one for each day of the year.  
-          Each lesson is like a soft nudge to see differently, to pause fear,  
-          to let just a little more light in.<br><br>
-          You don’t have to “get it right.”  
-          Your willingness matters more than perfection.
+            ACIM is traditionally presented in three main sections.
+            They may look intimidating at first, but each has a gentle purpose:
         </p>
-      </div>
 
-      <div class="book-card">
-        <div class="book-title">3️⃣ Manual for Teachers</div>
+        <!-- PART 1 -->
         <p>
-          “Teachers” here doesn’t mean spiritual experts.  
-          It simply means anyone willing to extend kindness.<br><br>
-          This section answers questions like:  
-          “What is healing?”  
-          “Who are teachers?”  
-          “How does forgiveness work?”  
-          and “What about death and time?”<br><br>
-          Many find this manual surprisingly comforting and grounded.
+            <span class="number-tag">1</span>
+            <strong>The Text</strong>
         </p>
-      </div>
+        <p>
+            The “map” of the Course. It explores how the mind becomes trapped
+            in fear and separation — and gently reminds us that our true Self
+            has never left peace.
+        </p>
 
+        <!-- PART 2 -->
+        <p>
+            <span class="number-tag">2</span>
+            <strong>Workbook for Students</strong>
+        </p>
+        <p>
+            365 simple lessons — one per day — offering small shifts in perception.
+            No pressure to understand everything. Your willingness is what matters.
+        </p>
+
+        <!-- PART 3 -->
+        <p>
+            <span class="number-tag">3</span>
+            <strong>Manual for Teachers</strong>
+        </p>
+        <p>
+            A short, practical guide about sharing peace with others through
+            presence, not performance.
+        </p>
     </div>
 
 
-    <!-- WHO IS ACIM FOR -->
-    <h2 class="section-title">Who Might Find ACIM Helpful?</h2>
+    <!-- ---------- CARD 2: HOW TO READ ACIM ---------- -->
+    <div class="card">
+        <h2>How Do I Approach ACIM?</h2>
 
-    <p class="section-text">
-      ACIM can be a gentle companion if you’ve ever felt:
-    </p>
+        <p>Many people feel overwhelmed when they first encounter ACIM — and that’s okay.</p>
 
-    <div class="box">
-      <ul class="tips-list">
-        <li>“I’m trying to be spiritual… why do I still feel angry, scared, or guilty?”</li>
-        <li>“I don’t resonate with religious labels, but I feel called toward something deeper.”</li>
-        <li>“I sense that life is more than it appears, but I can’t quite put it into words.”</li>
-      </ul>
+        <p>
+            The Course was never meant to be mastered quickly.
+            It was meant to be walked with gentleness, at your own pace.
+        </p>
 
-      <p style="margin-top:6px; font-size:13px;">
-        If so, ACIM doesn’t ask you to be better—  
-        it gently reminds you that <strong>you were never broken.</strong>
-      </p>
+        <ul>
+            <li>Take small steps.</li>
+            <li>Let the ideas rest inside you without pressure.</li>
+            <li>No need to “believe” anything immediately.</li>
+            <li>Trust your inner sense of peace more than intellectual understanding.</li>
+        </ul>
+
+        <p>
+            If something feels too dense, skip it and return later.
+            The Course is a companion, not an exam.
+        </p>
+    </div>
+    <!-- ---------- CARD 3: WHERE TO GET ACIM ---------- -->
+    <div class="card">
+        <h2>Where Can I Get ACIM?</h2>
+
+        <p>Availability varies by region, but common sources include:</p>
+
+        <ul>
+            <li>Major online bookstores (Amazon, Book Depository, etc.)</li>
+            <li>Local spiritual or metaphysical bookstores</li>
+            <li>Communities or study groups familiar with ACIM</li>
+        </ul>
+
+        <p>
+            No matter which edition you choose, the pace isn’t important.  
+            What matters is your willingness to meet yourself with gentleness.
+        </p>
+
+        <br />
+
+        <a href="chat.html" 
+           style="
+                display:inline-block;
+                padding:12px 22px;
+                background:#b28a4e;
+                color:#fff;
+                border-radius:30px;
+                text-decoration:none;
+                font-size:15px;
+                font-weight:600;
+                box-shadow:0 4px 12px rgba(0,0,0,0.12);
+            ">
+            Talk to the AI Companion
+        </a>
     </div>
 
-
-    <!-- HOW TO START -->
-    <h2 class="section-title">How Can I Begin Without Feeling Overwhelmed?</h2>
-
-    <p class="section-text">
-      There is no strict way to begin.  
-      But if you want a soft starting point, here are suggestions:
-    </p>
-
-    <ul class="tips-list">
-      <li>Flip through the three books first—feel the tone, without pressuring yourself to understand.</li>
-      <li>Read just a small portion of the Text each day.  
-          When a sentence touches you, pause and sit with it.</li>
-      <li>If you feel ready, begin Lesson 1 of the Workbook—one lesson per day, at your own pace.</li>
-      <li>If something makes no sense, set it aside gently.  
-          Understanding often arrives quietly, through daily life.</li>
-    </ul>
+</div> <!-- end .container -->
 
 
-    <!-- WHERE TO BUY -->
-    <h2 class="section-title">Where Can I Get ACIM?</h2>
+<!-- ---------- FOOTER ---------- -->
+<footer style="
+    width: 100%;
+    background: #3d352e;
+    color: #f5eee4;
+    padding: 26px 20px;
+    margin-top: 40px;
+    font-size: 14px;
+">
+    <div style="max-width: 860px; margin: 0 auto; line-height: 1.8;">
 
-    <p class="section-text">
-      Availability varies by region, but common sources include:
-    </p>
+        <div style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">
+            Miracle Mind · Spiritual AI Companion
+        </div>
 
-    <ul class="link-list">
-      <li>Major online bookstores such as Amazon or Book Depository.</li>
-      <li>Local metaphysical or spiritual bookstores.</li>
-      <li>Communities or study groups familiar with ACIM materials.</li>
-    </ul>
+        <div>Email: r91628120@gmail.com</div>
 
-    <p class="section-text" style="margin-top:8px;">
-      No matter which edition you choose, the pace isn’t the important part.  
-      What matters is your willingness to meet yourself with a little more gentleness each day.
-    </p>
+        <div style="font-size: 12px; opacity: 0.75; margin-top: 12px;">
+            This platform is independently developed and not affiliated with the Foundation 
+            for Inner Peace or the Foundation for A Course in Miracles.
+        </div>
 
+        <div style="font-size: 11px; opacity: 0.6; margin-top: 4px;">
+            © 2025 Miracle Mind. All rights reserved.
+        </div>
 
-    <!-- CTA BAR -->
-    <div class="cta-bar">
-      <div style="flex:1;">
-        Would you like to explore how ACIM's ideas relate to your current challenges,  
-        relationships, or emotions?<br>
-        You may return to the AI companion anytime and speak in your own way.
-      </div>
-
-      <button class="cta-btn" onclick="window.location.href='chat.html'">
-        <span class="icon">✨</span>
-        <span>Talk to the AI Companion</span>
-      </button>
     </div>
-
-  </div>
-</main>
-
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-
-    <div class="footer-top">
-      <div>Miracle Mind · Spiritual AI Companion</div>
-
-      <div class="footer-links">
-        <span>Email: <a href="mailto:r91628120@gmail.com">r91628120@gmail.com</a></span>
-        <span>|</span>
-        <a href="../acim.html">中文版本</a>
-      </div>
-    </div>
-
-    <div>
-      © 2025 Miracle Mind. All rights reserved.  
-      <br>
-      This project is independent and not affiliated with the Foundation for Inner Peace  
-      or the Foundation for A Course in Miracles.
-    </div>
-
-    <div style="opacity:0.6; font-size:11px; margin-top:4px;">
-      Version: en-acim v2025.12.06a
-    </div>
-
-  </div>
 </footer>
 
 </body>
