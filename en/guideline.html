@@ -15,53 +15,54 @@
         }
 
      /* ---------- NAVIGATION BAR ---------- */
-        nav {
-            width: 100%;
-            background: #fdfbf7;
-            padding: 18px 22px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            border-bottom: 1px solid #e7dfd5;
-            overflow-x: hidden;   /* ★防止整列被撐到出界 */
-        }
+nav {
+    width: 100%;
+    background: #fdfbf7;
+    padding: 18px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;          /* ★允許自動換行 */
+    border-bottom: 1px solid #e7dfd5;
+    overflow-x: hidden;       /* ★防止水平捲軸 */
+}
 
-        .logo {
-            font-size: 22px;
-            font-weight: 700;
-            color: #b28a4e;
-            flex-shrink: 0;
-        }
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #b28a4e;
+    flex-shrink: 0;
+}
 
-        .nav-links {
-            display: flex;
-            flex-wrap: wrap;     /* ★自動換行 */
-            gap: 16px;
-            font-size: 15px;
-            max-width: 100%;     /* ★避免超出頁面 */
-        }
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;          /* ★讓導覽連結自動換行 */
+    gap: 16px;
+    font-size: 15px;
+    max-width: 100%;          /* ★避免撐出螢幕 */
+}
 
-        .nav-links a {
-            color: #4a3928;
-            text-decoration: none;
-            white-space: nowrap; /* ★避免文字被折斷、但允許整組換行 */
-        }
+.nav-links a {
+    color: #4a3928;
+    text-decoration: none;
+    white-space: nowrap;      /* ★避免字被拆開，但整組可換行 */
+}
 
-        .nav-links a:hover {
-            color: #b28a4e;
-        }
+.nav-links a:hover {
+    color: #b28a4e;
+}
 
-        @media (max-width: 900px) {
-        nav {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .nav-links {
-            margin-top: 12px;
-            width: 100%;
-        }
-      }
+@media (max-width: 900px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        margin-top: 12px;
+        width: 100%;
+    }
+}
+
 
         /* ---------- PAGE CONTAINER ---------- */
         .container {
