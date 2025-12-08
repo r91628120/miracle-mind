@@ -14,44 +14,6 @@
             line-height: 1.7;
         }
 
-        /* ---------- NAVIGATION BAR ---------- */
-nav {
-    width: 100%;
-    background: #fdfbf7;
-    padding: 18px 22px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;          /* ★允許自動換行 */
-    border-bottom: 1px solid #e7dfd5;
-    overflow-x: hidden;       /* ★防止水平捲軸 */
-}
-
-.logo {
-    font-size: 22px;
-    font-weight: 700;
-    color: #b28a4e;
-    flex-shrink: 0;
-}
-
-.nav-links {
-    display: flex;
-    flex-wrap: wrap;          /* ★讓導覽連結自動換行 */
-    gap: 16px;
-    font-size: 15px;
-    max-width: 100%;          /* ★避免撐出螢幕 */
-}
-
-.nav-links a {
-    color: #4a3928;
-    text-decoration: none;
-    white-space: nowrap;      /* ★避免字被拆開，但整組可換行 */
-}
-
-.nav-links a:hover {
-    color: #b28a4e;
-}
-
         /* ---------- PAGE CONTAINER ---------- */
         .container {
             max-width: 860px;
@@ -244,46 +206,143 @@ nav a:hover::after {
   width: 100%;
 }
 
+/* ------------------ Unified Navigation Bar (Same as guideline.html) ------------------ */
+
+header {
+    width: 100%;
+    background: #F4ECDC; /* ★與 guideline.html 相同底色 */
+    padding: 22px 0 14px;
+    border-bottom: 1px solid #E0D6C5;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.1;
+    color: #6B5F50; /* ★字體顏色一致 */
+}
+
+.brand-sub {
+    font-size: 13px;
+    font-weight: 400;
+    color: #9B8E7A;
+    margin-top: 2px;
+}
+
+.logo-icon {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 20%, #ffffff 0, #f6f0e2 45%, #e3d2b2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.logo-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-size: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #6B5F50;
+    font-weight: 500;
+    padding-bottom: 4px;
+    white-space: nowrap;
+}
+
+/* hover 效果與 guideline.html 完全一致 */
+.nav-links a:hover {
+    color: #A67C52;
+    border-bottom: 2px solid #A67C52;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 14px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+}
+
     </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo-wrap">
-    <div class="logo-icon" aria-hidden="true">
-      <svg viewBox="0 0 100 100">
-        <defs>
-          <linearGradient id="moonGradEn" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#F8F1DF"/>
-            <stop offset="45%" stop-color="#D6B982"/>
-            <stop offset="100%" stop-color="#B79557"/>
-          </linearGradient>
-        </defs>
-        <circle cx="50" cy="50" r="28" fill="url(#moonGradEn)" />
-        <circle cx="58" cy="44" r="22" fill="#F9F4E700" stroke="#F9F4E7" stroke-width="3" />
-        <path d="M30 63 C40 55, 60 55, 70 63
-                 C60 60, 50 62, 30 63 Z"
-              fill="#FDF9F1" stroke="#E4D1AA" stroke-width="1.2"/>
-      </svg>
+    <div class="nav-container">
+
+        <!-- 左側 Logo 區 -->
+        <div class="brand">
+            <div class="logo-icon" aria-hidden="true">
+                <svg viewBox="0 0 100 100">
+                    <defs>
+                        <linearGradient id="mmLogoGradACIM2025" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#F8F1DF"/>
+                            <stop offset="45%" stop-color="#D6B982"/>
+                            <stop offset="100%" stop-color="#B79557"/>
+                        </linearGradient>
+                    </defs>
+
+                    <circle cx="50" cy="50" r="28" fill="url(#mmLogoGradACIM2025)" />
+                    <circle cx="58" cy="44" r="22" fill="#F9F4E700" stroke="#F9F4E7" stroke-width="3" />
+                    <path d="M30 63 C40 55, 60 55, 70 63
+                             C60 60, 50 62, 30 63 Z"
+                          fill="#FDF9F1" stroke="#E4D1AA" stroke-width="1.2"/>
+                </svg>
+            </div>
+
+            <div class="brand-text">
+                Miracle Mind
+                <span class="brand-sub">Spiritual AI Companion</span>
+            </div>
+        </div>
+
+        <!-- 右側導航列 -->
+        <div class="nav-links">
+            <a href="index.html">About This Space</a>
+            <a href="index.html#how">How to Begin</a>
+            <a href="index.html#safe">Safety & Boundaries</a>
+            <a href="acim.html" style="color:#A67C52; border-bottom:2px solid #A67C52;">What Is ACIM?</a>
+            <a href="guideline.html">Guidelines</a>
+            <a href="../acim.html">中文版</a>
+        </div>
+
     </div>
-
-    <div>
-      <div class="logo-text-main">Miracle Mind</div>
-      <div class="logo-text-sub">Spiritual AI Companion</div>
-    </div>
-  </div>
-
-
-  <nav>
-        <a href="index.html">About This Space</a>
-        <a href="index.html#how">How to Begin</a>
-        <a href="index.html#safe">Safety & Boundaries</a>
-        <a href="acim.html" style="color:#b28a4e; font-weight:700;">What Is ACIM?</a>
-        <a href="guideline.html">Guidelines</a>
-        <a href="../acim.html">中文版</a>
-  </nav>
 </header>
+
 
 <!-- ---------- TOP SECTION ---------- -->
 <div class="container">
