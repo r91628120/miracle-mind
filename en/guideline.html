@@ -329,6 +329,70 @@ nav a:hover::after {
   width: 100%;
 }
 
+/* =========================================================
+   FINAL NAV STYLE — Same as index(5).html
+   Force override for guideline.html
+   ========================================================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(16px);
+  background: linear-gradient(to right, #FFFFFFE6, #FBF6EDE6);
+  border-bottom: 1px solid #ECE2D4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+}
+
+nav {
+  display: flex !important;
+  gap: 16px !important;
+  font-size: 14px !important;
+  color: #6B6251 !important;
+  flex-wrap: wrap !important;
+  white-space: nowrap !important;
+}
+
+nav a {
+  color: #6B6251 !important;
+  text-decoration: none !important;
+  padding: 4px 0 !important;
+  position: relative !important;
+  white-space: nowrap !important;
+}
+
+nav a:hover {
+  color: #AF8E51 !important;
+}
+
+/* hover 漸層底線 */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #d6b67b, #b99658);
+  border-radius: 999px;
+  transition: width 0.22s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Mobile — 保持橫式、間距更緊實 */
+@media (max-width: 720px) {
+  nav {
+    gap: 12px !important;
+    font-size: 13px !important;
+  }
+}
+
     </style>
 </head>
 
