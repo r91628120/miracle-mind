@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>LINE 入口｜Miracle Mind 奇蹟心靈</title>
+  <meta name="description" content="Miracle Mind 奇蹟心靈 LINE 官方入口：官方帳號與陪伴群組。" />
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111;
+      --muted:rgba(0,0,0,.62);
+      --card:rgba(0,0,0,.03);
+      --border:rgba(0,0,0,.08);
+      --shadow:0 10px 30px rgba(0,0,0,.06);
+      --radius:18px;
+      --ok:#0a7a3d;
+      --warn:#9b5b00;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC","PingFang TC","Microsoft JhengHei",Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    .wrap{ max-width:520px; margin:0 auto; padding:24px 18px 44px; }
+    .title{ font-size:26px; font-weight:900; letter-spacing:.2px; line-height:1.2; margin-top:8px; }
+    .sub{ font-size:14px; color:var(--muted); line-height:1.65; margin-top:8px; }
+    .pill{
+      display:inline-block; margin-top:12px; padding:8px 12px;
+      border-radius:999px; border:1px solid var(--border); background:#fff;
+      font-size:12px; color:rgba(0,0,0,.6);
+    }
+    .card{
+      margin-top:18px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
+    .btn{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      padding:16px 16px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#fff;
+      text-decoration:none;
+      color:var(--text);
+      margin-top:12px;
+      transition:transform .05s ease, box-shadow .12s ease;
+      cursor:pointer;
+    }
+    .btn:active{ transform:scale(.99); }
+    .left{ display:flex; flex-direction:column; gap:4px; }
+    .main{ font-size:16px; font-weight:900; line-height:1.25; }
+    .hint{ font-size:13px; color:var(--muted); line-height:1.35; }
+    .arrow{ font-size:18px; opacity:.5; flex:0 0 auto; }
+    .banner{
+      margin-top:14px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-size:13px;
+      line-height:1.55;
+      color:rgba(0,0,0,.7);
+    }
+    .banner strong{ color:var(--text); }
+    .tag{
+      display:inline-block;
+      font-size:12px;
+      padding:3px 8px;
+      border-radius:999px;
+      margin-right:8px;
+      border:1px solid var(--border);
+      background:#fff;
+    }
+    .tag.ok{ color:var(--ok); }
+    .tag.warn{ color:var(--warn); }
+    .note{
+      margin-top:14px;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.65;
+    }
+    .tiny{
+      margin-top:14px;
+      font-size:12px;
+      color:rgba(0,0,0,.45);
+      line-height:1.6;
+    }
+    .hidden{ display:none !important; }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <div class="title">Miracle Mind</div>
+    <div class="sub">奇蹟心靈 AI 導師｜LINE 官方入口</div>
+    <div class="sub">你可以加入官方帳號，或進入陪伴群組（若群組入口更新，官方帳號會提供最新連結）。</div>
+    <span class="pill">不評價｜溫柔陪伴｜回到平安</span>
+
+    <section class="card" aria-label="LINE 入口">
+      <!-- 裝置提示 -->
+      <div id="deviceBanner" class="banner hidden"></div>
+
+      <!-- ✅ 官方帳號（固定） -->
+      <a id="oaBtn" class="btn" href="#" rel="noopener">
+        <div class="left">
+          <div class="main">加入 LINE 官方帳號</div>
+          <div class="hint">從選單開始｜最適合第一次來的人</div>
+        </div>
+        <div class="arrow">›</div>
+      </a>
+
+      <!-- ✅ 陪伴群組（可能失效/更新） -->
+      <a id="groupBtn" class="btn" href="#" rel="noopener">
+        <div class="left">
+          <div class="main">加入 LINE 陪伴群組</div>
+          <div id="groupHint" class="hint">一起練習平靜｜溫柔分享空間</div>
+        </div>
+        <div class="arrow">›</div>
+      </a>
+
+      <!-- 群組失效時的提示區 -->
+      <div id="groupFallback" class="banner hidden">
+        <span class="tag warn">提示</span>
+        群組入口可能已更新或暫時無法開啟。請先加入 <strong>LINE 官方帳號</strong>，在選單中取得最新群組入口。
+      </div>
+
+      <div class="note">
+        <strong>小提醒：</strong>
+        本平台提供一般性的陪伴與自我整理，不等同於心理治療、醫療或緊急救助。
+        若你正處於嚴重情緒危機或安全風險，請立即尋求當地緊急服務或專業協助。
+      </div>
+
+      <div class="tiny" id="tips">
+        若按鈕無法開啟：請更新 LINE App，或改用手機瀏覽器開啟本頁。
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // =========================
+    // ✅ 你只要改這兩個就好
+    // =========================
+    const OA_URL = "https://line.me/R/ti/p/@276rrrsx";
+
+    // 群組邀請連結：可先留空 ""（留空時會自動顯示「請先加入官方帳號」）
+    const GROUP_INVITE_URL = ""; // ← 貼上你的群組邀請連結，例如 https://line.me/R/ti/g/xxxxxxxx
+
+    // =========================
+    // 進階：裝置偵測 + deep link
+    // =========================
+    const ua = navigator.userAgent || "";
+    const isIOS = /iPhone|iPad|iPod/i.test(ua);
+    const isAndroid = /Android/i.test(ua);
+    const isMobile = isIOS || isAndroid;
+
+    const deviceBanner = document.getElementById("deviceBanner");
+    const oaBtn = document.getElementById("oaBtn");
+    const groupBtn = document.getElementById("groupBtn");
+    const groupHint = document.getElementById("groupHint");
+    const groupFallback = document.getElementById("groupFallback");
+    const tips = document.getElementById("tips");
+
+    // 設定按鈕 href（先用 https 連結，確保桌機也能用）
+    oaBtn.href = OA_URL;
+    oaBtn.target = "_blank";
+
+    // 如果沒有群組連結 → 直接顯示 fallback
+    const hasGroupUrl = typeof GROUP_INVITE_URL === "string" && GROUP_INVITE_URL.trim().length > 0;
+    if (hasGroupUrl) {
+      groupBtn.href = GROUP_INVITE_URL;
+      groupBtn.target = "_blank";
+    } else {
+      groupBtn.href = OA_URL;
+      groupBtn.target = "_blank";
+      groupHint.textContent = "群組入口會不定期更新｜請先加入官方帳號取得最新入口";
+      groupFallback.classList.remove("hidden");
+    }
+
+    // 裝置提示
+    function setBanner(html) {
+      deviceBanner.innerHTML = html;
+      deviceBanner.classList.remove("hidden");
+    }
+
+    if (isMobile) {
+      const osText = isIOS ? "iOS" : "Android";
+      setBanner(`
+        <span class="tag ok">偵測</span>
+        你正在使用 <strong>${osText}</strong> 裝置。建議點選按鈕後，若系統詢問「用 LINE 開啟」，請選擇 <strong>開啟</strong>。
+      `);
+      tips.textContent = "若未自動跳到 LINE：請確認已安裝 LINE，或改用手機瀏覽器開啟本頁。";
+    } else {
+      setBanner(`
+        <span class="tag ok">提示</span>
+        你目前使用桌機。加入 LINE 後，建議用手機開啟本頁（或掃描 QR）會更順。
+      `);
+    }
+
+    // deep link 嘗試（僅在手機嘗試；失敗則退回 https）
+    // 注意：deep link 在不同裝置/瀏覽器行為不一，所以我們「不強迫」，只在點擊時嘗試。
+    function toLineDeepLink(url) {
+      // 將 https://line.me/... 嘗試轉為 line://...（部分裝置支援）
+      if (!url) return "";
+      if (url.startsWith("line://")) return url;
+      if (url.startsWith("https://line.me/")) return url.replace("https://line.me/", "line://");
+      if (url.startsWith("http://line.me/")) return url.replace("http://line.me/", "line://");
+      return "";
+    }
+
+    async function tryOpenLine(url, fallbackUrl) {
+      if (!isMobile) return true;
+
+      const deep = toLineDeepLink(url);
+      if (!deep) return true;
+
+      // 嘗試開啟 deep link
+      const start = Date.now();
+      window.location.href = deep;
+
+      // 如果 1.2 秒後仍在頁面，視為可能失敗 → fallback 到 https
+      setTimeout(() => {
+        const stillHere = (Date.now() - start) < 2000;
+        if (stillHere && fallbackUrl) window.location.href = fallbackUrl;
+      }, 1200);
+
+      return true;
+    }
+
+    // 群組按鈕：若開啟失敗/連結空白，顯示 fallback 引導
+    groupBtn.addEventListener("click", (e) => {
+      // 若沒有群組連結，已經導向 OA；但仍阻止預設，改用 deep link 嘗試
+      e.preventDefault();
+
+      if (!hasGroupUrl) {
+        groupFallback.classList.remove("hidden");
+        tryOpenLine(OA_URL, OA_URL);
+        return;
+      }
+
+      // 有群組連結：先嘗試 deep link，若可能失敗再回 https
+      tryOpenLine(GROUP_INVITE_URL, GROUP_INVITE_URL);
+
+      // 額外保險：如果群組連結為空、或使用者回報失效，你只要把 GROUP_INVITE_URL 清空
+      // 就會自動顯示「請先加入官方帳號取得最新入口」。
+    });
+
+    // 官方帳號按鈕：deep link 嘗試
+    oaBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      tryOpenLine(OA_URL, OA_URL);
+    });
+  </script>
+</body>
+</html>
