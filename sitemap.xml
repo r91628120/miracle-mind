@@ -1,28 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- 首頁 -->
+  <!-- ✅ 首頁（只留 /，不要再放 /index.html） -->
   <url>
     <loc>https://miracle-mind.org/</loc>
-    <lastmod>2025-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- index.html -->
+  <!-- ✅ 主要頁面 -->
   <url>
-    <loc>https://miracle-mind.org/index.html</loc>
-    <lastmod>2025-11-30</lastmod>
+    <loc>https://miracle-mind.org/chat.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Chat 頁面 -->
   <url>
-    <loc>https://miracle-mind.org/chat.html</loc>
-    <lastmod>2025-11-30</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://miracle-mind.org/acim.html</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://miracle-mind.org/guideline.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ✅ LINE 入口（你昨天新增的 line.html） -->
+  <url>
+    <loc>https://miracle-mind.org/line.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ✅ 英文版首頁（GitHub Pages: /en/ 會自動對應 /en/index.html） -->
+  <url>
+    <loc>https://miracle-mind.org/en/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>

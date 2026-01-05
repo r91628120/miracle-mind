@@ -6,11 +6,30 @@
   <!-- 🔍 SEO Keywords：提升 Google 搜尋能見度 -->
   <meta name="keywords" content="奇蹟心靈, Miracle Mind, AI陪伴者, 奇蹟心靈AI導師, 心靈療癒, 情緒陪伴, 奇蹟課程, 靈性成長, miracle-mind.org">
     <title>奇蹟心靈 Miracle Mind｜AI 心靈陪伴者</title>
-  <meta name="description" content="你已經走得很辛苦了，現在，讓我陪你一下。奇蹟心靈 AI 導師，以溫柔不批判的方式，陪你一起看見內在的風景。">
-  <meta name="description" content="奇蹟心靈 AI 導師｜一個不批判、溫柔陪伴你的心靈空間。幫助你整理情緒、走出低潮、回到內在平安。">
+    <meta name="description" content="奇蹟心靈 AI 導師｜一個不批判、溫柔陪伴你的心靈空間。幫助你整理情緒、走出低潮、回到內在平安。">
 
 <!-- 🔗 canonical：避免網址重複收錄問題 -->
 <link rel="canonical" href="https://miracle-mind.org/" />
+
+<script>
+(function () {
+  if (location.search && location.search.length > 1) {
+    var meta = document.createElement('meta');
+    meta.name = 'robots';
+    meta.content = 'noindex,follow';
+    document.head.appendChild(meta);
+
+    var link = document.querySelector('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'canonical';
+      document.head.appendChild(link);
+    }
+    link.href = 'https://miracle-mind.org/';
+  }
+})();
+</script>
+
 
 <!-- 🔍 keywords：提升搜尋命中率 -->
 <meta name="keywords" content="奇蹟心靈, Miracle Mind, AI 心靈陪伴者, 靈性療癒, 奇蹟課程, 情緒陪伴, 自我覺察, 心靈成長, miracle-mind.org">
