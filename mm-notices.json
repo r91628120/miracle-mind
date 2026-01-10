@@ -1,108 +1,29 @@
 {
-  "meta": {
-    "schema": "mm-notices.v1",
-    "updatedAt": "2026-01-09T00:00:00Z",
-    "defaultSort": "pinned_desc_date_desc"
-  },
   "notices": [
     {
-      "id": "v013-explore",
-      "pinned": true,
-      "date": "2026-01-07",
+      "id": "v013-board",
+      "title": "公告｜探索頁正式改為公告欄",
       "version": "v0.1.3",
-      "title": {
-        "zh": "公告｜探索頁正式改為公告欄",
-        "en": "Update｜Explore is now Updates"
-      },
-      "summary": {
-        "zh": "Explore 現在是正式的「公告欄」，集中顯示版本更新與重要訊息。",
-        "en": "Explore is now the official Updates page for releases and key notices."
-      },
-      "content": {
-        "zh": [
-          "探索頁重新定位為公告欄",
-          "支援版本號、摘要與重點列表",
-          "未來公告可透過 JSON 更新，不必重新上架 App"
-        ],
-        "en": [
-          "Explore page repositioned as Updates",
-          "Supports version, summary, and bullet highlights",
-          "Future updates can ship via JSON—no app re-release required"
-        ]
-      },
-      "bullets": {
-        "zh": ["公告集中管理", "閱讀更多展開/收合", "排序規則一致（Web/手機）"],
-        "en": ["Centralized notices", "Read more expand/collapse", "Consistent ordering across web/mobile"]
-      },
-      "tags": ["updates", "explore"],
-      "audience": "all",
-      "actions": [
-        {
-          "label": { "zh": "查看主站", "en": "Open Website" },
-          "url": "https://miracle-mind.org",
-          "type": "link"
-        }
+      "date": "2026-01-07",
+      "summary": "Explore 現在是正式的「公告欄」，集中顯示版本更新與重要訊息。",
+      "bullets": [
+        "探索頁改為公告卡版型",
+        "支援「閱讀更多」展開 / 收合",
+        "顯示版本號與更新重點"
       ],
-      "updatedAt": "2026-01-07T00:00:00Z"
+      "details": "後續會加入 Firebase / GitHub 自動同步，讓公告更新不需重新上架 App。"
     },
-
     {
       "id": "v013-today-fix",
-      "pinned": false,
-      "date": "2026-01-07",
+      "title": "更新｜每日一句顯示修復",
       "version": "v0.1.3",
-      "title": {
-        "zh": "修復｜每日一句顯示問題",
-        "en": "Fix｜Daily quote display"
-      },
-      "summary": {
-        "zh": "修復 Today 頁無法顯示內容的問題。",
-        "en": "Fixed an issue where Today could not render the quote."
-      },
-      "content": {
-        "zh": [
-          "避免直接渲染物件造成錯誤",
-          "顯示流程更穩定"
-        ],
-        "en": [
-          "Avoided rendering object directly",
-          "Improved display stability"
-        ]
-      },
-      "tags": ["fix", "today"],
-      "audience": "all",
-      "updatedAt": "2026-01-07T00:00:00Z"
-    },
-
-    {
-      "id": "roadmap-i18n",
-      "pinned": false,
-      "date": "2026-01-09",
-      "version": "v0.1.4",
-      "title": {
-        "zh": "預告｜英文版文案將更偏產品語氣",
-        "en": "Heads-up｜English copy will be more product-like"
-      },
-      "summary": {
-        "zh": "英文版將保留『安定、簡潔、可離開』的品牌感，但不宗教、不療癒過頭。",
-        "en": "English will keep it calm and simple—non-religious, not overly ‘healing’."
-      },
-      "content": {
-        "zh": [
-          "中英文共用 UI，但文案分開（更自然）",
-          "英文版首頁保留 Website / Web Chat",
-          "是否需要英文社群入口：先不放 LINE，改用網站公告引導"
-        ],
-        "en": [
-          "Shared UI, separate copy per language",
-          "English Home keeps Website / Web Chat",
-          "No LINE in English for now—use Updates to guide users"
-        ]
-      },
-      "tags": ["roadmap", "i18n"],
-      "audience": "international",
-      "updatedAt": "2026-01-09T00:00:00Z",
-      "expiresAt": null
+      "date": "2026-01-07",
+      "summary": "修復 Today 無法顯示的問題。",
+      "bullets": [
+        "避免直接渲染 { day, quote } 物件",
+        "修正 React Render Error",
+        "提升整體穩定度"
+      ]
     }
   ]
 }
