@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Miracle Mind 公告輸入表單（第一版）</title>
+  <title>奇蹟心靈｜公告小幫手</title>
   <style>
     :root{
       --bg:#f7f2e8; --card:#fff7e8; --ink:#1f2937; --muted:#6b7280;
@@ -55,8 +55,8 @@
 </head>
 <body>
   <div class="wrap">
-    <h1>Miracle Mind 公告輸入表單（第一版）</h1>
-    <p>填完表單 → 自動產生 <span class="mono">mm-notices.json</span> → 一鍵複製 → 你再貼到 GitHub 的 <span class="mono">mm-notices.json</span> 覆蓋即可。</p>
+     <h1>奇蹟心靈｜公告小幫手</h1>
+    <p>把想分享的消息，溫柔寫下來 → 自動整理成 <span class="mono">mm-notices.json</span> → 一鍵複製 → 你再貼到 GitHub 的 <span class="mono">mm-notices.json</span> 覆蓋即可。</p>
 
     <div class="grid">
       <!-- Left: Form -->
@@ -65,10 +65,10 @@
           <div>
             <label>schemaVersion</label>
             <input id="schemaVersion" type="text" value="1" />
-            <div class="small">保持 1 即可（對齊你目前檔案）。</div>
+            <div class="small">保持 1 即可（與目前公告格式一致）。</div>
           </div>
           <div>
-            <label>generatedAt（自動產生）</label>
+            <label>系統會在你按下「產生 JSON」時自動寫入（台灣時間 +08:00）。</label>
             <input id="generatedAt" type="text" placeholder="按『產生 JSON』時自動填入" disabled />
             <div class="small">時區固定 +08:00（台灣）。</div>
           </div>
@@ -78,7 +78,7 @@
 
         <label>公告 ID（唯一識別）</label>
         <input id="id" type="text" placeholder="例如：board_2026-01-24_01（建議用日期＋流水號）" />
-        <div class="small">⚠️ 建議每則公告都用新 id（新增公告必換 id）。</div>
+        <div class="small">🌿 小提醒：每一次「新的公告」都請用新的 id（這會讓紅點判斷更穩）。</div>
 
         <label>標題 title</label>
         <input id="title" type="text" placeholder="例如：公告｜奇蹟心靈 APP 開張了" />
@@ -87,18 +87,18 @@
           <div>
             <label>版本 version</label>
             <input id="version" type="text" placeholder="例如：v1.0.0" value="v1.0.0" />
-            <div class="small">建議用 App 版本（給人看的）。</div>
+            <div class="small">可以填 App 版本（讓大家知道這則公告對應哪個版本）。</div>
           </div>
           <div>
             <label>日期 date</label>
             <input id="date" type="date" />
-            <div class="small">建議填公告發布日（YYYY-MM-DD）。</div>
+            <div class="small">建議填「公告發布日」（YYYY-MM-DD）。</div>
           </div>
         </div>
 
         <label style="margin-top:12px;">
           <input id="pinned" type="checkbox" />
-          置頂 pinned（勾選 = 置頂）
+          置頂 pinned（勾選 = 置頂）（想讓它被大家先看到就勾選）
         </label>
 
         <label>摘要 summary</label>
@@ -106,12 +106,13 @@
 
         <label>重點 bullets（每行一點）</label>
         <textarea id="bullets" placeholder="例如：
-APP 的入口可以方便進入官方網站平台
-APP 將會以最新消息通知大家來參加活動"></textarea>
+          新功能已上線，歡迎更新體驗
+          本週讀書會：週六晚上 8 點
+          有任何需要，也歡迎回來看看"></textarea>
         <div class="small">每行會自動轉成 bullets 陣列。</div>
 
         <label>詳細內容 details</label>
-        <textarea id="details" placeholder="較長的說明內容（展開後顯示）"></textarea>
+        <textarea id="details" placeholder="想多說一點也可以放這裡（展開後顯示）"></textarea>
 
         <div class="btns">
           <button id="btnAdd" class="ok">加入公告到清單</button>
