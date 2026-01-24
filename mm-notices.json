@@ -1,43 +1,32 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-01-07T00:00:00+08:00",
+  "generatedAt": "2026-01-25T07:07:25+08:00",
   "notices": [
     {
-      "id": "board_2026_01_25_003",
-      "title": "公告｜奇蹟心靈App開張了",
+      "id": "board_2026-01-25_02",
+      "title": "每日一句｜外在世界是內心的倒影",
       "version": "v1.0.0",
-      "date": "2026-01-18",
+      "date": "2026-01-25",
+      "pinned": false,
+      "summary": "學會寬恕眼前的一切",
+      "bullets": [
+        "勇敢面對幻境與小我"
+      ],
+      "details": "每天要記得閱讀奇蹟課程。"
+    },
+    {
+      "id": "board_2026-01-25_01",
+      "title": "公告 | 奇蹟心靈App開張了",
+      "version": "v1.0.0",
+      "date": "2026-01-25",
       "pinned": true,
       "summary": "歡迎大家下載這個APP，可以得知重要訊息。",
       "bullets": [
-        "APP的入口可以方便進入官方網站平台",
-        "APP將會以最新消息通知大家來參加活動",
-        "App可以到安卓 Play商店或iphone ios App store下載軟體"
+        "APP的入口可以方便進入官方網站平台，",
+        "APP將會以最新消息通知大家來參加活動，",
+        "App可以到安卓 Play商店或iphone ios App store下載軟體。"
       ],
       "details": "後續將會辦理一系列演講活動及成立奇蹟課程讀書會。"
-    },
-    {
-      "id": "today_2026_01_25_003",
-      "title": "每日一句｜外在世界是內心的倒影",
-      "version": "v1.0.0",
-      "date": "2026-01-18",
-      "pinned": false,
-      "summary": "學會寬恕眼前的一切",
-      "bullets": ["勇敢面對幻境與小我"],
-      "details": "每天要記得閱讀奇蹟課程。"
     }
   ]
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
