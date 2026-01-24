@@ -3,24 +3,24 @@
   "generatedAt": "2026-01-07T00:00:00+08:00",
   "notices": [
     {
-      "id": "board003",
-      "title": "公告｜奇蹟心靈APP開張了",
-      "version": "v0.1.2",
-      "date": "2026-01-17",
+      "id": "board_2026_01_25_001",
+      "title": "公告｜奇蹟心靈App開張了",
+      "version": "v1.0.0",
+      "date": "2026-01-25",
       "pinned": true,
       "summary": "歡迎大家下載這個APP，可以得知重要訊息。",
       "bullets": [
         "APP的入口可以方便進入官方網站平台",
         "APP將會以最新消息通知大家來參加活動",
-        "奇蹟心靈AI導師官方網站"
+        "App可以到安卓 Play商店或iphone ios App store下載軟體"
       ],
       "details": "後續將會辦理一系列演講活動及成立奇蹟課程讀書會。"
     },
     {
       "id": "today-fix-008",
       "title": "更新｜每日一句 外在世界是內心的倒影",
-      "version": "v0.1.9",
-      "date": "2026-01-17",
+      "version": "v1.0.0",
+      "date": "2026-01-25",
       "pinned": false,
       "summary": "學會寬恕眼前的一切",
       "bullets": ["勇敢面對幻境與小我"],
@@ -28,6 +28,7 @@
     }
   ]
 }
+
 
 
 
