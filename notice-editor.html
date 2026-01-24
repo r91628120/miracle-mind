@@ -68,7 +68,7 @@
             <div class="small">保持 1 即可（與目前公告格式一致）。</div>
           </div>
           <div>
-            <label>系統會在你按下「產生 JSON」時自動寫入（台灣時間 +08:00）。</label>
+            <label>按下時自動寫入（台灣時間 +08:00）。</label>
             <input id="generatedAt" type="text" placeholder="按『產生 JSON』時自動填入" disabled />
             <div class="small">時區固定 +08:00（台灣）。</div>
           </div>
@@ -78,6 +78,14 @@
 
         <label>公告 ID（唯一識別）</label>
         <input id="id" type="text" placeholder="例如：board_2026-01-24_01（建議用日期＋流水號）" />
+        <button
+          type="button"
+          class="ghost"
+          style="margin-top:6px"
+          id="btnAutoId">
+           ✨ 自動產生公告 ID
+        </button>
+
         <div class="small">🌿 小提醒：每一次「新的公告」都請用新的 id（這會讓紅點判斷更穩）。</div>
 
         <label>標題 title</label>
@@ -221,6 +229,36 @@
   const btnAdd = document.getElementById("btnAdd");
   const btnReset = document.getElementById("btnReset");
   const btnSeed = document.getElementById("btnSeed");
+
+  // --- 自動產生公告 ID（日期 + 流水號） ---
+  const btnAutoId = document.getElementById("btnAutoId");
+
+  btnAutoId.addEventListener("click", () => {
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = pad2(now.getMonth() + 1);
+    const dd = pad2(now.getDate());
+    const today = `${yyyy}-${mm}-${dd}`;
+
+  // 找出今天已存在的流水號
+  const todayIds = notices
+    .map(n => n.id)
+    .filter(id => id && id.startsWith(`board_${today}_`));
+
+  let nextSeq = 1;
+  if (todayIds.length > 0) {
+    const nums = todayIds
+      .map(id => Number(id.split("_").pop()))
+      .filter(n => !isNaN(n));
+    if (nums.length > 0) {
+      nextSeq = Math.max(...nums) + 1;
+    }
+  }
+
+  elId.value = `board_${today}_${pad2(nextSeq)}`;
+});
+
+
 
   const btnGenerate = document.getElementById("btnGenerate");
   const btnCopy = document.getElementById("btnCopy");
