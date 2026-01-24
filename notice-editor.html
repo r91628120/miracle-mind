@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Miracle Mind 公告輸入表單（第一版）</title>
+  <style>
+    :root{
+      --bg:#f7f2e8; --card:#fff7e8; --ink:#1f2937; --muted:#6b7280;
+      --line:#e7d7b8; --btn:#1f2937; --btn2:#6b7280; --ok:#0f766e; --warn:#b45309;
+      --radius:16px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans TC", "PingFang TC", Arial, sans-serif;
+    }
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);}
+    .wrap{max-width:1100px;margin:0 auto;padding:18px;}
+    h1{margin:6px 0 4px;font-size:24px;}
+    p{margin:0;color:var(--muted);line-height:1.6}
+    .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:14px;margin-top:14px;}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px;}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    label{display:block;font-weight:800;margin:10px 0 6px;}
+    input[type="text"], input[type="date"], textarea, select{
+      width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:12px;
+      padding:10px 12px;font-size:15px;background:#fff;
+    }
+    textarea{min-height:86px;resize:vertical;}
+    .small{font-size:13px;color:var(--muted);margin-top:6px}
+    .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    button{
+      border:0;border-radius:999px;padding:10px 14px;font-weight:900;cursor:pointer;
+      background:var(--btn);color:#fff;
+    }
+    button.secondary{background:var(--btn2)}
+    button.ghost{background:transparent;color:var(--btn);border:1px solid var(--line)}
+    button.ok{background:var(--ok)}
+    .badge{display:inline-block;padding:4px 10px;border-radius:999px;font-weight:900;font-size:12px}
+    .badge.ok{background:#d1fae5;color:#065f46}
+    .badge.warn{background:#ffedd5;color:#9a3412}
+    .mono{font-family:var(--mono);font-size:13px;line-height:1.5}
+    pre{margin:0;white-space:pre-wrap;word-break:break-word;background:#0b1220;color:#e5e7eb;
+      border-radius:14px;padding:12px;border:1px solid #111827;}
+    .listCard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;margin-top:10px}
+    .noticeHead{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .noticeTitle{font-weight:1000;font-size:16px}
+    .pill{border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:12px;font-weight:900;color:#7a5e2a;background:#fff}
+    .meta{font-size:13px;color:var(--muted);margin-top:4px}
+    .hr{height:1px;background:var(--line);margin:12px 0}
+    .hint{margin-top:10px;font-size:13px;color:var(--muted)}
+    .danger{color:#9a3412;font-weight:900}
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Miracle Mind 公告輸入表單（第一版）</h1>
+    <p>填完表單 → 自動產生 <span class="mono">mm-notices.json</span> → 一鍵複製 → 你再貼到 GitHub 的 <span class="mono">mm-notices.json</span> 覆蓋即可。</p>
+
+    <div class="grid">
+      <!-- Left: Form -->
+      <div class="card">
+        <div class="row">
+          <div>
+            <label>schemaVersion</label>
+            <input id="schemaVersion" type="text" value="1" />
+            <div class="small">保持 1 即可（對齊你目前檔案）。</div>
+          </div>
+          <div>
+            <label>generatedAt（自動產生）</label>
+            <input id="generatedAt" type="text" placeholder="按『產生 JSON』時自動填入" disabled />
+            <div class="small">時區固定 +08:00（台灣）。</div>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <label>公告 ID（唯一識別）</label>
+        <input id="id" type="text" placeholder="例如：board_2026-01-24_01（建議用日期＋流水號）" />
+        <div class="small">⚠️ 建議每則公告都用新 id（新增公告必換 id）。</div>
+
+        <label>標題 title</label>
+        <input id="title" type="text" placeholder="例如：公告｜奇蹟心靈 APP 開張了" />
+
+        <div class="row">
+          <div>
+            <label>版本 version</label>
+            <input id="version" type="text" placeholder="例如：v1.0.0" value="v1.0.0" />
+            <div class="small">建議用 App 版本（給人看的）。</div>
+          </div>
+          <div>
+            <label>日期 date</label>
+            <input id="date" type="date" />
+            <div class="small">建議填公告發布日（YYYY-MM-DD）。</div>
+          </div>
+        </div>
+
+        <label style="margin-top:12px;">
+          <input id="pinned" type="checkbox" />
+          置頂 pinned（勾選 = 置頂）
+        </label>
+
+        <label>摘要 summary</label>
+        <textarea id="summary" placeholder="一段短摘要（可顯示在列表上）"></textarea>
+
+        <label>重點 bullets（每行一點）</label>
+        <textarea id="bullets" placeholder="例如：
+APP 的入口可以方便進入官方網站平台
+APP 將會以最新消息通知大家來參加活動"></textarea>
+        <div class="small">每行會自動轉成 bullets 陣列。</div>
+
+        <label>詳細內容 details</label>
+        <textarea id="details" placeholder="較長的說明內容（展開後顯示）"></textarea>
+
+        <div class="btns">
+          <button id="btnAdd" class="ok">加入公告到清單</button>
+          <button id="btnReset" class="ghost" type="button">清空表單</button>
+          <button id="btnSeed" class="secondary" type="button">用範例填入</button>
+        </div>
+
+        <div class="hint">
+          ✅ 你可以先加入多則公告到右側清單，再一次產生 JSON。<br/>
+          <span class="danger">重要：</span>新增公告要觸發紅點，最穩的方法就是「換新 id + 更新 date」。
+        </div>
+      </div>
+
+      <!-- Right: Output -->
+      <div class="card">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+          <div>
+            <div style="font-weight:1000;font-size:16px;">公告清單（即將輸出到 mm-notices.json）</div>
+            <div class="small">排序建議：置頂在前，日期新在前（你可拖曳排序第二版再加）。</div>
+          </div>
+          <div id="status" class="badge warn">尚未產生 JSON</div>
+        </div>
+
+        <div id="noticeList"></div>
+
+        <div class="btns">
+          <button id="btnGenerate" type="button">產生 JSON</button>
+          <button id="btnCopy" class="ok" type="button" disabled>一鍵複製 JSON</button>
+          <button id="btnDownload" class="secondary" type="button" disabled>下載 mm-notices.json</button>
+          <button id="btnClearAll" class="ghost" type="button">清空清單</button>
+        </div>
+
+        <div class="small" style="margin-top:10px;">
+          使用方式：按「產生 JSON」→「一鍵複製 JSON」→ 到 GitHub 打開 <span class="mono">mm-notices.json</span> → 全選貼上覆蓋 → Commit。
+        </div>
+
+        <div style="margin-top:12px;">
+          <label>輸出的 JSON（可直接貼到 GitHub）</label>
+          <pre id="jsonOut" class="mono">{}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // ---------- helpers ----------
+  function pad2(n){ return String(n).padStart(2,"0"); }
+  function toTWISO(dt){
+    // produce YYYY-MM-DDTHH:mm:ss+08:00
+    const y = dt.getFullYear();
+    const m = pad2(dt.getMonth()+1);
+    const d = pad2(dt.getDate());
+    const hh = pad2(dt.getHours());
+    const mm = pad2(dt.getMinutes());
+    const ss = pad2(dt.getSeconds());
+    return `${y}-${m}-${d}T${hh}:${mm}:${ss}+08:00`;
+  }
+
+  function safeTrim(s){ return (s ?? "").toString().trim(); }
+
+  function linesToArray(text){
+    return safeTrim(text)
+      .split(/\r?\n/)
+      .map(s => s.trim())
+      .filter(Boolean);
+  }
+
+  function setStatus(kind, text){
+    const el = document.getElementById("status");
+    el.textContent = text;
+    el.className = "badge " + (kind === "ok" ? "ok" : "warn");
+  }
+
+  function downloadText(filename, text){
+    const blob = new Blob([text], {type:"application/json;charset=utf-8"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 500);
+  }
+
+  // ---------- state ----------
+  /** @type {Array<any>} */
+  let notices = [];
+
+  // ---------- DOM ----------
+  const elSchema = document.getElementById("schemaVersion");
+  const elGenAt = document.getElementById("generatedAt");
+
+  const elId = document.getElementById("id");
+  const elTitle = document.getElementById("title");
+  const elVersion = document.getElementById("version");
+  const elDate = document.getElementById("date");
+  const elPinned = document.getElementById("pinned");
+  const elSummary = document.getElementById("summary");
+  const elBullets = document.getElementById("bullets");
+  const elDetails = document.getElementById("details");
+
+  const elList = document.getElementById("noticeList");
+  const elJson = document.getElementById("jsonOut");
+
+  const btnAdd = document.getElementById("btnAdd");
+  const btnReset = document.getElementById("btnReset");
+  const btnSeed = document.getElementById("btnSeed");
+
+  const btnGenerate = document.getElementById("btnGenerate");
+  const btnCopy = document.getElementById("btnCopy");
+  const btnDownload = document.getElementById("btnDownload");
+  const btnClearAll = document.getElementById("btnClearAll");
+
+  // default date = today (local)
+  (function init(){
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = pad2(now.getMonth()+1);
+    const dd = pad2(now.getDate());
+    elDate.value = `${yyyy}-${mm}-${dd}`;
+  })();
+
+  function renderList(){
+    elList.innerHTML = "";
+    if (notices.length === 0){
+      const empty = document.createElement("div");
+      empty.className = "small";
+      empty.style.marginTop = "10px";
+      empty.textContent = "（目前清單是空的。先用左側表單加入公告。）";
+      elList.appendChild(empty);
+      return;
+    }
+
+    notices.forEach((n, idx) => {
+      const card = document.createElement("div");
+      card.className = "listCard";
+
+      const head = document.createElement("div");
+      head.className = "noticeHead";
+
+      const title = document.createElement("div");
+      title.className = "noticeTitle";
+      title.textContent = n.title || "(未填標題)";
+
+      const right = document.createElement("div");
+      right.style.display = "flex";
+      right.style.gap = "8px";
+      right.style.alignItems = "center";
+
+      if (n.pinned){
+        const pill = document.createElement("span");
+        pill.className = "pill";
+        pill.textContent = "置頂";
+        right.appendChild(pill);
+      }
+
+      const btnUp = document.createElement("button");
+      btnUp.type = "button";
+      btnUp.textContent = "↑";
+      btnUp.className = "ghost";
+      btnUp.style.padding = "6px 10px";
+      btnUp.onclick = () => {
+        if (idx === 0) return;
+        const t = notices[idx-1];
+        notices[idx-1] = notices[idx];
+        notices[idx] = t;
+        renderList();
+      };
+
+      const btnDown = document.createElement("button");
+      btnDown.type = "button";
+      btnDown.textContent = "↓";
+      btnDown.className = "ghost";
+      btnDown.style.padding = "6px 10px";
+      btnDown.onclick = () => {
+        if (idx === notices.length-1) return;
+        const t = notices[idx+1];
+        notices[idx+1] = notices[idx];
+        notices[idx] = t;
+        renderList();
+      };
+
+      const btnDel = document.createElement("button");
+      btnDel.type = "button";
+      btnDel.textContent = "刪除";
+      btnDel.className = "secondary";
+      btnDel.style.padding = "6px 10px";
+      btnDel.onclick = () => {
+        notices.splice(idx, 1);
+        renderList();
+        setStatus("warn", "尚未產生 JSON");
+        btnCopy.disabled = true;
+        btnDownload.disabled = true;
+      };
+
+      right.appendChild(btnUp);
+      right.appendChild(btnDown);
+      right.appendChild(btnDel);
+
+      head.appendChild(title);
+      head.appendChild(right);
+      card.appendChild(head);
+
+      const meta = document.createElement("div");
+      meta.className = "meta";
+      meta.textContent = `id: ${n.id} ｜ version: ${n.version || "—"} ｜ date: ${n.date || "—"}`;
+      card.appendChild(meta);
+
+      if (n.summary){
+        const s = document.createElement("div");
+        s.className = "small";
+        s.style.marginTop = "8px";
+        s.textContent = n.summary;
+        card.appendChild(s);
+      }
+
+      elList.appendChild(card);
+    });
+  }
+
+  function resetForm(){
+    elId.value = "";
+    elTitle.value = "";
+    elVersion.value = "v1.0.0";
+    // date keep
+    elPinned.checked = false;
+    elSummary.value = "";
+    elBullets.value = "";
+    elDetails.value = "";
+  }
+
+  function validateNotice(n){
+    if (!n.id) return "請填 id（建議用日期+流水號，且每則唯一）";
+    if (!n.title) return "請填 title";
+    if (!n.date) return "請選 date";
+    // version can be empty but recommended
+    return "";
+  }
+
+  btnAdd.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const notice = {
+      id: safeTrim(elId.value),
+      title: safeTrim(elTitle.value),
+      version: safeTrim(elVersion.value),
+      date: safeTrim(elDate.value),
+      pinned: !!elPinned.checked,
+      summary: safeTrim(elSummary.value),
+      bullets: linesToArray(elBullets.value),
+      details: safeTrim(elDetails.value),
+    };
+
+    // remove empty optional fields for cleanliness
+    if (!notice.version) delete notice.version;
+    if (!notice.summary) delete notice.summary;
+    if (!notice.details) delete notice.details;
+    if (!notice.bullets || notice.bullets.length === 0) delete notice.bullets;
+
+    const err = validateNotice(notice);
+    if (err){
+      alert(err);
+      return;
+    }
+
+    // id uniqueness
+    if (notices.some(x => x.id === notice.id)){
+      alert("這個 id 已經存在於清單中，請換一個新的 id。");
+      return;
+    }
+
+    notices.unshift(notice); // default: newest on top
+    renderList();
+    resetForm();
+    setStatus("warn", "已更新清單，請產生 JSON");
+    btnCopy.disabled = true;
+    btnDownload.disabled = true;
+  });
+
+  btnReset.addEventListener("click", () => resetForm());
+
+  btnSeed.addEventListener("click", () => {
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = pad2(now.getMonth()+1);
+    const dd = pad2(now.getDate());
+    elId.value = `board_${yyyy}-${mm}-${dd}_01`;
+    elTitle.value = "公告｜範例公告（請改成你的內容）";
+    elVersion.value = "v1.0.0";
+    elDate.value = `${yyyy}-${mm}-${dd}`;
+    elPinned.checked = true;
+    elSummary.value = "這是一段短摘要（列表會看到）";
+    elBullets.value = "第一點重點\n第二點重點";
+    elDetails.value = "這裡可以放比較長的內容（展開後顯示）。";
+  });
+
+  btnClearAll.addEventListener("click", () => {
+    if (!confirm("確定要清空右側公告清單嗎？")) return;
+    notices = [];
+    renderList();
+    elJson.textContent = "{}";
+    setStatus("warn", "尚未產生 JSON");
+    btnCopy.disabled = true;
+    btnDownload.disabled = true;
+  });
+
+  btnGenerate.addEventListener("click", () => {
+    const schemaVersion = Number(safeTrim(elSchema.value)) || 1;
+    const generatedAt = toTWISO(new Date());
+    elGenAt.value = generatedAt;
+
+    const output = {
+      schemaVersion,
+      generatedAt,
+      notices
+    };
+
+    const pretty = JSON.stringify(output, null, 2);
+    elJson.textContent = pretty;
+
+    setStatus("ok", "JSON 已產生");
+    btnCopy.disabled = false;
+    btnDownload.disabled = false;
+  });
+
+  btnCopy.addEventListener("click", async () => {
+    try{
+      await navigator.clipboard.writeText(elJson.textContent);
+      setStatus("ok", "已複製到剪貼簿 ✅");
+      setTimeout(() => setStatus("ok","JSON 已產生"), 1200);
+    }catch{
+      alert("複製失敗：瀏覽器可能阻擋 clipboard。你可以手動全選右側 JSON 再複製。");
+    }
+  });
+
+  btnDownload.addEventListener("click", () => {
+    downloadText("mm-notices.json", elJson.textContent);
+  });
+
+  // init
+  renderList();
+</script>
+</body>
+</html>
