@@ -144,6 +144,95 @@
           <div id="status" class="badge warn">尚未產生 JSON</div>
         </div>
 
+         <div class="listCard" style="margin-top:12px;">
+  <div class="noticeHead">
+    <div class="noticeTitle">載入舊版 mm-notices.json（可保留/刪除再新增）</div>
+    <span class="pill">選擇覆蓋或合併</span>
+  </div>
+
+  <div class="small" style="margin-top:8px;">
+    你可以「貼上舊 JSON」或「上傳檔案」載入到右側清單，接著就能刪掉不要的舊訊息，再從左邊加入新公告。
+  </div>
+
+  <label style="margin-top:10px;">載入模式</label>
+  <select id="loadMode">
+    <option value="replace">覆蓋：用舊 JSON 取代目前清單</option>
+    <option value="merge">合併：把舊 JSON 合併進目前清單（同 id 會保留舊 JSON）</option>
+  </select>
+
+  <label style="margin-top:10px;">貼上舊版 JSON（mm-notices.json 內容）</label>
+  <textarea id="oldJson" placeholder="把舊版 mm-notices.json 全部貼在這裡"></textarea>
+
+   <label style="margin-top:10px;">🔍 用網址載入線上 mm-notices.json</label>
+<div style="display:flex; gap:8px; align-items:center;">
+  <input
+    id="oldJsonUrl"
+    type="url"
+    style="flex:1;"
+    placeholder="貼上 https://miracle-mind.org/mm-notices.json 或 GitHub raw 連結"
+  />
+  <button id="btnLoadFromUrl" type="button" class="secondary">一鍵載入</button>
+  <button id="btnSaveUrl" type="button" class="ghost" title="記住這個網址">
+    📌
+  </button>
+</div>
+<div class="small" style="margin-top:6px;">
+  📌 可將常用網址存到瀏覽器，下次開啟編輯器會自動帶入。
+</div>
+
+  // ---------- remember url (localStorage) ----------
+  const btnSaveUrl = document.getElementById("btnSaveUrl");
+  const STORAGE_KEY_NOTICE_URL = "mm_notice_editor_last_url";
+
+  // 頁面載入時，自動填入上次記住的網址
+  (function restoreSavedUrl(){
+    try{
+      const saved = localStorage.getItem(STORAGE_KEY_NOTICE_URL);
+      if (saved && elOldJsonUrl && !elOldJsonUrl.value){
+        elOldJsonUrl.value = saved;
+      }
+    }catch(e){
+      // 忽略 localStorage 不可用的極端情況
+    }
+  })();
+
+  // 點 📌：記住目前輸入的網址
+  btnSaveUrl?.addEventListener("click", () => {
+    const url = safeTrim(elOldJsonUrl.value);
+   if (!url){
+     alert("目前沒有網址可記住，請先貼上 mm-notices.json 的網址。");
+     return;
+  }
+
+
+    try{
+      localStorage.setItem(STORAGE_KEY_NOTICE_URL, url);
+      alert("已記住常用網址 ✔\n\n下次打開公告小幫手會自動填入。");
+    }catch(err){
+      alert("儲存失敗：瀏覽器可能不允許 localStorage。");
+    }
+  });
+
+
+
+
+<div class="small" style="margin-top:6px;">
+  若遇到 CORS（跨域）限制，系統會自動改用安全的「文字轉讀」方式載入。
+</div>
+ 
+
+  <div class="btns" style="margin-top:10px;">
+    <button id="btnLoadOld" type="button" class="secondary">載入（貼上內容）</button>
+    <button id="btnLoadFromFile" type="button" class="ghost">從檔案載入</button>
+    <input id="fileOldJson" type="file" accept="application/json" style="display:none;" />
+  </div>
+
+  <div class="small" style="margin-top:8px;">
+    小提醒：載入後你可以用右側每則公告的「刪除」把那 1 條移除，再從左側加入新公告即可。
+  </div>
+</div>
+
+
         <div id="noticeList"></div>
 
         <div class="btns">
@@ -209,6 +298,186 @@
   // ---------- state ----------
   /** @type {Array<any>} */
   let notices = [];
+
+     // ---------- load old mm-notices.json ----------
+  const elOldJson = document.getElementById("oldJson");
+  const elLoadMode = document.getElementById("loadMode");
+  const btnLoadOld = document.getElementById("btnLoadOld");
+  const btnLoadFromFile = document.getElementById("btnLoadFromFile");
+  const fileOldJson = document.getElementById("fileOldJson");
+
+  function normalizeNotice(n){
+    // 只保留我們系統需要的欄位，並做基本清理
+    const out = {
+      id: safeTrim(n?.id),
+      title: safeTrim(n?.title),
+      version: safeTrim(n?.version),
+      date: safeTrim(n?.date),
+      pinned: !!n?.pinned,
+      summary: safeTrim(n?.summary),
+      bullets: Array.isArray(n?.bullets) ? n.bullets.map(x => safeTrim(x)).filter(Boolean) : undefined,
+      details: safeTrim(n?.details),
+    };
+
+    // 移除空欄位
+    if (!out.version) delete out.version;
+    if (!out.summary) delete out.summary;
+    if (!out.details) delete out.details;
+    if (!out.bullets || out.bullets.length === 0) delete out.bullets;
+
+    return out;
+  }
+
+  function sortNoticesSmart(arr){
+    // 置頂在前，日期新在前（字串 YYYY-MM-DD 可直接比）
+    return arr.slice().sort((a,b) => {
+      const ap = a.pinned ? 1 : 0;
+      const bp = b.pinned ? 1 : 0;
+      if (ap !== bp) return bp - ap;
+      const ad = a.date || "";
+      const bd = b.date || "";
+      if (ad !== bd) return bd.localeCompare(ad);
+      return (b.id || "").localeCompare(a.id || "");
+    });
+  }
+
+  function loadFromParsedJson(parsed, mode){
+    if (!parsed || !Array.isArray(parsed.notices)){
+      alert("JSON 格式不對：找不到 notices 陣列。請確認你貼的是 mm-notices.json 的完整內容。");
+      return;
+    }
+
+    // schemaVersion 順便帶入（generatedAt 仍以你按「產生 JSON」當下為準）
+    if (parsed.schemaVersion != null) {
+      elSchema.value = String(parsed.schemaVersion);
+    }
+
+    const incoming = parsed.notices
+      .map(normalizeNotice)
+      .filter(n => n.id && n.title && n.date);
+
+    if (incoming.length === 0){
+      alert("舊 JSON 裡沒有可用的公告（至少要有 id/title/date）。");
+      return;
+    }
+
+    if (mode === "replace"){
+      notices = sortNoticesSmart(incoming);
+    } else {
+      // merge：同 id 以「舊 JSON」為準（incoming 覆蓋 existing）
+      const map = new Map();
+      // 先放目前清單
+      notices.forEach(n => map.set(n.id, n));
+      // 再用 incoming 覆蓋
+      incoming.forEach(n => map.set(n.id, n));
+      notices = sortNoticesSmart(Array.from(map.values()));
+    }
+
+    renderList();
+    setStatus("warn", "已載入舊 JSON，請產生 JSON");
+    btnCopy.disabled = true;
+    btnDownload.disabled = true;
+  }
+
+  function tryParseJson(text){
+    try{
+      return JSON.parse(text);
+    }catch(err){
+      return null;
+    }
+  }
+
+  btnLoadOld?.addEventListener("click", () => {
+    const txt = safeTrim(elOldJson.value);
+    if (!txt){
+      alert("請先貼上舊版 mm-notices.json 的內容。");
+      return;
+    }
+    const parsed = tryParseJson(txt);
+    if (!parsed){
+      alert("JSON 解析失敗：請確認格式正確（可先到 JSON 格式化網站檢查）。");
+      return;
+    }
+    loadFromParsedJson(parsed, elLoadMode.value);
+  });
+
+  btnLoadFromFile?.addEventListener("click", () => fileOldJson.click());
+
+  fileOldJson?.addEventListener("change", async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const text = await file.text();
+    elOldJson.value = text; // 順便放到 textarea 方便你留存
+    const parsed = tryParseJson(text);
+    if (!parsed){
+      alert("檔案內容不是合法 JSON，請確認你選到的是 mm-notices.json。");
+      return;
+    }
+    loadFromParsedJson(parsed, elLoadMode.value);
+  });
+
+    // ---------- load old json from URL ----------
+  const elOldJsonUrl = document.getElementById("oldJsonUrl");
+  const btnLoadFromUrl = document.getElementById("btnLoadFromUrl");
+
+  function toJinaAiProxy(url){
+    // r.jina.ai 會把網址內容轉成純文字（可繞過許多 CORS 限制）
+    // https://r.jina.ai/http(s)://example.com/file.json
+    if (url.startsWith("https://")) return "https://r.jina.ai/https://" + url.slice("https://".length);
+    if (url.startsWith("http://"))  return "https://r.jina.ai/http://"  + url.slice("http://".length);
+    return null;
+  }
+
+  async function fetchTextSmart(url){
+    // 先試直接抓（最快）
+    try{
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return await res.text();
+    }catch(err){
+      // 再試 jina 代理（CORS 常見救星）
+      const proxy = toJinaAiProxy(url);
+      if (!proxy) throw err;
+      const res2 = await fetch(proxy, { cache: "no-store" });
+      if (!res2.ok) throw new Error("Proxy HTTP " + res2.status);
+      return await res2.text();
+    }
+  }
+
+  btnLoadFromUrl?.addEventListener("click", async () => {
+    const url = safeTrim(elOldJsonUrl.value);
+    if (!url){
+      alert("請先貼上網址，例如 https://miracle-mind.org/mm-notices.json 或 GitHub raw 連結。");
+      return;
+    }
+
+    btnLoadFromUrl.disabled = true;
+    btnLoadFromUrl.textContent = "載入中…";
+
+    try{
+      const text = await fetchTextSmart(url);
+
+      // 有些頁面可能前後有雜訊（例如被包裝成文字），我們做一次「抓出第一個 { 到最後一個 }」的保險
+      const start = text.indexOf("{");
+      const end = text.lastIndexOf("}");
+      const candidate = (start >= 0 && end > start) ? text.slice(start, end + 1) : text;
+
+      elOldJson.value = candidate; // 順便填入 textarea 方便你保存
+      const parsed = tryParseJson(candidate);
+      if (!parsed){
+        alert("已抓到內容，但解析成 JSON 失敗：請確認該網址指向的是 mm-notices.json（純 JSON 檔）。");
+        return;
+      }
+
+      loadFromParsedJson(parsed, elLoadMode.value);
+    }catch(err){
+      alert("網址載入失敗：\n" + (err?.message || String(err)) + "\n\n你可以改用「上傳檔案」或「貼上內容」載入。");
+    }finally{
+      btnLoadFromUrl.disabled = false;
+      btnLoadFromUrl.textContent = "一鍵載入";
+    }
+  });
 
   // ---------- DOM ----------
   const elSchema = document.getElementById("schemaVersion");
