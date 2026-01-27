@@ -175,46 +175,11 @@
   <button id="btnSaveUrl" type="button" class="ghost" title="記住這個網址">
     📌
   </button>
+  <button id="btnClearUrl" type="button" class="ghost" title="清除記住的網址">🧹</button>
 </div>
 <div class="small" style="margin-top:6px;">
   📌 可將常用網址存到瀏覽器，下次開啟編輯器會自動帶入。
 </div>
-
-  // ---------- remember url (localStorage) ----------
-  const btnSaveUrl = document.getElementById("btnSaveUrl");
-  const STORAGE_KEY_NOTICE_URL = "mm_notice_editor_last_url";
-
-  // 頁面載入時，自動填入上次記住的網址
-  (function restoreSavedUrl(){
-    try{
-      const saved = localStorage.getItem(STORAGE_KEY_NOTICE_URL);
-      if (saved && elOldJsonUrl && !elOldJsonUrl.value){
-        elOldJsonUrl.value = saved;
-      }
-    }catch(e){
-      // 忽略 localStorage 不可用的極端情況
-    }
-  })();
-
-  // 點 📌：記住目前輸入的網址
-  btnSaveUrl?.addEventListener("click", () => {
-    const url = safeTrim(elOldJsonUrl.value);
-   if (!url){
-     alert("目前沒有網址可記住，請先貼上 mm-notices.json 的網址。");
-     return;
-  }
-
-
-    try{
-      localStorage.setItem(STORAGE_KEY_NOTICE_URL, url);
-      alert("已記住常用網址 ✔\n\n下次打開公告小幫手會自動填入。");
-    }catch(err){
-      alert("儲存失敗：瀏覽器可能不允許 localStorage。");
-    }
-  });
-
-
-
 
 <div class="small" style="margin-top:6px;">
   若遇到 CORS（跨域）限制，系統會自動改用安全的「文字轉讀」方式載入。
@@ -421,6 +386,61 @@
   const elOldJsonUrl = document.getElementById("oldJsonUrl");
   const btnLoadFromUrl = document.getElementById("btnLoadFromUrl");
 
+    // ---------- remember url (localStorage) ----------
+  const btnSaveUrl = document.getElementById("btnSaveUrl");
+  const STORAGE_KEY_NOTICE_URL = "mm_notice_editor_last_url";
+  
+     // 🧹 清除記住的網址
+  const btnClearUrl = document.getElementById("btnClearUrl");
+
+  btnClearUrl?.addEventListener("click", () => {
+    const hasSaved = localStorage.getItem(STORAGE_KEY_NOTICE_URL);
+
+    if (!hasSaved){
+      alert("目前沒有記住任何網址。");
+      return;
+    }
+
+    if (!confirm("確定要清除已記住的 mm-notices.json 網址嗎？")) return;
+
+    try{
+      localStorage.removeItem(STORAGE_KEY_NOTICE_URL);
+      elOldJsonUrl.value = "";
+      alert("已清除記住的網址 🧹\n\n下次開啟將不再自動填入。");
+    }catch(err){
+      alert("清除失敗：瀏覽器可能不允許 localStorage。");
+    }
+  });
+
+  // 頁面載入時，自動填入上次記住的網址
+  (function restoreSavedUrl(){
+    try{
+      const saved = localStorage.getItem(STORAGE_KEY_NOTICE_URL);
+      if (saved && elOldJsonUrl && !elOldJsonUrl.value){
+        elOldJsonUrl.value = saved;
+      }
+    }catch(e){
+      // 忽略 localStorage 不可用的極端情況
+    }
+  })();
+
+  // 點 📌：記住目前輸入的網址
+  btnSaveUrl?.addEventListener("click", () => {
+    const url = safeTrim(elOldJsonUrl.value);
+    if (!url){
+      alert("目前沒有網址可記住，請先貼上 mm-notices.json 的網址。");
+      return;
+    }
+
+    try{
+      localStorage.setItem(STORAGE_KEY_NOTICE_URL, url);
+      alert("已記住常用網址 ✔\n\n下次打開公告小幫手會自動填入。");
+    }catch(err){
+      alert("儲存失敗：瀏覽器可能不允許 localStorage。");
+    }
+  });
+
+
   function toJinaAiProxy(url){
     // r.jina.ai 會把網址內容轉成純文字（可繞過許多 CORS 限制）
     // https://r.jina.ai/http(s)://example.com/file.json
@@ -428,6 +448,9 @@
     if (url.startsWith("http://"))  return "https://r.jina.ai/http://"  + url.slice("http://".length);
     return null;
   }
+
+  
+
 
   async function fetchTextSmart(url){
     // 先試直接抓（最快）
