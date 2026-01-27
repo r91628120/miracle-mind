@@ -16,7 +16,7 @@
     },
     {
       "id": "board_2026-01-25_03",
-      "title": "🌟 Miracle Mind 安卓測試邀請 ",
+      "title": "🌟 Miracle Mind 安卓測試邀請",
       "version": "v1.0.0",
       "date": "2026-01-25",
       "pinned": false,
@@ -36,11 +36,26 @@
       "pinned": true,
       "summary": "歡迎大家下載這個App，可以得知重要訊息。",
       "bullets": [
-        "App的入口可以方便進入官方網站平台，",
-        "App將會以最新消息通知大家來參加活動，",
-        "App可以到安卓 Play商店或iphone ios App store下載軟體。"
+        "App 的入口可以方便進入官方網站平台。",
+        "App 將會以最新消息通知大家來參加活動。",
+        "App 可以到安卓 Play 商店或 iPhone iOS App Store 下載軟體。"
       ],
       "details": "後續將會辦理一系列演講活動及成立奇蹟課程讀書會。"
+    },
+    {
+      "id": "board_2026-01-27_04",
+      "title": "Vocus文章 | 你如何對待 AI，也正在回到你身上：一張圖引發的深刻自我覺察",
+      "version": "v1.0.0",
+      "date": "2026-01-27",
+      "pinned": true,
+      "summary": "歡迎大家到 Vocus 閱讀最新文章。",
+      "bullets": [
+        "我請 AI 生成了一張圖，主題是：「我平常是怎麼對待它的。」",
+        "結果那張圖，卻讓我看見了自己。",
+        "原來我們怎麼對待 AI，其實也正在反映我們怎麼對待世界，以及怎麼對待自己。",
+        "你覺得，你的圖會是什麼樣子？ 🤍"
+      ],
+      "details": "https://vocus.cc/article/6977c0e4fd89780001c04ca2"
     }
   ]
 }
