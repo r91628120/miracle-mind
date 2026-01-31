@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-01-31T08:04:46+08:00",
+  "notices": [
+    {
+      "id": "board_2026-01-31_02",
+      "title": "📢 App更新版本/公告系統再進化，我們把重要的事，輕輕提醒你。",
+      "version": "v1.0.0",
+      "date": "2026-01-31",
+      "pinned": true,
+      "summary": "為了讓你不錯過真正重要的更新，\nMiracle Mind 的公告系統已悄悄升級完成：",
+      "bullets": [
+        "✨ 即時更新顯示",
+        "✨ 紅點提醒重要公告",
+        "✨ 下拉即可刷新最新內容",
+        "✨ 支援點擊外部連結，直接前往查看",
+        "我們不希望用打擾的方式通知你，",
+        "而是用一個剛剛好的提醒，",
+        "在你需要的時候，出現在你眼前。",
+        "謝謝你一直在這裡，",
+        "我們會繼續讓這個空間，慢慢變得更貼心 🤍"
+      ],
+      "details": "更新下載:\nhttps://www.threads.com/@miracle_mind_light/post/DUJ241Ak6-H?xmt=AQF0UyeVdppOUhxP3kdqOQiH0B9jN5XSHOJW1G46HwjhcQ"
+    },
+    {
+      "id": "board_2026-01-31_01",
+      "title": "「業力」如何化解？",
+      "version": "v1.0.0",
+      "date": "2026-01-31",
+      "pinned": false,
+      "summary": "所謂的「業力」，\n並不是懲罰，\n而是來自累世未被放下的「不原諒記憶」。",
+      "bullets": [
+        "詳細內容，請點以下連結:"
+      ],
+      "details": "https://www.threads.com/@miracle_mind_light/post/DUJ241Ak6-H?xmt=AQF0UyeVdppOUhxP3kdqOQiH0B9jN5XSHOJW1G46HwjhcQ"
+    },
+    {
+      "id": "board_2026-01-27_01",
+      "title": "當我請 AI 呈現「我如何對待你」，我看見了一面溫柔的鏡子",
+      "version": "v1.0.0",
+      "date": "2026-01-27",
+      "pinned": true,
+      "summary": "歡迎大家到 Vocus 閱讀最新文章",
+      "bullets": [
+        "我請 AI 生成了一張圖，主題是：「我平常是怎麼對待它的。」\",",
+        "\"結果那張圖，卻讓我看見了自己。\",",
+        "原來我們怎麼對待 AI，其實也正在反映我們怎麼對待世界，以及怎麼對待自己。",
+        "你覺得，你的圖會是什麼樣子？ 🤍\"",
+        "https://vocus.cc/article/6977c0e4fd89780001c04ca2"
+      ],
+      "details": "ChatGPT指令: 請生成我對你的對待方式的圖片。"
+    },
+    {
+      "id": "board_2026-01-25_01",
+      "title": "公告 | 奇蹟心靈App開張了",
+      "version": "v1.0.0",
+      "date": "2026-01-25",
+      "pinned": true,
+      "summary": "歡迎大家下載這個App，可以得知重要訊息。",
+      "bullets": [
+        "App 的入口可以方便進入官方網站平台。",
+        "App 將會以最新消息通知大家來參加活動。",
+        "App 可以到安卓 Play 商店或 iPhone iOS App Store 下載軟體。"
+      ],
+      "details": "後續將會辦理一系列演講活動及成立奇蹟課程讀書會。"
+    },
+    {
+      "id": "board_2026-01-25_03",
+      "title": "🌟 Miracle Mind 安卓測試邀請",
+      "version": "v1.0.0",
+      "date": "2026-01-25",
+      "pinned": false,
+      "summary": "Miracle Mind｜奇蹟心靈 AI 導師\n是一個溫柔陪伴、安心對話的空間。\n目前開放 安卓測試體驗，\n歡迎你一起參與這段溫柔的測試旅程 ❤️",
+      "bullets": [
+        "📲 下載方式：",
+        "1️⃣ 點擊以下連結即可下載",
+        "https://play.google.com/apps/internaltest/4701463256768262393"
+      ],
+      "details": "若在使用過程中有任何感受或建議，\n都非常歡迎與我們分享，謝謝你的陪伴。"
+    }
+  ]
+}
