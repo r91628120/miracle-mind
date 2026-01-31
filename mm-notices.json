@@ -1,7 +1,39 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-01-27T22:16:49+08:00",
+  "generatedAt": "2026-01-31T08:04:46+08:00",
   "notices": [
+    {
+      "id": "board_2026-01-31_02",
+      "title": "📢 App更新版本/公告系統再進化，我們把重要的事，輕輕提醒你。",
+      "version": "v1.0.0",
+      "date": "2026-01-31",
+      "pinned": true,
+      "summary": "為了讓你不錯過真正重要的更新，\nMiracle Mind 的公告系統已悄悄升級完成：",
+      "bullets": [
+        "✨ 即時更新顯示",
+        "✨ 紅點提醒重要公告",
+        "✨ 下拉即可刷新最新內容",
+        "✨ 支援點擊外部連結，直接前往查看",
+        "我們不希望用打擾的方式通知你，",
+        "而是用一個剛剛好的提醒，",
+        "在你需要的時候，出現在你眼前。",
+        "謝謝你一直在這裡，",
+        "我們會繼續讓這個空間，慢慢變得更貼心 🤍"
+      ],
+      "details": "更新下載:\nhttps://www.threads.com/@miracle_mind_light/post/DUJ241Ak6-H?xmt=AQF0UyeVdppOUhxP3kdqOQiH0B9jN5XSHOJW1G46HwjhcQ"
+    },
+    {
+      "id": "board_2026-01-31_01",
+      "title": "「業力」如何化解？",
+      "version": "v1.0.0",
+      "date": "2026-01-31",
+      "pinned": false,
+      "summary": "所謂的「業力」，\n並不是懲罰，\n而是來自累世未被放下的「不原諒記憶」。",
+      "bullets": [
+        "詳細內容，請點以下連結:"
+      ],
+      "details": "https://www.threads.com/@miracle_mind_light/post/DUJ241Ak6-H?xmt=AQF0UyeVdppOUhxP3kdqOQiH0B9jN5XSHOJW1G46HwjhcQ"
+    },
     {
       "id": "board_2026-01-27_01",
       "title": "當我請 AI 呈現「我如何對待你」，我看見了一面溫柔的鏡子",
