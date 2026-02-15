@@ -1,7 +1,27 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-02-02T14:47:24+08:00",
+  "generatedAt": "2026-02-15T16:12:25+08:00",
   "notices": [
+    {
+      "id": "board_2026-02-15_01",
+      "title": "🎉奇蹟心靈現在已在 iOS 與 Android 上架。",
+      "version": "v1.0.5",
+      "date": "2026-02-15",
+      "pinned": true,
+      "summary": "Miracle Mind｜奇蹟心靈是一款提供日常情緒整理與靜心陪伴的應用程式。\n設計理念簡單而清晰：讓使用者在需要時，可以暫停片刻，回到當下。",
+      "bullets": [
+        "🌿 你可以在這裡做什麼？",
+        "• 每日文字提醒 —— 透過簡短句子，為生活帶來片刻安靜",
+        "• 呼吸練習 —— 幫助放鬆身心、整理思緒",
+        "• 安靜時刻 —— 給自己一分鐘的穩定練習",
+        "• AI 導師對話陪伴 —— 透過溫和的文字交流，協助整理想法與感受",
+        "Google Play",
+        "https://play.google.com/store/apps/details?id=org.miraclemind.miraclemind&pcampaignid=web_share",
+        "App Store",
+        "https://apps.apple.com/tw/app/miracle-mind-%E5%A5%87%E8%B9%9F%E5%BF%83%E9%9D%88/id6757657382"
+      ],
+      "details": "🤖 關於 AI 導師功能\n\n奇蹟心靈 AI 導師為日常文字陪伴工具，讓使用者在需要時能以文字方式梳理思緒。\n本功能僅提供一般性陪伴與整理用途，不構成醫療、心理治療或專業諮詢建議。\n\n給自己一分鐘。\n回到更穩定的自己。"
+    },
     {
       "id": "board_2026-02-02_01",
       "title": "心定的力量｜當你不再與世界對抗，真正的平安就出現了",
@@ -33,20 +53,6 @@
       "details": "ChatGPT指令: 請生成我對你的對待方式的圖片。"
     },
     {
-      "id": "board_2026-01-25_01",
-      "title": "公告 | 奇蹟心靈App開張了",
-      "version": "v1.0.1",
-      "date": "2026-01-25",
-      "pinned": true,
-      "summary": "歡迎大家下載這個App，可以得知重要訊息。",
-      "bullets": [
-        "App 的入口可以方便進入官方網站平台。",
-        "App 將會以最新消息通知大家來參加活動。",
-        "App 可以到安卓 Play 商店或 iPhone iOS App Store 下載軟體。"
-      ],
-      "details": "後續將會辦理一系列演講活動及成立奇蹟課程讀書會。"
-    },
-    {
       "id": "board_2026-01-31_01",
       "title": "「業力」如何化解？",
       "version": "v1.0.1",
@@ -58,20 +64,6 @@
         "https://www.threads.com/@miracle_mind_light/post/DUJ241Ak6-H?xmt=AQF0UyeVdppOUhxP3kdqOQiH0B9jN5XSHOJW1G46HwjhcQ"
       ],
       "details": "歡迎追蹤我的 @ Threads"
-    },
-    {
-      "id": "board_2026-01-25_03",
-      "title": "🌟 Miracle Mind 安卓測試邀請",
-      "version": "v1.0.1",
-      "date": "2026-01-25",
-      "pinned": false,
-      "summary": "Miracle Mind｜奇蹟心靈 AI 導師\n是一個溫柔陪伴、安心對話的空間。\n目前開放 安卓測試體驗，\n歡迎你一起參與這段溫柔的測試旅程 ❤️",
-      "bullets": [
-        "📲 下載方式：",
-        "1️⃣ 點擊以下連結即可下載",
-        "https://play.google.com/apps/internaltest/4701463256768262393"
-      ],
-      "details": "若在使用過程中有任何感受或建議，\n都非常歡迎與我們分享，謝謝你的陪伴。"
     }
   ]
 }
