@@ -1,7 +1,33 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-02-19T23:36:28+08:00",
+  "generatedAt": "2026-02-26T23:31:03+08:00",
   "notices": [
+    {
+      "id": "board_2026-02-26_02",
+      "title": "在 AI 加速的時代，尋找慢下來的勇氣：談科技的陪伴與溫柔",
+      "version": "v1.0.5",
+      "date": "2026-02-26",
+      "pinned": false,
+      "summary": "一個節奏很慢的實驗\n後來，我開始嘗試用 AI 做一件和主流方向相反的事。\n我沒有讓它成為解答者，\n也沒有讓它成為評分者。\n我只設定了三個原則：\n不批判、不催促、不要求改變。\n https://vocus.cc/article/698d1bedfd89780001240abb\nGoogle Play (安卓手機下載App)\nhttps://play.google.com/store/apps/details?id=org.miraclemind.miraclemind&pcampaignid=web_share\n\nApp Store (iphone手機下載App)\nhttps://apps.apple.com/tw/app/miracle-mind-%E5%A5%87%E8%B9%9F%E5%BF%83%E9%9D%88/id6757657382\n https://vocus.cc/article/698d1bedfd89780001240abb",
+      "bullets": [
+        "註記｜這個「慢的實驗」後來去了哪裡？",
+        "這個嘗試，後來發展成一個名為 「奇蹟心靈 AI 導師（Miracle Mind）」 的小型陪伴型 App。"
+      ],
+      "details": "科技不只可以更快，也可以更溫柔\n https://vocus.cc/article/698d1bedfd89780001240abb"
+    },
+    {
+      "id": "board_2026-02-26_01",
+      "title": "AI 助你把關小論文格式！免費線上檢查系統，高中職生必備",
+      "version": "v1.0.0",
+      "date": "2026-02-26",
+      "pinned": false,
+      "summary": "📘 小論文寫好了卻怕格式出錯？現在有 AI 幫你把關！\n   ✅ 段落結構有沒有寫對？\n   ✅ 邊界是不是 2 公分？\n   ✅ 字體、字級有沒有符合比賽要求？\n   ✅ 引註和參考文獻對不對？\n   ✅ 圖表編號位置有沒有錯？\n https://vocus.cc/article/691d1009fd89780001ab163e\n\n🔗 立刻體驗：\nhttps://r91628120.github.io/thesis-checker",
+      "bullets": [
+        "🎯 只要上傳 PDF，AI 幫你一鍵檢查！",
+        "📱 手機也能用、免安裝、完全免費！"
+      ],
+      "details": "👩‍🏫 這是我為高中職學生與教師打造的格式自檢系統，\n用 AI 助你備賽、寫報告、發表成果！"
+    },
     {
       "id": "board_2026-02-18_02",
       "title": "從一則留言，看見我們正在一起回家 《現在心不可得》之後的真實共鳴",
